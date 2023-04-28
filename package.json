@@ -8,11 +8,15 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": "18",
+    "npm": ">=8"
+  },
   "dependencies": {
     "@types/node": "18.16.2",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
-    "@vercel/analytics": "^1.0.0",
+    "@vercel/analytics": "1.0.0",
     "autoprefixer": "10.4.14",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",
