@@ -3,12 +3,13 @@ import fetchDiscordStatus from '@/utils/fetchDiscordStatus'
 import Image from 'next/image'
 
 const Home = async () => {
-  const lanyardData = await fetchDiscordStatus()
+  const discordId = process.env.DISCORD_ID!
+  const lanyardData = await fetchDiscordStatus(discordId)
 
   return (
     <main>
       <Image
-        src={`https://cdn.discordapp.com/avatars/98172944773029888/${lanyardData.data.discord_user.avatar}.png?size=4096`}
+        src={`https://cdn.discordapp.com/avatars/${discordId}/${lanyardData.data.discord_user.avatar}.png?size=4096`}
         alt=""
         width={200}
         height={200}
