@@ -1,6 +1,5 @@
-import DiscordStatus from '@/components/DiscordStatus'
+import ProfileHeader from '@/components/ProfileHeader'
 import fetchDiscordStatus from '@/utils/fetchDiscordStatus'
-import Image from 'next/image'
 
 const Home = async () => {
   const discordId = process.env.DISCORD_ID!
@@ -8,13 +7,7 @@ const Home = async () => {
 
   return (
     <main>
-      <Image
-        src={`https://cdn.discordapp.com/avatars/${discordId}/${lanyardData.data.discord_user.avatar}.png?size=4096`}
-        alt=""
-        width={200}
-        height={200}
-      />
-      <DiscordStatus initLanyardData={lanyardData.data} />
+      <ProfileHeader initLanyardData={lanyardData.data} discordId={discordId} />
     </main>
   )
 }
