@@ -24,6 +24,7 @@ const ActiveDeviceRow: FC<Props> = ({
   return (
     <span className="flex flex-row items-center">
       <ComputerDesktopIcon
+        aria-hidden="true"
         className={`h-8 w-8 ${
           active_on_discord_desktop
             ? statusMapping.online
@@ -31,6 +32,7 @@ const ActiveDeviceRow: FC<Props> = ({
         }`}
       />
       <DevicePhoneMobileIcon
+        aria-hidden="true"
         className={`h-8 w-8 ${
           active_on_discord_mobile
             ? statusMapping.online
@@ -38,10 +40,20 @@ const ActiveDeviceRow: FC<Props> = ({
         }`}
       />
       <GlobeAltIcon
+        aria-hidden="true"
         className={`h-8 w-8 ${
           active_on_discord_web ? statusMapping.online : statusMapping.offline
         }`}
       />
+      {active_on_discord_web && (
+        <span className="sr-only">Active on Discord web</span>
+      )}
+      {active_on_discord_desktop && (
+        <span className="sr-only">Active on Discord desktop</span>
+      )}
+      {active_on_discord_mobile && (
+        <span className="sr-only">Active on Discord mobile</span>
+      )}
     </span>
   )
 }

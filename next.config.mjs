@@ -1,4 +1,4 @@
-require('./env.js')
+import './src/env.mjs'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,12 +6,12 @@ const nextConfig = {
   poweredByHeader: false,
   experimental: {
     appDir: true,
+    typedRoutes: true,
   },
   images: {
     domains: ['cdn.discordapp.com'],
     formats: ['image/avif', 'image/webp'],
-    typedRoutes: true,
   },
 }
 
-module.exports = nextConfig
+export default nextConfig

@@ -24,12 +24,18 @@ const ProfileHeader: FC<Props> = ({ initLanyardData, discordId }) => {
     <section>
       <Avatar
         priority
+        username={discord_user.username}
         img={`https://cdn.discordapp.com/avatars/${discordId}/${discord_user.avatar}.png?size=4096`}
         status={data.discord_status}
       />
-      <p>
+
+      <p aria-hidden="true" className="text-2xl font-bold">
         {discord_user.username}#{discord_user.discriminator}
       </p>
+      <p className="sr-only">
+        Username: {discord_user.username} hashtag {discord_user.discriminator}
+      </p>
+
       <ActiveDeviceRow {...data} />
       <ActivityCards activities={data.activities} />
     </section>
