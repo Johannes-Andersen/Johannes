@@ -23,6 +23,7 @@ const ProfileHeader: FC<Props> = ({ initLanyardData, discordId }) => {
   return (
     <section>
       <Avatar
+        priority
         img={`https://cdn.discordapp.com/avatars/${discordId}/${discord_user.avatar}.png?size=4096`}
         status={data.discord_status}
       />

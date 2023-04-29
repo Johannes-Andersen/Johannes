@@ -10,6 +10,7 @@ const nextConfig = {
   images: {
     domains: ['cdn.discordapp.com'],
     formats: ['image/avif', 'image/webp'],
+    typedRoutes: true,
   },
 }
 
