@@ -4,6 +4,7 @@ import { FC } from 'react'
 import { useLanyard } from 'react-use-lanyard'
 import Avatar from '../Avatar'
 import ActiveDeviceRow from '../ActiveDeviceRow'
+import ActivityCards from '../ActivityCards'
 
 interface Props {
   initLanyardData: LanyardResponse['data']
@@ -29,7 +30,7 @@ const ProfileHeader: FC<Props> = ({ initLanyardData, discordId }) => {
         {discord_user.username}#{discord_user.discriminator}
       </p>
       <ActiveDeviceRow {...data} />
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <ActivityCards activities={data.activities} />
     </section>
   )
 }

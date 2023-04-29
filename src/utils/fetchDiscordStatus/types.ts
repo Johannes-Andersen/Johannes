@@ -26,17 +26,36 @@ interface Spotify {
 
 interface Activity {
   type: number
-  timestamps: Timestamps
   state: string
-  session_id: string
   name: string
   id: string
-  flags: number
-  details: string
+  flags?: number
+  emoji?: Emoji
   created_at: number
-  buttons: Array<string>
-  assets: Assets
-  application_id: string
+  application_id?: string
+  timestamps?: Timestamps
+  sync_id?: string
+  session_id?: string
+  party?: Party
+  details?: string
+  buttons?: Array<string>
+  assets?: Assets
+}
+
+interface Party {
+  id: string
+  size?: PartySize
+}
+
+interface PartySize {
+  current_size: number
+  max_size: number
+}
+
+interface Emoji {
+  name: string
+  id?: string
+  animated?: boolean
 }
 
 interface Assets {
