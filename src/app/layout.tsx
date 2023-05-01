@@ -14,15 +14,13 @@ interface Props {
   children: React.ReactNode
 }
 
-const RootLayout: FC<Props> = ({ children }) => {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        {children}
-        <Analytics />
-      </body>
-    </html>
-  )
-}
+const RootLayout: FC<Props> = ({ children }) => (
+  <html className="h-full" lang="en">
+    <body className={`${inter.className} h-full`}>
+      {children}
+      <Analytics />
+    </body>
+  </html>
+)
 
 export default RootLayout
