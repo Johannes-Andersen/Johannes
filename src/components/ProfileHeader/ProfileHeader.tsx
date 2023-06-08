@@ -17,23 +17,36 @@ const ProfileHeader: FC<Props> = ({ initLanyardData, discordId }) => {
     socket: true,
   })
 
-  const data = loading || !wsData ? initLanyardData : wsData
-  const { discord_user } = data
+  const data =
+    loading || !wsData ? initLanyardData : (wsData as LanyardResponse['data'])
+
+  const {
+    discord_user,
+    discord_user: { discriminator, global_name, username, avatar },
+  } = data
+
+  console.log(discord_user)
+
+  const isPomeloUser = discriminator === '0'
 
   return (
     <section>
       <Avatar
         priority
-        username={discord_user.username}
-        img={`https://cdn.discordapp.com/avatars/${discordId}/${discord_user.avatar}.png?size=4096`}
+        username={username}
+        img={`https://cdn.discordapp.com/avatars/${discordId}/${avatar}.png?size=4096`}
         status={data.discord_status}
       />
 
       <p aria-hidden="true" className="text-2xl font-bold">
-        {discord_user.username}#{discord_user.discriminator}
+        {isPomeloUser
+          ? `${global_name} (@${username})`
+          : `${username}#${discriminator}`}
       </p>
       <p className="sr-only">
-        Username: {discord_user.username} hashtag {discord_user.discriminator}
+        {isPomeloUser
+          ? `Username: ${username}`
+          : `Username: ${username} hashtag ${discriminator}`}
       </p>
 
       <ActiveDeviceRow {...data} />

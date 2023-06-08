@@ -73,11 +73,10 @@ interface DiscordUser {
   username: string
   public_flags: number
   id: string
-  global_name?: unknown
-  display_name?: unknown
+  global_name?: string
+  display_name?: string
   discriminator: string
   bot: boolean
-  avatar_decoration: string
   avatar: string
 }
 
