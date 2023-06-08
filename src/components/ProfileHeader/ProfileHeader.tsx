@@ -21,11 +21,8 @@ const ProfileHeader: FC<Props> = ({ initLanyardData, discordId }) => {
     loading || !wsData ? initLanyardData : (wsData as LanyardResponse['data'])
 
   const {
-    discord_user,
     discord_user: { discriminator, global_name, username, avatar },
   } = data
-
-  console.log(discord_user)
 
   const isPomeloUser = discriminator === '0'
 

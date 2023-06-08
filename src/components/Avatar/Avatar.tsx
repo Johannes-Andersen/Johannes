@@ -18,23 +18,21 @@ const statusMapping: Record<string, { color: string; humanizedName: string }> =
     streaming: { color: 'bg-purple-400', humanizedName: 'Streaming' },
   }
 
-const DiscordStatus: FC<Props> = ({ img, status, priority, username }) => {
-  return (
-    <span className="relative inline-block">
-      <Image
-        width={64}
-        height={64}
-        className="h-16 w-16 rounded-full"
-        src={img}
-        alt={`${username}, ${statusMapping[status].humanizedName}`}
-        priority={priority}
-      />
-      <span
-        className={`absolute bottom-0 right-0 block h-4 w-4 rounded-full ring-2 ring-white ${statusMapping[status].color}
+const DiscordStatus: FC<Props> = ({ img, status, priority, username }) => (
+  <span className="relative inline-block">
+    <Image
+      width={64}
+      height={64}
+      className="h-16 w-16 rounded-full"
+      src={img}
+      alt={`${username}, ${statusMapping[status].humanizedName}`}
+      priority={priority}
+    />
+    <span
+      className={`absolute bottom-0 right-0 block h-4 w-4 rounded-full ring-2 ring-white ${statusMapping[status].color}
       `}
-      />
-    </span>
-  )
-}
+    />
+  </span>
+)
 
 export default DiscordStatus
