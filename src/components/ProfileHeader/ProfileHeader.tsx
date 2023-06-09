@@ -11,6 +11,31 @@ interface Props {
   discordId: string
 }
 
+const generateUsernameString = (
+  username: string,
+  global_name?: string,
+  discriminator?: string
+) => {
+  const isPomeloUser = discriminator === '0'
+
+  // If the user is a Pomelo user, use their global name instead of their username
+  if (isPomeloUser) {
+    if (global_name) {
+      return `${global_name} (@${username})`
+    }
+
+    return `@${username}`
+  }
+
+  // If the user has a global name, use that instead of the username
+  if (global_name) {
+    return `${global_name} (${username}#${discriminator})`
+  }
+
+  // Otherwise, just use the username
+  return `${username}#${discriminator}`
+}
+
 const ProfileHeader: FC<Props> = ({ initLanyardData, discordId }) => {
   const { loading, status: wsData } = useLanyard({
     userId: initLanyardData.discord_user.id,
@@ -24,10 +49,8 @@ const ProfileHeader: FC<Props> = ({ initLanyardData, discordId }) => {
     discord_user: { discriminator, global_name, username, avatar },
   } = data
 
-  const isPomeloUser = discriminator === '0'
-
   return (
-    <section>
+    <>
       <Avatar
         priority
         username={username}
@@ -35,20 +58,13 @@ const ProfileHeader: FC<Props> = ({ initLanyardData, discordId }) => {
         status={data.discord_status}
       />
 
-      <p aria-hidden="true" className="text-2xl font-bold">
-        {isPomeloUser
-          ? `${global_name} (@${username})`
-          : `${username}#${discriminator}`}
-      </p>
-      <p className="sr-only">
-        {isPomeloUser
-          ? `Username: ${username}`
-          : `Username: ${username} hashtag ${discriminator}`}
+      <p className="text-2xl py-4 font-bold text-black dark:text-white">
+        {generateUsernameString(username, global_name, discriminator)}
       </p>
 
       <ActiveDeviceRow {...data} />
       <ActivityCards activities={data.activities} />
-    </section>
+    </>
   )
 }
 
