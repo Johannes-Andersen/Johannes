@@ -1,13 +1,33 @@
-import './globals.css'
+import { FC } from 'react'
+import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
-import { FC } from 'react'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Home - Johannes Andersen',
   description: "Johannes Andersen's personal website",
+  creator: 'Johannes Andersen',
+  keywords: ['Johand', 'Johannes Andersen', 'Portfolio', 'Personal Website'],
+  applicationName: 'Johand.dev',
+  generator: 'Next.js',
+  openGraph: {
+    type: 'website',
+    locale: 'en',
+    url: 'https://johand.dev',
+    siteName: 'Johand.dev',
+    title: 'Home - Johannes Andersen',
+    description: "Johannes Andersen's personal website",
+  },
+  twitter: {
+    title: 'Home - Johannes Andersen',
+    card: 'summary_large_image',
+    creator: '@johand199',
+    site: '@johand199',
+    description: "Johannes Andersen's personal website",
+  },
 }
 
 interface Props {
