@@ -21,6 +21,23 @@ const ActiveDeviceRow: FC<Props> = ({
   active_on_discord_mobile,
   active_on_discord_desktop,
 }) => {
+  const activePlatforms = []
+  if (active_on_discord_web) {
+    activePlatforms.push('Discord web')
+  }
+  if (active_on_discord_desktop) {
+    activePlatforms.push('Discord desktop')
+  }
+  if (active_on_discord_mobile) {
+    activePlatforms.push('Discord mobile')
+  }
+
+  const formatter = new Intl.ListFormat('en', {
+    style: 'long',
+    type: 'conjunction',
+  })
+  const accessibilityMessage = `Active on ${formatter.format(activePlatforms)}`
+
   return (
     <span className="flex flex-row items-center">
       <ComputerDesktopIcon
@@ -45,14 +62,11 @@ const ActiveDeviceRow: FC<Props> = ({
           active_on_discord_web ? statusMapping.online : statusMapping.offline
         }`}
       />
-      {active_on_discord_web && (
-        <span className="sr-only">Active on Discord web</span>
+      {!!activePlatforms.length && (
+        <span className="sr-only">{accessibilityMessage}</span>
       )}
-      {active_on_discord_desktop && (
-        <span className="sr-only">Active on Discord desktop</span>
-      )}
-      {active_on_discord_mobile && (
-        <span className="sr-only">Active on Discord mobile</span>
+      {!activePlatforms.length && (
+        <span className="sr-only">Offline across all platforms</span>
       )}
     </span>
   )
