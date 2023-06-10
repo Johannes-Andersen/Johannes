@@ -6,7 +6,10 @@ const Home = async () => {
   const lanyardData = await fetchDiscordStatus(env.DISCORD_ID)
 
   return (
-    <main className="flex bg-white dark:bg-gray-800 h-screen">
+    <main
+      className="flex bg-white dark:bg-gray-800 h-screen"
+      style={{ height: '100dvh' }}
+    >
       <section className="m-auto flex items-center flex-col">
         <ProfileHeader
           initLanyardData={lanyardData.data}

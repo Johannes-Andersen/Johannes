@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   keywords: ['Johand', 'Johannes Andersen', 'Portfolio', 'Personal Website'],
   applicationName: 'Johand.dev',
   generator: 'Next.js',
+  metadataBase: new URL('https://johand.dev'),
   openGraph: {
     type: 'website',
     locale: 'en',
