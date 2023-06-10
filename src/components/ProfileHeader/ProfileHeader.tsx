@@ -58,7 +58,7 @@ const ProfileHeader: FC<Props> = ({ initLanyardData, discordId }) => {
         status={data.discord_status}
       />
 
-      <p className="text-2xl py-4 font-bold text-black dark:text-white">
+      <p className="text-2xl py-4 font-bold text-center text-black dark:text-white">
         {generateUsernameString(username, global_name, discriminator)}
       </p>
 
