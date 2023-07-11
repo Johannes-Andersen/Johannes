@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -39,7 +38,6 @@ const RootLayout: FC<Props> = ({ children }) => (
   <html className="h-full" lang="en">
     <body className={`${inter.className} h-full`}>
       {children}
-      <Analytics />
     </body>
   </html>
 )
