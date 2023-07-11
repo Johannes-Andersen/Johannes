@@ -1,12 +1,13 @@
-import Image from 'next/image'
 import { MoonIcon } from '@heroicons/react/24/solid'
 import { FC } from 'react'
+import CfImage from '../CfImage'
+import { ImageProps } from 'next/image'
 
 interface Props {
   img: string
   status: string
   username: string
-  priority?: boolean
+  priority?: ImageProps['priority']
 }
 
 const statusMapping: Record<
@@ -68,13 +69,13 @@ const IconToUse = ({ status }: { status: string }) => {
 const DiscordStatus: FC<Props> = ({ img, status, priority, username }) => {
   return (
     <span className="relative inline-block">
-      <Image
+      <CfImage
         width={64}
         height={64}
         className="h-16 w-16 rounded-full"
         src={img}
         alt={`${username}, ${statusMapping[status].humanizedName}`}
-        priority={priority}
+        priority={priority || false}
       />
       <IconToUse status={status} />
     </span>
