@@ -36,9 +36,7 @@ interface Props {
 
 const RootLayout: FC<Props> = ({ children }) => (
   <html className="h-full" lang="en">
-    <body className={`${inter.className} h-full`}>
-      {children}
-    </body>
+    <body className={`${inter.className} h-full`}>{children}</body>
   </html>
 )
 
