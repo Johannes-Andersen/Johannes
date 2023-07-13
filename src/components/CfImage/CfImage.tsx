@@ -19,7 +19,6 @@ interface EnforcedAlt extends ImageProps {
 }
 
 const CfImage: FC<EnforcedAlt> = ({ alt, ...rest }) => {
-  console.log(process.env)
   const isProduction = process.env.NODE_ENV === 'production'
   const loader = isProduction ? cloudflareLoader : undefined
 
