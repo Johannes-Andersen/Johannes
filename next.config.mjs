@@ -1,5 +1,46 @@
 import './src/env.mjs'
 
+const generateCsp = () => {
+  const csp = [
+    {
+      name: 'default-src',
+      values: ["'self'"],
+    },
+    {
+      name: 'script-src',
+      values: [
+        "'self'",
+        process.env.NODE_ENV === 'development' ? "'unsafe-eval'" : '',
+        // TODO: debug why this is needed (nonces are not working for some reason)
+        "'unsafe-inline'",
+        'ajax.cloudflare.com',
+        'static.cloudflareinsights.com',
+        'challenges.cloudflare.com',
+      ],
+    },
+    {
+      name: 'style-src',
+      // FIXME: disable unsafe-inline when https://github.com/vercel/next.js/issues/46857 is fixed
+      values: ["'self'", "'unsafe-inline'"],
+    },
+    {
+      name: 'connect-src',
+      values: ["'self'", 'wss://api.lanyard.rest', 'cloudflareinsights.com'],
+    },
+    { name: 'frame-src', values: ['challenges.cloudflare.com'] },
+    { name: 'frame-ancestors', values: ["'none'"] },
+    { name: 'object-src', values: ["'none'"] },
+  ]
+
+  const cspString = csp
+    .map((directive) => {
+      return `${directive.name} ${directive.values.join(' ')}`
+    })
+    .join('; ')
+
+  return cspString
+}
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -49,9 +90,9 @@ const nextConfig = {
               'gamepad=()',
               'hid=()',
               'idle-detection=()',
-              'unload=()'
+              'unload=()',
             ].join(', '),
-          },          
+          },
           {
             key: 'referrer-policy',
             value: 'strict-origin',
@@ -79,11 +120,15 @@ const nextConfig = {
           {
             key: 'cross-origin-embedder-policy',
             value: 'require-corp',
-          }
+          },
+          {
+            key: 'content-security-policy',
+            value: generateCsp(),
+          },
         ],
       },
     ]
-  }
+  },
 }
 
 export default nextConfig
