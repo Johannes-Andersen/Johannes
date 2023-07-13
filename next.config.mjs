@@ -67,7 +67,19 @@ const nextConfig = {
           {
             key: 'x-xss-protection',
             value: '1; mode=block',
-          },     
+          },
+          {
+            key: 'cross-origin-opener-policy',
+            value: 'same-origin',
+          },
+          {
+            key: 'cross-origin-resource-policy',
+            value: 'same-origin',
+          },
+          {
+            key: 'cross-origin-embedder-policy',
+            value: 'require-corp',
+          }
         ],
       },
     ]
