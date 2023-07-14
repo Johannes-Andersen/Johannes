@@ -30,6 +30,7 @@ const generateCsp = () => {
     { name: 'frame-src', values: ['challenges.cloudflare.com'] },
     { name: 'frame-ancestors', values: ["'none'"] },
     { name: 'object-src', values: ["'none'"] },
+    { name: 'sandbox', values: ['allow-forms', 'allow-same-origin', 'allow-scripts', 'allow-popups', 'allow-popups-to-escape-sandbox'] },
   ]
 
   const cspString = csp
