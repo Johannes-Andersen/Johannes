@@ -7,6 +7,14 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    extend: {
+      height: {
+        screen: ['100vh', '100dvh'],
+      },
+      minHeight: {
+        screen: ['100vh', '100dvh'],
+      },
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
@@ -32,7 +40,6 @@ module.exports = {
         950: '#0b3341',
       },
     },
-    extend: {},
   },
   plugins: [],
 }

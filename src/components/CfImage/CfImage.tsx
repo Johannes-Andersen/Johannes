@@ -22,7 +22,10 @@ const CfImage: FC<EnforcedAlt> = ({ alt, ...rest }) => {
   const isProduction = process.env.NODE_ENV === 'production'
   const loader = isProduction ? cloudflareLoader : undefined
 
-  return <Image loader={loader} {...rest} alt={alt} />
+  return (
+    // setting img style to undefined to fix csp violation due to next/image inline styles
+    <Image loader={loader} {...rest} alt={alt} style={{ color: undefined }} />
+  )
 }
 
 export default CfImage

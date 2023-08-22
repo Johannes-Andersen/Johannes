@@ -11,8 +11,7 @@ export function middleware(request: NextRequest) {
     "connect-src 'self' cloudflareinsights.com wss://api.lanyard.rest; " +
     "base-uri 'self'; " +
     "object-src 'none'; " +
-    // FIXME: disable unsafe-inline when https://github.com/vercel/next.js/issues/46857 is fixed
-    "style-src 'self' 'unsafe-inline'; " +
+    "style-src 'self'; " +
     'upgrade-insecure-requests; block-all-mixed-content; sandbox allow-forms allow-same-origin allow-scripts allow-top-navigation allow-popups; ' +
     `script-src 'self' challenges.cloudflare.com ajax.cloudflare.com static.cloudflareinsights.com ${
       process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : ''
@@ -31,6 +30,7 @@ export function middleware(request: NextRequest) {
   })
 
   response.headers.set('content-security-policy', cspValue)
+  response.headers.set('x-csp-nonce', nonce)
 
   return response
 }

@@ -41,7 +41,7 @@ const statusMapping: Record<
       >
         <path
           d="M226.92 138.26H77.31a13.85 13.85 0 1 0 0 27.7h149.61a13.85 13.85 0 1 0 0-27.7z"
-          style={{ fill: 'black' }}
+          className="fill-black"
         />
       </svg>
     ),
