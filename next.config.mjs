@@ -80,6 +80,14 @@ const nextConfig = {
             key: 'cross-origin-embedder-policy',
             value: 'require-corp',
           },
+          {
+            key: 'report-to',
+            value: '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://johand.report-uri.com/a/d/g"}],"include_subdomains":true}',
+          },
+          {
+            key: 'NEL',
+            value: '{"report_to":"default","max_age":31536000,"include_subdomains":true}',
+          }
         ],
       },
     ]

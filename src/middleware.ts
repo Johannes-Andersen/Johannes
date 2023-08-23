@@ -13,6 +13,7 @@ export function middleware(request: NextRequest) {
     "object-src 'none'; " +
     "style-src 'self'; " +
     'upgrade-insecure-requests; block-all-mixed-content; sandbox allow-forms allow-same-origin allow-scripts allow-top-navigation allow-popups; ' +
+    'report-uri https://johand.report-uri.com/r/d/csp/enforce; ' +
     `script-src 'self' challenges.cloudflare.com ajax.cloudflare.com static.cloudflareinsights.com ${
       process.env.NODE_ENV === 'development' ? " 'unsafe-eval'" : ''
     }`
