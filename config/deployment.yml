@@ -19,16 +19,21 @@ spec:
       labels:
         app: johannes
     spec:
+      restartPolicy: Always
+      dnsPolicy: ClusterFirst
       containers:
         - name: johannes
           image: <IMAGE>
           ports:
             - containerPort: 3000
+              protocol: TCP
           resources:
             requests:
               cpu: 100m
+              memory: 256Mi
             limits:
               cpu: 100m
+              memory: 1Gi
 ---
 apiVersion: v1
 kind: Service
@@ -48,5 +53,7 @@ spec:
       protocol: TCP
       port: 80
       targetPort: 3000
+  sessionAffinity: None
+  type: NodePort
   selector:
     app: johannes
