@@ -1,6 +1,5 @@
 {
   "extends": [
-    "config:base",
     "config:recommended",
     "group:monorepos",
     "group:recommended",
@@ -15,7 +14,10 @@
   "rollbackPrs": true,
   "reviewersFromCodeOwners": true,
   "prHourlyLimit": 10,
-  "lockFileMaintenance": { "enabled": true, "automerge": true },
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
   "configMigration": true,
   "timezone": "Europe/Oslo",
   "packageRules": [
