@@ -1,4 +1,4 @@
-FROM node:20-alpine AS deps
+FROM node:20-alpine@sha256:c843f4a4060246a25f62c80b3d4cf4a6b4c4639cdce421e4f2ee3102257225b4 AS deps
 RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
@@ -6,7 +6,7 @@ COPY package.json package-lock.json .npmrc ./
 RUN npm ci --quiet --no-audit
 
 # Rebuild the source code only when needed
-FROM node:20-alpine AS builder
+FROM node:20-alpine@sha256:c843f4a4060246a25f62c80b3d4cf4a6b4c4639cdce421e4f2ee3102257225b4 AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules 
 COPY . .
@@ -19,7 +19,7 @@ ENV DISCORD_ID $DISCORD_ID
 RUN npm run build
 
 # Production image, copy all the files and run next
-FROM node:20-alpine AS runner
+FROM node:20-alpine@sha256:c843f4a4060246a25f62c80b3d4cf4a6b4c4639cdce421e4f2ee3102257225b4 AS runner
 WORKDIR /app
 
 

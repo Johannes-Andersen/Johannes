@@ -12,13 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3.8.1
+      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4
+      - uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d # v3.8.1
         with:
           node-version-file: '.nvmrc'
 
       - name: Install doctl
-        uses: digitalocean/action-doctl@v2.4.1
+        uses: digitalocean/action-doctl@cf10ddb4467f6fb84c01f7cc5f099cec71eabc93 # v2.4.1
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
