@@ -32,8 +32,9 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
 COPY --from=builder /app/.npmrc ./
-COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/public ./public
+COPY --from=builder /app/next.config.mjs ./
+# add when public folder is needed
+# COPY --from=builder /app/public ./public 
 COPY --from=builder /app/package.json ./package.json
 
 COPY --from=builder --chown=nextjs:nodejs /app/ ./
