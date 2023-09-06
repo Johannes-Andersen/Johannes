@@ -1,5 +1,14 @@
 {
-  "extends": ["config:base"],
+  "extends": [
+    "config:base",
+    "config:recommended",
+    "docker:pinDigests",
+    "helpers:pinGitHubActionDigests",
+    "group:monorepos",
+    "group:recommended",
+    "replacements:all",
+    "workarounds:all"
+  ],
   "labels": ["type/dependencies"],
   "vulnerabilityAlerts": {
     "labels": ["type/dependencies", "area/security", "priority/critical"],
@@ -9,21 +18,11 @@
   "reviewersFromCodeOwners": true,
   "prHourlyLimit": 10,
   "lockFileMaintenance": { "enabled": true, "automerge": true },
+  "configMigration": true,
+  "timezone": "Europe/Oslo",
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true,
-      "platformAutomerge": true
-    },
-    {
-      "extends": "packages:linters",
-      "groupName": "linters",
-      "automerge": true,
-      "platformAutomerge": true
-    },
-    {
-      "matchManagers": ["github-actions"],
-      "groupName": "github actions",
       "automerge": true,
       "platformAutomerge": true
     }
