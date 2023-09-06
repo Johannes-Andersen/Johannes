@@ -4,13 +4,6 @@ metadata:
   name: johannes
   labels:
     app: johannes
-  annotations:
-    service.beta.kubernetes.io/do-loadbalancer-protocol: 'http'
-    service.beta.kubernetes.io/do-loadbalancer-healthcheck-path: '/health'
-    service.beta.kubernetes.io/do-loadbalancer-healthcheck-check-interval-seconds: '3'
-    service.beta.kubernetes.io/do-loadbalancer-healthcheck-response-timeout-seconds: '5'
-    service.beta.kubernetes.io/do-loadbalancer-healthcheck-unhealthy-threshold: '3'
-    service.beta.kubernetes.io/do-loadbalancer-healthcheck-healthy-threshold: '5'
 spec:
   replicas: 2
   selector:
@@ -41,6 +34,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: johannes-service
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-protocol: 'http'
+    service.beta.kubernetes.io/do-loadbalancer-healthcheck-path: '/health'
+    service.beta.kubernetes.io/do-loadbalancer-healthcheck-check-interval-seconds: '3'
+    service.beta.kubernetes.io/do-loadbalancer-healthcheck-response-timeout-seconds: '5'
+    service.beta.kubernetes.io/do-loadbalancer-healthcheck-unhealthy-threshold: '3'
+    service.beta.kubernetes.io/do-loadbalancer-healthcheck-healthy-threshold: '5'
 spec:
   type: LoadBalancer
   ports:
