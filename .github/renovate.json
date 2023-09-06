@@ -2,8 +2,6 @@
   "extends": [
     "config:base",
     "config:recommended",
-    "docker:pinDigests",
-    "helpers:pinGitHubActionDigests",
     "group:monorepos",
     "group:recommended",
     "replacements:all",
