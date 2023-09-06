@@ -13,6 +13,9 @@ COPY . .
 
 # Next.js collects completely anonymous telemetry data about general usage. Disabling this.
 ENV NEXT_TELEMETRY_DISABLED 1
+ARG DISCORD_ID
+ENV DISCORD_ID $DISCORD_ID
+
 RUN npm run build
 
 # Production image, copy all the files and run next
@@ -22,6 +25,8 @@ WORKDIR /app
 
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
+ARG DISCORD_ID
+ENV DISCORD_ID $DISCORD_ID
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs

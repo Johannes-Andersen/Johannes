@@ -23,7 +23,7 @@ jobs:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
       - name: Build container image
-        run: docker build -t ${{ secrets.REGISTRY_NAME }}/johannes:$(echo $GITHUB_SHA | head -c7) .
+        run: docker build -t ${{ secrets.REGISTRY_NAME }}/johannes:latest --build-arg DISCORD_ID=${{ env.DISCORD_ID }} .
 
       - name: Log in to DigitalOcean Container Registry with short-lived credentials
         run: doctl registry login --expiry-seconds 1200
