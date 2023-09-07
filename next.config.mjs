@@ -7,6 +7,7 @@ const nextConfig = {
   experimental: {
     typedRoutes: true,
   },
+  output: 'standalone',
   images: {
     domains: ['cdn.discordapp.com'],
     formats: ['image/avif', 'image/webp'],
