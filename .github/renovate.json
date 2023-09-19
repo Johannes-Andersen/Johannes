@@ -34,6 +34,12 @@
       "matchPackageNames": ["node"],
       "matchManagers": ["npm"],
       "rangeStrategy": "pin"
+    },
+    {
+      "matchManagers": ["dockerfile"],
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["node"],
+      "rangeStrategy": "pin"
     }
   ],
   "force": {
