@@ -28,12 +28,12 @@
     },
     {
       "matchManagers": ["nvm"],
-      "pinVersions": true
+      "rangeStrategy": "pin"
     },
     {
       "matchPackageNames": ["node"],
       "matchManagers": ["npm"],
-      "pinVersions": true
+      "rangeStrategy": "pin"
     }
   ],
   "force": {
