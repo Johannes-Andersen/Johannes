@@ -25,6 +25,15 @@
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
       "platformAutomerge": true
+    },
+    {
+      "matchManagers": ["nvm"],
+      "pinVersions": true
+    },
+    {
+      "matchPackageNames": ["node"],
+      "matchManagers": ["npm"],
+      "pinVersions": true
     }
   ],
   "force": {
