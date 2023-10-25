@@ -44,8 +44,8 @@
   ],
   "force": {
     "constraints": {
-      "node": "20",
-      "npm": "9"
+      "node": "21",
+      "npm": "10"
     }
   }
 }
