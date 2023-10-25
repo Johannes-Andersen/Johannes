@@ -18,7 +18,7 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Install doctl
-        uses: digitalocean/action-doctl@v2.4.1
+        uses: digitalocean/action-doctl@v2.5.0
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
