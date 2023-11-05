@@ -9,7 +9,14 @@ const nextConfig = {
   },
   output: 'standalone',
   images: {
-    domains: ['cdn.discordapp.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.discordapp.com',
+        port: '',
+        pathname: '/avatars/**',
+      },
+    ],
     formats: ['image/avif', 'image/webp'],
   },
   headers() {
