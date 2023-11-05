@@ -1,13 +1,12 @@
 'use client'
-import { LanyardResponse } from '@/utils/fetchDiscordStatus/types'
 import { FC } from 'react'
-import { useLanyardWS } from 'use-lanyard'
+import { useLanyardWS, Data } from 'use-lanyard'
 import Avatar from '../Avatar'
 import ActiveDeviceRow from '../ActiveDeviceRow'
 import ActivityCards from '../ActivityCards'
 
 interface Props {
-  initLanyardData: LanyardResponse['data']
+  initLanyardData: Data
   discordId: `${bigint}`
 }
 

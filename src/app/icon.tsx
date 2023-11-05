@@ -11,7 +11,8 @@ export const size = {
 export const contentType = 'image/png'
 
 export default async function Icon() {
-  const { data } = await fetchDiscordStatus(env.DISCORD_ID)
+  const userId = env.DISCORD_ID as `${bigint}`
+  const { data } = await fetchDiscordStatus(userId)
 
   const imageUrl = `https://cdn.discordapp.com/avatars/${data.discord_user.id}/${data.discord_user.avatar}.png?size=32`
 

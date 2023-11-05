@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import { LanyardResponse } from '@/utils/fetchDiscordStatus/types'
+import { Data } from 'use-lanyard'
 
 interface Props {
-  activities: LanyardResponse['data']['activities']
+  activities: Data['activities']
 }
 
 const ActivityCards: FC<Props> = ({ activities }) => {
