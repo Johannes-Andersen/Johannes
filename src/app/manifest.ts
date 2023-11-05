@@ -7,7 +7,6 @@ const manifest = (): MetadataRoute.Manifest => {
     description: "Johannes Andersen's personal website",
     start_url: '/',
     display: 'browser',
-    scope: 'https://johand.dev/',
     orientation: 'any',
     lang: 'en',
     categories: ['social', 'lifestyle'],

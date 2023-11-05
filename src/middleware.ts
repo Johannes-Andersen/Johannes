@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-export function middleware(_request: NextRequest) {
+export function middleware(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
 
   const cspHeader = `
@@ -23,7 +23,7 @@ export function middleware(_request: NextRequest) {
     sandbox allow-forms allow-same-origin allow-scripts allow-top-navigation allow-popups;
 `
 
-  const requestHeaders = new Headers()
+  const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-nonce', nonce)
   requestHeaders.set(
     'Content-Security-Policy',
