@@ -1,5 +1,5 @@
 import fetchDiscordStatus from '@/utils/fetchDiscordStatus'
-import { ImageResponse } from 'next/server'
+import { ImageResponse } from 'next/og'
 import { env } from '@/env.mjs'
 
 export const runtime = 'edge'
