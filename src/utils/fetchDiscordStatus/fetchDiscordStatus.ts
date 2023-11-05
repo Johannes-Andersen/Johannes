@@ -1,11 +1,16 @@
-import { LanyardResponse } from './types'
+import { Data } from 'use-lanyard'
+
+interface LanyardResponse {
+  success: boolean
+  data: Data
+}
 
 const fetchDiscordStatus = async (
-  discordId: string
+  discordId: `${bigint}`
 ): Promise<LanyardResponse> => {
   const res = await fetch(`https://api.lanyard.rest/v1/users/${discordId}`, {
     next: {
-      revalidate: 60,
+      revalidate: 30,
     },
   })
 

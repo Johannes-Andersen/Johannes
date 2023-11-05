@@ -1,19 +1,19 @@
 'use client'
 import { LanyardResponse } from '@/utils/fetchDiscordStatus/types'
 import { FC } from 'react'
-import { useLanyard } from 'react-use-lanyard'
+import { useLanyardWS } from 'use-lanyard'
 import Avatar from '../Avatar'
 import ActiveDeviceRow from '../ActiveDeviceRow'
 import ActivityCards from '../ActivityCards'
 
 interface Props {
   initLanyardData: LanyardResponse['data']
-  discordId: string
+  discordId: `${bigint}`
 }
 
 const generateUsernameString = (
   username: string,
-  global_name?: string,
+  global_name: string | null,
   discriminator?: string
 ) => {
   const isPomeloUser = discriminator === '0'
@@ -37,13 +37,9 @@ const generateUsernameString = (
 }
 
 const ProfileHeader: FC<Props> = ({ initLanyardData, discordId }) => {
-  const { loading, status: wsData } = useLanyard({
-    userId: initLanyardData.discord_user.id,
-    socket: true,
-  })
-
-  const data =
-    loading || !wsData ? initLanyardData : (wsData as LanyardResponse['data'])
+  const data = useLanyardWS(discordId, {
+    initialData: initLanyardData,
+  })!
 
   const {
     discord_user: { discriminator, global_name, username, avatar },
