@@ -21,22 +21,32 @@ export function middleware(request: NextRequest) {
     block-all-mixed-content;
     upgrade-insecure-requests;
     sandbox allow-forms allow-same-origin allow-scripts allow-top-navigation allow-popups;
-`
-
+`  
+  // Replace newline characters and spaces
+  const contentSecurityPolicyHeaderValue = cspHeader
+    .replace(/\s{2,}/g, ' ')
+    .trim()
+ 
   const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-nonce', nonce)
+ 
   requestHeaders.set(
     'Content-Security-Policy',
-    // Replace newline characters and spaces
-    cspHeader.replace(/\s{2,}/g, ' ').trim()
+    contentSecurityPolicyHeaderValue
   )
-
-  return NextResponse.next({
+ 
+  const response = NextResponse.next({
     headers: requestHeaders,
     request: {
       headers: requestHeaders,
     },
   })
+  response.headers.set(
+    'Content-Security-Policy',
+    contentSecurityPolicyHeaderValue
+  )
+ 
+  return response
 }
 
 export const config = {
