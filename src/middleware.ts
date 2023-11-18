@@ -21,20 +21,20 @@ export function middleware(request: NextRequest) {
     block-all-mixed-content;
     upgrade-insecure-requests;
     sandbox allow-forms allow-same-origin allow-scripts allow-top-navigation allow-popups;
-`  
+`
   // Replace newline characters and spaces
   const contentSecurityPolicyHeaderValue = cspHeader
     .replace(/\s{2,}/g, ' ')
     .trim()
- 
+
   const requestHeaders = new Headers(request.headers)
   requestHeaders.set('x-nonce', nonce)
- 
+
   requestHeaders.set(
     'Content-Security-Policy',
     contentSecurityPolicyHeaderValue
   )
- 
+
   const response = NextResponse.next({
     headers: requestHeaders,
     request: {
@@ -45,7 +45,7 @@ export function middleware(request: NextRequest) {
     'Content-Security-Policy',
     contentSecurityPolicyHeaderValue
   )
- 
+
   return response
 }
 
