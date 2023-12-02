@@ -18,7 +18,7 @@
     "@heroicons/react": "2.0.18",
     "@t3-oss/env-nextjs": "0.7.1",
     "@types/node": "20.10.2",
-    "@types/react": "18.2.39",
+    "@types/react": "18.2.40",
     "@types/react-dom": "18.2.17",
     "autoprefixer": "10.4.16",
     "eslint": "8.54.0",
