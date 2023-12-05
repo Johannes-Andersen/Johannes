@@ -11,7 +11,7 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,mjs,cjs,md}\""
   },
   "engines": {
-    "node": "21.3.0",
+    "node": "21.4.0",
     "npm": "9 || 10"
   },
   "dependencies": {
