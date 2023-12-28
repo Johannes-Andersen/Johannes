@@ -12,22 +12,20 @@ const { username, id, avatar, status } = Astro.props;
 
 const statusMapping = {
   online: {
-    color: 'bg-green-400',
-    humanizedName: 'Online',
+    color: "bg-green-400",
+    humanizedName: "Online",
   },
-  offline: { color: 'bg-gray-400', humanizedName: 'Offline' },
+  offline: { color: "bg-gray-400", humanizedName: "Offline" },
   idle: {
-    color: 'bg-yellow-400',
-    humanizedName: 'Idle',
-  
+    color: "bg-yellow-400",
+    humanizedName: "Idle",
   },
   dnd: {
-    color: 'bg-red-400',
-    humanizedName: 'Do Not Disturb',
+    color: "bg-red-400",
+    humanizedName: "Do Not Disturb",
   },
-  streaming: { color: 'bg-purple-400', humanizedName: 'Streaming' },
+  streaming: { color: "bg-purple-400", humanizedName: "Streaming" },
 } as const;
-
 ---
 
 <span class="relative inline-block">
