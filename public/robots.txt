@@ -1,0 +1,17 @@
+User-Agent: *
+Allow: /
+
+User-Agent: CCBot
+Disallow: /
+
+User-Agent: GPTBot
+Disallow: /
+
+User-Agent: anthropic-ai
+Disallow: /
+
+User-Agent: Google-Extended
+Disallow: /
+
+Host: https://johand.dev/
+Sitemap: https://johand.dev/sitemap-index.xml

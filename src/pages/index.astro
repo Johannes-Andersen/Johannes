@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Avatar from "../components/Avatar.astro";
+
+import { fetchDiscordStatus } from "../utils/fetchDiscordStatus";
+
+const DISCORD_ID = import.meta.env.DISCORD_ID;
+
+if (!DISCORD_ID) {
+  throw new Error(
+    "Missing DISCORD_ID environment variable. Did you forget to add it to your .env file?",
+  );
+}
+
+const {
+  data: { discord_user, discord_status },
+} = await fetchDiscordStatus(DISCORD_ID);
+const { username, global_name, id, avatar } = discord_user;
+---
+
+<Layout title="Home - Johannes Andersen">
+  <main>
+    <h1 class="bg-red-500">
+      {global_name} (@{username})
+    </h1>
+
+    <Avatar
+      id={id}
+      avatar={avatar}
+      username={global_name}
+      status={discord_status}
+    />
+
+    <!-- <pre>
+      <code>{JSON.stringify(data, null, 2)}</code>
+    </pre> -->
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+</style>
