@@ -11,19 +11,19 @@ interface Props {
 const { username, id, avatar, status } = Astro.props;
 
 const statusMapping = {
-  online:"Online",
-  offline:"Offline",
+  online: "Online",
+  offline: "Offline",
   idle: "Idle",
   dnd: "Do Not Disturb",
-  streaming: "Streaming"
+  streaming: "Streaming",
 } as const;
 ---
 
-  <Image
-    src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png?size=4096`}
-    alt={`${username}, ${statusMapping[status]}`}
-    width="64"
-    height="64"
-    class="h-16 w-16 rounded-full"
-    quality="high"
-  />
+<Image
+  src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png?size=4096`}
+  alt={`${username}, ${statusMapping[status]}`}
+  width="64"
+  height="64"
+  class="h-16 w-16 rounded-full"
+  quality="high"
+/>
