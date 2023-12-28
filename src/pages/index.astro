@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Avatar from "../components/Avatar.astro";
+import { Icon } from "astro-icon/components";
 
 import { fetchDiscordStatus } from "../utils/fetchDiscordStatus";
 
@@ -20,7 +21,7 @@ const { username, global_name, id, avatar } = discord_user;
 
 <Layout title="Home - Johannes Andersen">
   <main>
-    <h1 class="bg-red-500">
+    <h1>
       {global_name} (@{username})
     </h1>
 
@@ -30,21 +31,36 @@ const { username, global_name, id, avatar } = discord_user;
       username={global_name}
       status={discord_status}
     />
-
-    <!-- <pre>
-      <code>{JSON.stringify(data, null, 2)}</code>
-    </pre> -->
   </main>
+
+  <footer>
+    <a href="https://x.com/johand199"><Icon name="x" /></a>
+    <a href="https://github.com/Johannes-Andersen"><Icon class="fill-white" name="github" /></a>
+  </footer>
 </Layout>
 
 <style>
-  main {
+  main, footer {
     margin: auto;
     padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
     color: white;
     font-size: 20px;
-    line-height: 1.6;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  main h1 {
+    text-align: center;
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
   }
 </style>
