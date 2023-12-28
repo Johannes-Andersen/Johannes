@@ -16,6 +16,11 @@ export default defineConfig({
   image: {
     domains: ["johand.dev", "cdn.discordapp.com"],
   },
-  integrations: [tailwind(), sitemap()],
+  integrations: [
+    tailwind({
+      configFile: "./tailwind.config.ts",
+    }),
+    sitemap(),
+  ],
   site: "https://johand.dev",
 });
