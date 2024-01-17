@@ -31,14 +31,14 @@
     "typescript": "5.3.3"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "1.2.0",
+    "@vitest/coverage-v8": "1.2.1",
     "postcss-html": "1.6.0",
     "prettier": "3.2.4",
     "prettier-plugin-astro": "0.12.3",
     "stylelint": "16.1.0",
     "stylelint-config-html": "1.1.0",
     "stylelint-config-standard": "36.0.0",
-    "vitest": "1.2.0",
+    "vitest": "1.2.1",
     "wrangler": "3.22.5"
   }
 }
