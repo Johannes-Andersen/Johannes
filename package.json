@@ -33,7 +33,7 @@
   "devDependencies": {
     "@vitest/coverage-v8": "1.2.2",
     "postcss-html": "1.6.0",
-    "prettier": "3.2.4",
+    "prettier": "3.2.5",
     "prettier-plugin-astro": "0.13.0",
     "stylelint": "16.2.1",
     "stylelint-config-html": "1.1.0",
