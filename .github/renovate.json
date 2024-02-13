@@ -41,11 +41,5 @@
       "matchPackageNames": ["node"],
       "rangeStrategy": "pin"
     }
-  ],
-  "force": {
-    "constraints": {
-      "node": "21",
-      "npm": "10"
-    }
-  }
+  ]
 }
