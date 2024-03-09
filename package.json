@@ -11,10 +11,11 @@
     "test": "npm run test:unit",
     "test:unit": "vitest",
     "coverage": "vitest run --coverage",
-    "lint": "npm run lint:styles",
+    "lint": "npm run lint:code && npm run lint:styles",
+    "lint:code": "biome lint .",
     "lint:styles": "stylelint --ignore-path .gitignore '**/*.(css|astro)'",
-    "format": "prettier --cache --write .",
-    "format:check": "prettier --cache --check ."
+    "format": "biome format . --write",
+    "format:check": "biome format ."
   },
   "engines": {
     "node": "21.7.1",
@@ -31,10 +32,9 @@
     "typescript": "5.4.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.6.0",
     "@vitest/coverage-v8": "1.3.1",
     "postcss-html": "1.6.0",
-    "prettier": "3.2.5",
-    "prettier-plugin-astro": "0.13.0",
     "stylelint": "16.2.1",
     "stylelint-config-html": "1.1.0",
     "stylelint-config-standard": "36.0.0",

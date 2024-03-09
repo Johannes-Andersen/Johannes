@@ -1,15 +1,15 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Avatar from "../components/Avatar.astro";
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
+import Avatar from '../components/Avatar.astro';
+import Layout from '../layouts/Layout.astro';
 
-import { fetchDiscordStatus } from "../utils/fetchDiscordStatus";
+import { fetchDiscordStatus } from '../utils/fetchDiscordStatus';
 
 const DISCORD_ID = import.meta.env.DISCORD_ID;
 
 if (!DISCORD_ID) {
   throw new Error(
-    "Missing DISCORD_ID environment variable. Did you forget to add it to your .env file?",
+    'Missing DISCORD_ID environment variable. Did you forget to add it to your .env file?',
   );
 }
 

@@ -1,8 +1,8 @@
 {
   "recommendations": [
     "astro-build.astro-vscode",
-    "esbenp.prettier-vscode",
-    "stylelint.vscode-stylelint"
+    "stylelint.vscode-stylelint",
+    "biomejs.biome"
   ],
   "unwantedRecommendations": []
 }

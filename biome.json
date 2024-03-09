@@ -1,0 +1,67 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.6.0/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "noUnusedImports": "off",
+        "noUnusedVariables": "off",
+        "useHookAtTopLevel": "error"
+      },
+      "suspicious": {
+        "useAwait": "warn",
+        "noConsoleLog": "error"
+      },
+      "nursery": {
+        "noExportsInTest": "error",
+        "useSortedClasses": "error",
+        "noSkippedTests": "warn"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "lineEnding": "lf"
+  },
+  "css": {
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "double",
+      "indentStyle": "space",
+      "lineEnding": "lf"
+    },
+    "parser": {
+      "allowWrongLineComments": false
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "double"
+    }
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true,
+    "defaultBranch": "main"
+  },
+  "overrides": [
+    {
+      "include": ["**/*.test.ts", "**/*.test.tsx"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noExplicitAny": "off"
+          }
+        }
+      }
+    }
+  ]
+}

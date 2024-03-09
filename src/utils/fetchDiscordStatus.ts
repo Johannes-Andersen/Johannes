@@ -8,7 +8,7 @@ interface Data {
   spotify?: unknown;
   discord_user: DiscordUser;
   activities: Array<unknown>;
-  discord_status: "online" | "offline" | "idle" | "dnd" | "streaming";
+  discord_status: 'online' | 'offline' | 'idle' | 'dnd' | 'streaming';
   active_on_discord_web: boolean;
   active_on_discord_desktop: boolean;
   active_on_discord_mobile: boolean;
@@ -38,13 +38,13 @@ export const fetchDiscordStatus = async (
   const res = await fetch(`https://api.lanyard.rest/v1/users/${discordId}`);
 
   if (!res.ok) {
-    throw new Error("Failed to fetch Discord status");
+    throw new Error('Failed to fetch Discord status');
   }
 
   const data: LanyardData = await res.json();
 
   if (!data.success) {
-    throw new Error("Failed to fetch Discord status");
+    throw new Error('Failed to fetch Discord status');
   }
 
   return data;

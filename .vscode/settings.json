@@ -3,11 +3,29 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "stylelint.validate": ["css", "html", "astro"],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.fixAll.stylelint": "explicit"
+    "source.organizeImports.biome": "explicit",
+    "source.fixAll.stylelint": "explicit",
+    "quickfix.biome": "explicit"
   },
+  "editor.defaultFormatter": "biomejs.biome",
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
 }
