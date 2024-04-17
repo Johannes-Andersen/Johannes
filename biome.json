@@ -17,9 +17,7 @@
         "noConsoleLog": "error"
       },
       "nursery": {
-        "noExportsInTest": "error",
-        "useSortedClasses": "error",
-        "noSkippedTests": "warn"
+        "useSortedClasses": "error"
       }
     }
   },
