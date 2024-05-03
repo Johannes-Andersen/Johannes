@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "preview": "wrangler pages dev ./dist",
+    "preview": "astro build && wrangler pages dev",
     "test": "npm run test:unit",
     "test:unit": "vitest",
     "coverage": "vitest run --coverage",
