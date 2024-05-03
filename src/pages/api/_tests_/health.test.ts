@@ -8,7 +8,7 @@ describe('GET /api/health', () => {
     expect(response.status).toBe(200);
     expect(response.headers.get('Content-Type')).toBe('application/json');
 
-    const data = await response.json();
+    const data = (await response.json()) as { status: string };
     expect(data.status).toBe('ok');
   });
 });
