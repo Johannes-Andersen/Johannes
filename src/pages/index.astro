@@ -5,9 +5,9 @@ import Layout from '../layouts/Layout.astro';
 
 import { fetchDiscordStatus } from '../utils/fetchDiscordStatus';
 
-const DISCORD_ID = import.meta.env.DISCORD_ID;
+const { env } = Astro.locals.runtime;
 
-if (!DISCORD_ID) {
+if (!env.DISCORD_ID) {
   throw new Error(
     'Missing DISCORD_ID environment variable. Did you forget to add it to your .env file?',
   );
@@ -15,7 +15,7 @@ if (!DISCORD_ID) {
 
 const {
   data: { discord_user, discord_status },
-} = await fetchDiscordStatus(DISCORD_ID);
+} = await fetchDiscordStatus(env.DISCORD_ID);
 const { username, global_name, id, avatar } = discord_user;
 ---
 
