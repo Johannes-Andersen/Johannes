@@ -34,7 +34,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.7.3",
     "@vitest/coverage-v8": "1.6.0",
-    "postcss-html": "1.6.0",
+    "postcss-html": "1.7.0",
     "stylelint": "16.5.0",
     "stylelint-config-html": "1.1.0",
     "stylelint-config-standard": "36.0.0",
