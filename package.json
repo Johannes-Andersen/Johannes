@@ -39,6 +39,6 @@
     "stylelint-config-html": "1.1.0",
     "stylelint-config-standard": "36.0.0",
     "vitest": "1.6.0",
-    "wrangler": "3.60.3"
+    "wrangler": "3.61.0"
   }
 }
