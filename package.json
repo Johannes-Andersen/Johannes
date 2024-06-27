@@ -32,7 +32,7 @@
     "typescript": "5.5.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.2",
+    "@biomejs/biome": "1.8.3",
     "@vitest/coverage-v8": "1.6.0",
     "postcss-html": "1.7.0",
     "stylelint": "16.6.1",
