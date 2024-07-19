@@ -33,12 +33,12 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@vitest/coverage-v8": "1.6.0",
+    "@vitest/coverage-v8": "2.0.3",
     "postcss-html": "1.7.0",
     "stylelint": "16.7.0",
     "stylelint-config-html": "1.1.0",
     "stylelint-config-standard": "36.0.1",
-    "vitest": "1.6.0",
+    "vitest": "2.0.3",
     "wrangler": "3.65.1"
   }
 }
