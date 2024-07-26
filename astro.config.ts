@@ -1,10 +1,12 @@
 import cloudflare from '@astrojs/cloudflare';
+import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
+import clerk from '@clerk/astro';
+import icon from 'astro-icon';
 import { defineConfig, envField } from 'astro/config';
 
-import icon from 'astro-icon';
-
+// https://astro.build/config
 export default defineConfig({
   output: 'server',
   adapter: cloudflare({
@@ -26,6 +28,18 @@ export default defineConfig({
           max: 19,
           min: 17,
         }),
+        CLERK_PUBLISHABLE_KEY: envField.string({
+          context: 'server',
+          access: 'public',
+          startsWith: 'pk_',
+          optional: false,
+        }),
+        CLERK_SECRET_KEY: envField.string({
+          context: 'server',
+          access: 'secret',
+          startsWith: 'sk_',
+          optional: false,
+        }),
       },
     },
   },
@@ -33,6 +47,8 @@ export default defineConfig({
     domains: ['johand.dev', 'cdn.discordapp.com'],
   },
   integrations: [
+    react(),
+    clerk(),
     tailwind({
       configFile: './tailwind.config.ts',
     }),
