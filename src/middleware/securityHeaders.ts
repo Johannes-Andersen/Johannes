@@ -9,12 +9,13 @@ function setDefault(headers: Headers, key: string, value: string) {
 // Lax CSP for now, the unsafe-inline should really be removed.
 const cspDirectives = [
   "default-src 'self';",
-  "img-src 'self' blob: data:;",
-  "script-src 'self' 'unsafe-inline' challenges.cloudflare.com ajax.cloudflare.com static.cloudflareinsights.com;",
+  "img-src 'self' blob: data: https://img.clerk.com;",
+  "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com ajax.cloudflare.com static.cloudflareinsights.com;",
   "style-src 'self' 'unsafe-inline';",
   "font-src 'self' data:;",
   "object-src 'none';",
-  "connect-src 'self' cloudflareinsights.com;",
+  "worker-src 'self' blob:;",
+  "connect-src 'self' cloudflareinsights.com https://clerk.your-domain.com;",
   "frame-ancestors 'none';",
   'block-all-mixed-content;',
   'frame-src https://challenges.cloudflare.com;',
