@@ -8,6 +8,8 @@ on:
   workflow_dispatch:
 env:
   DISCORD_SNOWFLAKE: ${{ vars.DISCORD_SNOWFLAKE }}
+  CLERK_PUBLISHABLE_KEY: ${{ vars.CLERK_PUBLISHABLE_KEY }}
+  CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
 
 jobs:
   build:
