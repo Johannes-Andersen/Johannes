@@ -33,7 +33,7 @@ interface AvatarDecoration {
 }
 
 export const fetchDiscordStatus = async (
-  discordId: `${bigint}`,
+  discordId: string,
 ): Promise<LanyardData> => {
   const res = await fetch(`https://api.lanyard.rest/v1/users/${discordId}`);
 

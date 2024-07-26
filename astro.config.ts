@@ -1,11 +1,10 @@
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 
 import icon from 'astro-icon';
 
-// https://astro.build/config
 export default defineConfig({
   output: 'server',
   adapter: cloudflare({
@@ -16,6 +15,19 @@ export default defineConfig({
   }),
   prefetch: {
     prefetchAll: true,
+  },
+  experimental: {
+    env: {
+      schema: {
+        DISCORD_ID: envField.string({
+          context: 'server',
+          access: 'public',
+          optional: false,
+          max: 19,
+          min: 17,
+        }),
+      },
+    },
   },
   image: {
     domains: ['johand.dev', 'cdn.discordapp.com'],

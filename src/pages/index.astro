@@ -1,21 +1,14 @@
 ---
+import { DISCORD_ID } from 'astro:env/server';
 import { Icon } from 'astro-icon/components';
 import Avatar from '../components/Avatar.astro';
 import Layout from '../layouts/Layout.astro';
 
 import { fetchDiscordStatus } from '../utils/fetchDiscordStatus';
 
-const { env } = Astro.locals.runtime;
-
-if (!env.DISCORD_ID) {
-  throw new Error(
-    'Missing DISCORD_ID environment variable. Did you forget to add it to your .env file?',
-  );
-}
-
 const {
   data: { discord_user, discord_status },
-} = await fetchDiscordStatus(env.DISCORD_ID);
+} = await fetchDiscordStatus(DISCORD_ID);
 const { username, global_name, id, avatar } = discord_user;
 ---
 
