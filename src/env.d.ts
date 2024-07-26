@@ -8,7 +8,7 @@ declare namespace App {
 }
 
 interface ImportMetaEnv {
-  readonly DISCORD_ID?: `${bigint}`;
+  readonly DISCORD_SNOWFLAKE?: `${bigint}`;
 }
 
 interface ImportMeta {

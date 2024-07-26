@@ -19,7 +19,7 @@ export default defineConfig({
   experimental: {
     env: {
       schema: {
-        DISCORD_ID: envField.string({
+        DISCORD_SNOWFLAKE: envField.string({
           context: 'server',
           access: 'public',
           optional: false,

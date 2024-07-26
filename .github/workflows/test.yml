@@ -7,7 +7,7 @@ on:
     branches: [main]
   workflow_dispatch:
 env:
-  DISCORD_ID: ${{ vars.DISCORD_ID }}
+  DISCORD_SNOWFLAKE: ${{ vars.DISCORD_SNOWFLAKE }}
 
 jobs:
   test:

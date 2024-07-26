@@ -17,8 +17,8 @@ compatibility_flags = [ "nodejs_compat" ]
 # Note: Use secrets to store sensitive data.
 # - https://developers.cloudflare.com/pages/functions/bindings/#secrets
 
-# [vars]
-# DISCORD_ID = "98172944773029888"
+[vars]
+DISCORD_SNOWFLAKE = "98172944773029888"
 
 # Bind the Workers AI model catalog. Run machine learning models, powered by serverless GPUs, on Cloudflare’s global network
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#workers-ai
