@@ -22,7 +22,9 @@ export default defineConfig({
         DISCORD_ID: envField.string({
           context: 'server',
           access: 'public',
-          required: true,
+          optional: false,
+          max: 19,
+          min: 17,
         }),
       },
     },
