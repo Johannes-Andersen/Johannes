@@ -37,8 +37,7 @@ export default defineConfig({
         CLERK_SECRET_KEY: envField.string({
           context: 'server',
           access: 'secret',
-          startsWith: 'sk_',
-          optional: false,
+          optional: import.meta.env.DEV,
         }),
       },
     },
