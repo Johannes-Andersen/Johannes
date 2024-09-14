@@ -1,10 +1,8 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "stylelint.validate": ["css", "html", "astro"],
   "editor.codeActionsOnSave": {
     "source.organizeImports.biome": "explicit",
-    "source.fixAll.stylelint": "explicit",
     "quickfix.biome": "explicit"
   },
   "editor.defaultFormatter": "biomejs.biome",

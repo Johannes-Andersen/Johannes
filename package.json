@@ -11,9 +11,7 @@
     "test": "npm run test:unit",
     "test:unit": "vitest",
     "coverage": "vitest run --coverage",
-    "lint": "npm run lint:code && npm run lint:styles",
-    "lint:code": "biome lint .",
-    "lint:styles": "stylelint --ignore-path .gitignore '**/*.(css|astro)'",
+    "lint": "biome lint .",
     "format": "biome format . --write",
     "format:check": "biome format ."
   },
@@ -35,9 +33,6 @@
     "@biomejs/biome": "1.9.0",
     "@vitest/coverage-v8": "2.1.1",
     "postcss-html": "1.7.0",
-    "stylelint": "16.9.0",
-    "stylelint-config-html": "1.1.0",
-    "stylelint-config-standard": "36.0.1",
     "vitest": "2.1.1",
     "wrangler": "3.78.2"
   }

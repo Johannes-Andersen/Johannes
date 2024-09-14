@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.6.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/1.9.0/schema.json",
   "organizeImports": {
     "enabled": true
   },
@@ -8,16 +8,31 @@
     "rules": {
       "recommended": true,
       "correctness": {
-        "noUnusedImports": "off",
-        "noUnusedVariables": "off",
+        "noConstantMathMinMaxClamp": "warn",
+        "noUndeclaredDependencies": "error",
+        "noUndeclaredVariables": "error",
         "useHookAtTopLevel": "error"
+      },
+      "complexity": {
+        "noUselessUndefinedInitialization": "warn",
+        "useDateNow": "warn",
+        "useSimplifiedLogicExpression": "warn"
       },
       "suspicious": {
         "useAwait": "warn",
         "noConsoleLog": "error"
       },
       "nursery": {
-        "useSortedClasses": "error"
+        "useSortedClasses": "error",
+        "noDuplicateCustomProperties": "error",
+        "noDuplicateElseIf": "error",
+        "useValidAutocomplete": "error",
+        "useDeprecatedReason": "error"
+      },
+      "performance": {
+        "noReExportAll": "error",
+        "useTopLevelRegex": "error",
+        "noBarrelFile": "error"
       }
     }
   },
@@ -27,14 +42,14 @@
     "lineEnding": "lf"
   },
   "css": {
+    "linter": {
+      "enabled": true
+    },
     "formatter": {
       "enabled": true,
       "quoteStyle": "double",
       "indentStyle": "space",
       "lineEnding": "lf"
-    },
-    "parser": {
-      "allowWrongLineComments": false
     }
   },
   "javascript": {
@@ -57,6 +72,16 @@
         "rules": {
           "suspicious": {
             "noExplicitAny": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["**/*.d.ts"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUndeclaredVariables": "off"
           }
         }
       }
