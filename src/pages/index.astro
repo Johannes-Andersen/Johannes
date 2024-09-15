@@ -1,10 +1,11 @@
 ---
 import { DISCORD_SNOWFLAKE } from 'astro:env/server';
-import { Icon } from 'astro-icon/components';
 import Avatar from '../components/Avatar.astro';
 import Layout from '../layouts/Layout.astro';
 
 import { fetchDiscordStatus } from '../utils/fetchDiscordStatus';
+import Github from '../components/icons/Github.astro';
+import Xlogo from '../components/icons/XLogo.astro';
 
 const {
   data: { discord_user, discord_status },
@@ -30,13 +31,13 @@ const { username, global_name, id, avatar } = discord_user;
 
   <footer>
     <a aria-label="Link to my x.com profile" href="https://x.com/johand199">
-      <Icon name="x" />
+      <Xlogo class="fill-white w-5 h-5" name="github" />
     </a>
     <a
       aria-label="Link to my GitHub provile"
       href="https://github.com/Johannes-Andersen"
     >
-      <Icon class="fill-white" name="github" />
+      <Github class="fill-white w-5 h-5" />
     </a>
   </footer>
 </Layout>

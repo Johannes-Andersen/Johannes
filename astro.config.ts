@@ -3,8 +3,6 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig, envField } from 'astro/config';
 
-import icon from 'astro-icon';
-
 export default defineConfig({
   output: 'server',
   adapter: cloudflare({
@@ -37,7 +35,6 @@ export default defineConfig({
       configFile: './tailwind.config.ts',
     }),
     sitemap(),
-    icon(),
   ],
   site: 'https://johand.dev',
 });
