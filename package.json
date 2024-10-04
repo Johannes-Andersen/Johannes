@@ -20,7 +20,7 @@
     "npm": "10"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.3",
+    "@astrojs/check": "0.9.4",
     "@astrojs/cloudflare": "11.1.0",
     "@astrojs/sitemap": "3.2.0",
     "@astrojs/tailwind": "5.1.1",
