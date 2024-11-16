@@ -1,6 +1,9 @@
 FROM node:22.11.0 AS base
 WORKDIR /app
 
+ARG DISCORD_SNOWFLAKE
+ENV DISCORD_SNOWFLAKE=${DISCORD_SNOWFLAKE}
+
 COPY package.json package-lock.json ./
 
 FROM base AS prod-deps

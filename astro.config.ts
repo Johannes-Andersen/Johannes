@@ -1,15 +1,13 @@
-import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { defineConfig, envField } from 'astro/config';
 
+import node from '@astrojs/node';
+
 export default defineConfig({
   output: 'server',
-  adapter: cloudflare({
-    imageService: 'cloudflare',
-    platformProxy: {
-      enabled: true,
-    },
+  adapter: node({
+    mode: 'standalone',
   }),
   prefetch: {
     prefetchAll: true,
