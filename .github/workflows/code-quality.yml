@@ -1,4 +1,4 @@
-name: Build
+name: Lint
 
 on:
   push:
@@ -10,9 +10,11 @@ env:
   DISCORD_SNOWFLAKE: ${{ vars.DISCORD_SNOWFLAKE }}
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 5
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4.2.2
       - uses: pnpm/action-setup@v4
@@ -24,5 +26,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --prefer-offline
 
-      - name: Run build
-        run: pnpm build
+      - name: Run format
+        run: npm run format
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run check
+        run: npm run check
