@@ -14,10 +14,6 @@
   "rollbackPrs": true,
   "reviewersFromCodeOwners": true,
   "prHourlyLimit": 10,
-  "lockFileMaintenance": {
-    "enabled": true,
-    "automerge": true
-  },
   "configMigration": true,
   "timezone": "Europe/Oslo",
   "packageRules": [
