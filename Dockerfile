@@ -1,4 +1,4 @@
-FROM node:23.1.0 AS base
+FROM node:23-alpine AS base
 WORKDIR /app
 
 ARG DISCORD_SNOWFLAKE
@@ -16,7 +16,7 @@ FROM build-deps AS build
 COPY . .
 RUN npm run build
 
-FROM gcr.io/distroless/nodejs22-debian12 AS runtime
+FROM base AS runtime
 COPY --from=prod-deps /app/node_modules ./node_modules
 COPY --from=build /app/dist ./dist
 
