@@ -1,7 +1,7 @@
 import { sequence } from 'astro:middleware';
 
-import securityHeaders from './securityHeaders';
 import cacheHeaders from './cacheHeaders';
+import securityHeaders from './securityHeaders';
 
 const middleware = () => sequence(securityHeaders, cacheHeaders);
 

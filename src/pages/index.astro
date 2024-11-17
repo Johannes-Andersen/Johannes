@@ -3,9 +3,9 @@ import { DISCORD_SNOWFLAKE } from 'astro:env/server';
 import Avatar from '../components/Avatar.astro';
 import Layout from '../layouts/Layout.astro';
 
-import { fetchDiscordStatus } from '../utils/fetchDiscordStatus';
 import Github from '../components/icons/Github.astro';
 import Xlogo from '../components/icons/XLogo.astro';
+import { fetchDiscordStatus } from '../utils/fetchDiscordStatus';
 
 const {
   data: { discord_user, discord_status },
