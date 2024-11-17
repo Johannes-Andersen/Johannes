@@ -1,4 +1,4 @@
-FROM node:23 AS base
+FROM node:23.1.0 AS base
 WORKDIR /app
 
 ARG DISCORD_SNOWFLAKE
