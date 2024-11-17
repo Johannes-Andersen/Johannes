@@ -15,7 +15,7 @@
     "format:check": "biome format ."
   },
   "engines": {
-    "node": "23.2.0",
+    "node": "23",
     "npm": "10"
   },
   "dependencies": {
