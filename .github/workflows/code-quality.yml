@@ -1,4 +1,4 @@
-name: Lint
+name: Code Quality
 
 on:
   push:
@@ -10,7 +10,7 @@ env:
   DISCORD_SNOWFLAKE: ${{ vars.DISCORD_SNOWFLAKE }}
 
 jobs:
-  lint:
+  code-quality:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
