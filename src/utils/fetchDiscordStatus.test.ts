@@ -1,5 +1,5 @@
+import { type Mock, beforeEach, describe, expect, it, vi } from 'vitest';
 import { fetchDiscordStatus } from './fetchDiscordStatus';
-import { beforeEach, describe, expect, it, vi, type Mock } from 'vitest';
 
 describe('fetchDiscordStatus', () => {
   const discordId = '1234567890';
