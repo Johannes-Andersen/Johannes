@@ -2,8 +2,6 @@
 import { getViteConfig } from 'astro/config';
 
 export default getViteConfig({
-  base: '/',
-  publicDir: 'public',
   test: {
     coverage: {
       enabled: true,
