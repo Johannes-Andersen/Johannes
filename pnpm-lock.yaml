@@ -12,8 +12,8 @@ importers:
         specifier: 0.9.4
         version: 0.9.4(typescript@5.7.3)
       '@astrojs/node':
-        specifier: 9.0.0
-        version: 9.0.0(astro@4.16.18(rollup@4.27.2)(typescript@5.7.3))
+        specifier: 9.0.1
+        version: 9.0.1(astro@4.16.18(rollup@4.27.2)(typescript@5.7.3))
       '@astrojs/sitemap':
         specifier: 3.2.1
         version: 3.2.1
@@ -77,8 +77,8 @@ packages:
   '@astrojs/markdown-remark@5.3.0':
     resolution: {integrity: sha512-r0Ikqr0e6ozPb5bvhup1qdWnSPUvQu6tub4ZLYaKyG50BXZ0ej6FhGz3GpChKpH7kglRFPObJd/bDyf2VM9pkg==}
 
-  '@astrojs/node@9.0.0':
-    resolution: {integrity: sha512-3h/5kFZvpuo+chYAjj75YhtRUxfquxEJrpZRRC7TdiMGp2WhLp2us4VXm2mjezJp/zHKotW2L3qgp0P2ujQ0xw==}
+  '@astrojs/node@9.0.1':
+    resolution: {integrity: sha512-vIKmKYhzK9o3NXANkHyjcFqi9e9N84mhgCESC/+rQ8danWnktu9uR6rGvbj3bdTb9+Dn5LDsmEm123P2Cun9nQ==}
     peerDependencies:
       astro: ^5.0.0
 
@@ -2495,7 +2495,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/node@9.0.0(astro@4.16.18(rollup@4.27.2)(typescript@5.7.3))':
+  '@astrojs/node@9.0.1(astro@4.16.18(rollup@4.27.2)(typescript@5.7.3))':
     dependencies:
       astro: 4.16.18(rollup@4.27.2)(typescript@5.7.3)
       send: 1.1.0
