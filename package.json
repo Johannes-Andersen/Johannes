@@ -18,7 +18,7 @@
   },
   "packageManager": "pnpm@9.15.4",
   "engines": {
-    "node": "23.6.1",
+    "node": "23.7.0",
     "pnpm": "9"
   },
   "dependencies": {
