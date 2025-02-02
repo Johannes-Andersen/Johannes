@@ -11,17 +11,15 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
-  experimental: {
-    env: {
-      schema: {
-        DISCORD_SNOWFLAKE: envField.string({
-          context: 'server',
-          access: 'public',
-          optional: false,
-          max: 19,
-          min: 17,
-        }),
-      },
+  env: {
+    schema: {
+      DISCORD_SNOWFLAKE: envField.string({
+        context: 'server',
+        access: 'public',
+        optional: false,
+        max: 19,
+        min: 17,
+      }),
     },
   },
   image: {
