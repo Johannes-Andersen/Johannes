@@ -3,9 +3,11 @@ import { DISCORD_SNOWFLAKE } from 'astro:env/server';
 import Avatar from '../components/Avatar.astro';
 import Layout from '../layouts/Layout.astro';
 
+import BlueSky from '../components/icons/BlueSky.astro';
 import Github from '../components/icons/Github.astro';
-import Xlogo from '../components/icons/XLogo.astro';
 import { fetchDiscordStatus } from '../utils/fetchDiscordStatus';
+
+import '../styles/global.css';
 
 const {
   data: { discord_user, discord_status },
@@ -30,8 +32,8 @@ const { username, global_name, id, avatar } = discord_user;
   </main>
 
   <footer>
-    <a aria-label="Link to my x.com profile" href="https://x.com/johand199">
-      <Xlogo class="fill-white w-5 h-5" name="github" />
+    <a aria-label="Link to my BlueSky profile" href="https://bsky.app/profile/johand.dev">
+      <BlueSky class="fill-white w-5 h-5" name="BlueSky" />
     </a>
     <a
       aria-label="Link to my GitHub provile"
