@@ -7,6 +7,8 @@ import Github from '../components/icons/Github.astro';
 import Xlogo from '../components/icons/XLogo.astro';
 import { fetchDiscordStatus } from '../utils/fetchDiscordStatus';
 
+import '../styles/global.css';
+
 const {
   data: { discord_user, discord_status },
 } = await fetchDiscordStatus(DISCORD_SNOWFLAKE);

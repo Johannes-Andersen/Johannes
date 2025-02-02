@@ -1,8 +1,7 @@
-import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
-import { defineConfig, envField } from 'astro/config';
-
 import node from '@astrojs/node';
+import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
+import { defineConfig, envField } from 'astro/config';
 
 export default defineConfig({
   output: 'server',
@@ -28,11 +27,7 @@ export default defineConfig({
   image: {
     domains: ['johand.dev', 'cdn.discordapp.com'],
   },
-  integrations: [
-    tailwind({
-      configFile: './tailwind.config.ts',
-    }),
-    sitemap(),
-  ],
+  vite: { plugins: [tailwindcss()] },
+  integrations: [sitemap()],
   site: 'https://johand.dev',
 });
