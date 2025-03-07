@@ -24,8 +24,8 @@ importers:
         specifier: 5.3.1
         version: 5.3.1(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.0)(typescript@5.8.2)(yaml@2.7.0)
       tailwindcss:
-        specifier: 4.0.11
-        version: 4.0.11
+        specifier: 4.0.12
+        version: 4.0.12
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -1939,6 +1939,9 @@ packages:
 
   tailwindcss@4.0.11:
     resolution: {integrity: sha512-GZ6+tNwieqvpFLZfx2tkZpfOMAK7iumbOJOLmd6v8AcYuHbjUb+cmDRu6l+rFkIqarh5FfLbCSRJhegcVdoPng==}
+
+  tailwindcss@4.0.12:
+    resolution: {integrity: sha512-bT0hJo91FtncsAMSsMzUkoo/iEU0Xs5xgFgVC9XmdM9bw5MhZuQFjPNl6wxAE0SiQF/YTZJa+PndGWYSDtuxAg==}
 
   tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
@@ -4564,6 +4567,8 @@ snapshots:
       has-flag: 4.0.0
 
   tailwindcss@4.0.11: {}
+
+  tailwindcss@4.0.12: {}
 
   tapable@2.2.1: {}
 
