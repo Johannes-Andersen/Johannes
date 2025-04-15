@@ -1,11 +1,11 @@
 ---
-import Avatar from '../components/Avatar.astro';
 import Layout from '../layouts/Layout.astro';
 
 import Bluesky from '../components/icons/Bluesky.svg';
 import Github from '../components/icons/Github.svg';
 
 import '../styles/global.css';
+import { Image } from 'astro:assets';
 import { AtProtoAccount } from '../utils/AtProtoAccount';
 
 const { env } = Astro.locals.runtime;
@@ -27,31 +27,63 @@ const name = profile.displayName || profile.handle;
 ---
 
 <Layout title={`Home - ${name}`}>
-  <main class="mx-auto p-4 text-white text-xl flex flex-col items-center gap-4">
-    {profile.avatar && <Avatar
-      avatar={profile.avatar}
-      username={name}
-    />}
+  <div class="min-h-screen text-slate-50">
+    <div class="relative h-64 md:h-80 w-full overflow-hidden">
+      <Image
+        inferSize
+        src={profile.banner || ""}
+        alt=""
+        class="object-cover w-full h-full bg-center"
+        priority
+        quality="high"
+      />
+      <div class="absolute inset-0 bg-black/50"></div>
+    </div>
 
-    <h1 class="text-center">
-      {profile.displayName} (@{profile.handle})
-    </h1>
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="relative -mt-24 flex flex-col items-center">
+        <div
+          class="relative h-48 w-48 rounded-full overflow-hidden border-4 border-gray-800 shadow-lg"
+        >
+          <Image
+            inferSize
+            src={profile.avatar || ""}
+            alt={`${name}'s profile picture`}
+            class="object-cover"
+            priority
+          />
+        </div>
 
-    <p class="whitespace-pre-wrap text-center">{profile.description}</p>
-  </main>
+        <div class="mt-6 text-center max-w-2xl">
+          <h1 class="text-3xl md:text-5xl font-bold text-slate-50">{name}</h1>
+          <h2 class="mt-2 text-xs text-slate-300">{profile.did}</h2>
 
-  <footer class="mx-auto p-4 text-white text-xl flex justify-center gap-4">
-    <a
-      aria-label="Link to BlueSky profile"
-      href=`https://bsky.app/profile/${profile.handle}`
-    >
-      <Bluesky class="fill-white w-8 h-8 hover:text-[#0085ff]" name="BlueSky" />
-    </a>
-    <a
-      aria-label="Link to GitHub profile"
-      href="https://github.com/Johannes-Andersen"
-    >
-      <Github class="fill-white w-8 h-8 hover:text-[#d1d7e0]" name="GitHub" />
-    </a>
-  </footer>
+          <p class="mt-6 text-slate-300 leading-relaxed whitespace-pre-wrap">
+            {profile.description || "No bio available."}
+          </p>
+        </div>
+
+        <div class="mt-10 flex items-center justify-center space-x-8">
+          <a
+            href="https://github.com/Johannes-Andersen"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-slate-300 hover:text-slate-50 transition-colors"
+          >
+            <Github class="h-7 w-7" />
+            <span class="sr-only">GitHub</span>
+          </a>
+          <a
+            href={`https://bsky.app/profile/${profile.handle}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-slate-300 hover:text-slate-50 transition-colors"
+          >
+            <Bluesky class="h-7 w-7" />
+            <span class="sr-only">Bluesky</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>
