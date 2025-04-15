@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "validate": "astro check && tsc && wrangler deploy --dry-run",
     "deploy": "astro build && wrangler deploy",
     "preview": "astro build && wrangler dev",
     "types": "wrangler types",
     "test": "vitest",
+    "type-check": "astro check && tsc",
     "coverage": "vitest run --coverage",
     "lint": "biome lint .",
     "lint:fix": "biome lint --write .",
