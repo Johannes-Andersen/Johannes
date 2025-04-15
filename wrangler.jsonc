@@ -2,8 +2,10 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "johannes",
   "main": "./dist/_worker.js/index.js",
-  "compatibility_date": "2025-03-25",
+  "compatibility_date": "2025-04-15",
   "compatibility_flags": ["nodejs_compat"],
+  "send_metrics": false, // Disable wrangler usage analytics
+  "upload_source_maps": true,
   "assets": {
     "binding": "ASSETS",
     "directory": "./dist"
@@ -11,7 +13,6 @@
   "observability": {
     "enabled": true
   },
-  "upload_source_maps": true,
   "vars": {
     "DISCORD_SNOWFLAKE": "98172944773029888"
   },
