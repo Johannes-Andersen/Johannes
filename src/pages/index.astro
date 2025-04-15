@@ -27,58 +27,31 @@ const name = profile.displayName || profile.handle;
 ---
 
 <Layout title={`Home - ${name}`}>
-  <main>
+  <main class="mx-auto p-4 text-white text-xl flex flex-col items-center gap-4">
     {profile.avatar && <Avatar
       avatar={profile.avatar}
       username={name}
     />}
 
-    <h1>
+    <h1 class="text-center">
       {profile.displayName} (@{profile.handle})
     </h1>
 
-    <p class="whitespace-pre text-center">{profile.description}</p>
+    <p class="whitespace-pre-wrap text-center">{profile.description}</p>
   </main>
 
-  <footer>
+  <footer class="mx-auto p-4 text-white text-xl flex justify-center gap-4">
     <a
-      aria-label="Link to my BlueSky profile"
+      aria-label="Link to BlueSky profile"
       href=`https://bsky.app/profile/${profile.handle}`
     >
-      <Bluesky class="fill-white w-8 h-8" name="BlueSky" />
+      <Bluesky class="fill-white w-8 h-8 hover:text-[#0085ff]" name="BlueSky" />
     </a>
     <a
-      aria-label="Link to my GitHub profile"
+      aria-label="Link to GitHub profile"
       href="https://github.com/Johannes-Andersen"
     >
-      <Github class="fill-white w-8 h-8" name="GitHub" />
+      <Github class="fill-white w-8 h-8 hover:text-[#d1d7e0]" name="GitHub" />
     </a>
   </footer>
 </Layout>
-
-<style>
-  main,
-  footer {
-    margin: auto;
-    padding: 1rem;
-    color: white;
-    font-size: 20px;
-  }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  main h1 {
-    text-align: center;
-  }
-
-  footer {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
-</style>
