@@ -1,31 +1,32 @@
-import node from '@astrojs/node';
+import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig, envField } from 'astro/config';
+import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   output: 'server',
-  adapter: node({
-    mode: 'standalone',
+  adapter: cloudflare({
+    imageService: 'cloudflare',
+    platformProxy: {
+      enabled: true,
+      configPath: 'wrangler.json',
+      persist: {
+        path: './.cache/wrangler/v3',
+      },
+    },
   }),
   prefetch: {
     prefetchAll: true,
   },
-  env: {
-    schema: {
-      DISCORD_SNOWFLAKE: envField.string({
-        context: 'server',
-        access: 'public',
-        optional: false,
-        max: 19,
-        min: 17,
-      }),
-    },
-  },
   image: {
     domains: ['johand.dev', 'cdn.discordapp.com'],
   },
-  vite: { plugins: [tailwindcss()] },
+  vite: {
+    plugins: [tailwindcss()],
+    build: {
+      sourcemap: true,
+    },
+  },
   integrations: [sitemap()],
   site: 'https://johand.dev',
 });

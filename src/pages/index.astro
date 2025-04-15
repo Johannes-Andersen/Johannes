@@ -1,5 +1,4 @@
 ---
-import { DISCORD_SNOWFLAKE } from 'astro:env/server';
 import Avatar from '../components/Avatar.astro';
 import Layout from '../layouts/Layout.astro';
 
@@ -9,9 +8,12 @@ import { fetchDiscordStatus } from '../utils/fetchDiscordStatus';
 
 import '../styles/global.css';
 
+const { env } = Astro.locals.runtime;
+
 const {
   data: { discord_user, discord_status },
-} = await fetchDiscordStatus(DISCORD_SNOWFLAKE);
+} = await fetchDiscordStatus(env.DISCORD_SNOWFLAKE);
+
 const { username, global_name, id, avatar } = discord_user;
 ---
 

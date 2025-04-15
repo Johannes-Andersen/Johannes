@@ -6,8 +6,6 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
-env:
-  DISCORD_SNOWFLAKE: ${{ vars.DISCORD_SNOWFLAKE }}
 
 jobs:
   code-quality:
@@ -27,10 +25,13 @@ jobs:
         run: pnpm install --prefer-offline
 
       - name: Run format
-        run: npm run format
+        run: pnpm run format
 
       - name: Run lint
-        run: npm run lint
+        run: pnpm run lint
 
       - name: Run check
-        run: npm run check
+        run: pnpm run check
+
+      - name: Run validate
+        run: pnpm run validate
