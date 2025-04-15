@@ -14,12 +14,18 @@
     "enabled": true
   },
   "vars": {
-    "DISCORD_SNOWFLAKE": "98172944773029888"
+    "ATPROTO_SERVICE_DID": "did:plc:euvjn7oyu4srnlql4efh6zar",
+    "ATPROTO_SERVICE_URL": "https://partall.no",
+    "ATPROTO_ACCOUNT_DID": "did:plc:euvjn7oyu4srnlql4efh6zar"
   },
   "kv_namespaces": [
     {
       "binding": "SESSION",
       "id": "99dd18e4031a4d7d81168b64639ea66c"
+    },
+    {
+      "binding": "ATPRTO_CACHE",
+      "id": "05e5503fe2044432aef585c4ad35dfea"
     }
   ]
 }

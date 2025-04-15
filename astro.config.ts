@@ -19,7 +19,7 @@ export default defineConfig({
     prefetchAll: true,
   },
   image: {
-    domains: ['johand.dev', 'cdn.discordapp.com'],
+    domains: ['johand.dev', 'cdn.bsky.app'],
   },
   vite: {
     plugins: [tailwindcss()],

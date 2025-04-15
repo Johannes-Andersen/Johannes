@@ -2,26 +2,16 @@
 import { Image } from 'astro:assets';
 
 interface Props {
-  id: string;
-  status: keyof typeof statusMapping;
   avatar: string;
   username: string;
 }
 
-const { username, id, avatar, status } = Astro.props;
-
-const statusMapping = {
-  online: 'Online',
-  offline: 'Offline',
-  idle: 'Idle',
-  dnd: 'Do Not Disturb',
-  streaming: 'Streaming',
-} as const;
+const { username, avatar } = Astro.props;
 ---
 
 <Image
-  src={`https://cdn.discordapp.com/avatars/${id}/${avatar}.png?size=4096`}
-  alt={`${username}, ${statusMapping[status]}`}
+  src={avatar}
+  alt={`Picture of ${username}`}
   width="4096"
   height="4096"
   class="h-16 w-16 rounded-full"

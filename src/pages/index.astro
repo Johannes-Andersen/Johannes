@@ -2,46 +2,56 @@
 import Avatar from '../components/Avatar.astro';
 import Layout from '../layouts/Layout.astro';
 
-import BlueSky from '../components/icons/BlueSky.astro';
-import Github from '../components/icons/Github.astro';
-import { fetchDiscordStatus } from '../utils/fetchDiscordStatus';
+import Bluesky from '../components/icons/Bluesky.svg';
+import Github from '../components/icons/Github.svg';
 
 import '../styles/global.css';
+import { AtProtoAccount } from '../utils/AtProtoAccount';
 
 const { env } = Astro.locals.runtime;
 
-const {
-  data: { discord_user, discord_status },
-} = await fetchDiscordStatus(env.DISCORD_SNOWFLAKE);
+const account = new AtProtoAccount({
+  service: env.ATPROTO_SERVICE_URL,
+  serviceAccount: env.ATPROTO_SERVICE_DID,
+  password: env.ATPROTO_SERVICE_PASSWORD,
+  cache: env.ATPRTO_CACHE,
+});
 
-const { username, global_name, id, avatar } = discord_user;
+const agent = await account.getAgent();
+
+const { data: profile } = await agent.getProfile({
+  actor: env.ATPROTO_ACCOUNT_DID,
+});
+
+const name = profile.displayName || profile.handle;
 ---
 
-<Layout title="Home - Johannes Andersen">
+<Layout title={`Home - ${name}`}>
   <main>
+    {profile.avatar && <Avatar
+      avatar={profile.avatar}
+      username={name}
+    />}
+
     <h1>
-      {global_name} (@{username})
+      {profile.displayName} (@{profile.handle})
     </h1>
 
-    <p>Currently {discord_status} on Discord</p>
-
-    <Avatar
-      id={id}
-      avatar={avatar}
-      username={global_name}
-      status={discord_status}
-    />
+    <p class="whitespace-pre text-center">{profile.description}</p>
   </main>
 
   <footer>
-    <a aria-label="Link to my BlueSky profile" href="https://bsky.app/profile/johand.dev">
-      <BlueSky class="fill-white w-5 h-5" name="BlueSky" />
+    <a
+      aria-label="Link to my BlueSky profile"
+      href=`https://bsky.app/profile/${profile.handle}`
+    >
+      <Bluesky class="fill-white w-8 h-8" name="BlueSky" />
     </a>
     <a
-      aria-label="Link to my GitHub provile"
+      aria-label="Link to my GitHub profile"
       href="https://github.com/Johannes-Andersen"
     >
-      <Github class="fill-white w-5 h-5" />
+      <Github class="fill-white w-8 h-8" name="GitHub" />
     </a>
   </footer>
 </Layout>
