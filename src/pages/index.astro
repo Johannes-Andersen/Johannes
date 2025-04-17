@@ -32,12 +32,13 @@ const name = profile.displayName || profile.handle;
       {
         profile.banner && (
           <Image
-            height={320}
-            width={3000}
+            inferSize
+            widths={[240, 540, 720, 1200, 1600, 2000, 3000]}
             src={profile.banner}
             alt=""
             class="object-cover w-full h-full bg-center"
             loading="eager"
+            quality="mid"
             priority
           />
         )
@@ -53,8 +54,8 @@ const name = profile.displayName || profile.handle;
           {
             profile.avatar && (
               <Image
-                width={192}
-                height={192}
+                inferSize
+                widths={[32, 64, 90, 192, 240]}
                 src={profile.avatar}
                 alt={`${name}'s profile picture`}
                 class="object-cover"
