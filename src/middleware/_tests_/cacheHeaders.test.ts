@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import cacheHeaders from '../cacheHeaders';
 
 describe('cacheHeaders middleware', () => {
-  it("should set Cache-Control header to 'must-revalidate, max-age=0'", async () => {
+  it('should set Cache-Control header', async () => {
     const next = vi.fn().mockResolvedValue({
       headers: new Map<string, string>(),
     });
@@ -14,7 +14,7 @@ describe('cacheHeaders middleware', () => {
     }
 
     expect(response.headers.get('Cache-Control')).toBe(
-      'must-revalidate, max-age=0',
+      'public, max-age=300, s-maxage=86400, stale-while-revalidate=86400, stale-if-error=259200, must-revalidate',
     );
   });
 });
