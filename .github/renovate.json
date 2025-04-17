@@ -4,7 +4,8 @@
     "group:monorepos",
     "group:recommended",
     "replacements:all",
-    "workarounds:all"
+    "workarounds:all",
+    "helpers:pinGitHubActionDigests"
   ],
   "labels": ["type/dependencies"],
   "vulnerabilityAlerts": {
