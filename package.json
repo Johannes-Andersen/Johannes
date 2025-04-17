@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "deploy": "astro build && wrangler deploy",
-    "preview": "astro build && wrangler dev",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev",
     "types": "wrangler types",
     "test": "vitest",
     "type-check": "astro check && tsc",

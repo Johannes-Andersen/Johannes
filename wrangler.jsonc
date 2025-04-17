@@ -6,6 +6,12 @@
   "compatibility_flags": ["nodejs_compat"],
   "send_metrics": false, // Disable wrangler usage analytics
   "upload_source_maps": true,
+  "workers_dev": false, // Disable default workers.dev domain
+  "tsconfig": "./tsconfig.json",
+  "build": {
+    "command": "pnpm run build",
+    "watch_dir": ["src", "public"]
+  },
   "assets": {
     "binding": "ASSETS",
     "directory": "./dist"
@@ -13,6 +19,12 @@
   "observability": {
     "enabled": true
   },
+  "routes": [
+    {
+      "pattern": "johand.dev",
+      "custom_domain": true
+    }
+  ],
   "vars": {
     "ATPROTO_SERVICE_DID": "did:plc:euvjn7oyu4srnlql4efh6zar",
     "ATPROTO_SERVICE_URL": "https://partall.no",

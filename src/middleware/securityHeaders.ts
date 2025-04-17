@@ -6,7 +6,7 @@ function setDefault(headers: Headers, key: string, value: string) {
   }
 }
 
-// Lax CSP for now, the unsafe-inline should really be removed.
+// Lax CSP for now, the unsafe-inline should really be removed. (Pending astro proposal https://github.com/withastro/roadmap/issues/1149)
 const cspDirectives = [
   "default-src 'self';",
   "img-src 'self' blob: data:;",
@@ -18,7 +18,6 @@ const cspDirectives = [
   "frame-ancestors 'none';",
   'block-all-mixed-content;',
   'frame-src https://challenges.cloudflare.com;',
-  'report-uri https://johand.report-uri.com/r/d/csp/enforce;',
   'sandbox allow-forms allow-same-origin allow-scripts allow-top-navigation allow-popups;',
 ]
   .filter(Boolean)

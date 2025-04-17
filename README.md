@@ -1,54 +1,63 @@
-# Astro Starter Kit: Basics
+# Johannes
 
-```sh
-npm create astro@latest -- --template basics
-```
+My personal website built with [Astro](https://astro.build/) and deployed on [Cloudflare](https://www.cloudflare.com/) pages.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Tech Stack
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- [Astro](https://astro.build/) - Web framework
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Cloudflare](https://www.cloudflare.com/) - Hosting
+- [Vitest](https://vitest.dev/) - Testing
+- [Biome](https://biomejs.dev/) - Linting and formatting
+- [AT Protocol API](https://atproto.com/) - Bluesky integration
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Development
 
-## 🚀 Project Structure
+This project uses [pnpm](https://pnpm.io/) as the package manager. Make sure you have it installed before proceeding.
 
-Inside of your Astro project, you'll see the following folders and files:
+### Prerequisites
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- Node.js 23
+- pnpm 10
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### Getting Started
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. Clone the repository
+   ```bash
+   git clone git@github.com:Johannes-Andersen/Johannes.git # Using SSH
+   git clone https://github.com/Johannes-Andersen/Johannes.git # Using HTTPS
+   gh repo clone Johannes-Andersen/Johannes # Using GitHub CLI
+   ```
 
-Any static assets, like images, can be placed in the `public/` directory.
+2. Cd into the repo and install dependencies
+   ```bash
+   cd Johannes
+   pnpm install
+   ```
 
-## 🧞 Commands
+3. Create a `dev.vars` file in the root directory and add your environment variables. You can use `dev.vars.example` as a reference.
+    ```bash
+    cp dev.vars.example dev.vars
+    ```
 
-All commands are run from the root of the project, from a terminal:
+4. Start the development server
+   ```bash
+   pnpm dev
+   ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Available Scripts
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm deploy` - Build and deploy to Cloudflare
+- `pnpm preview` - Build and preview locally with Wrangler
+- `pnpm test` - Run tests
+- `pnpm type-check` - Check TypeScript types
+- `pnpm coverage` - Run test coverage report
+- `pnpm lint` - Lint code
+- `pnpm lint:fix` - Lint and fix code
+- `pnpm format` - Check formatting
+- `pnpm format:fix` - Format code
+- `pnpm check` - Check code with Biome
+- `pnpm check:fix` - Check and fix code with Biome
