@@ -29,14 +29,19 @@ const name = profile.displayName || profile.handle;
 <Layout title={`Home - ${name}`}>
   <div class="min-h-screen text-slate-50">
     <div class="relative h-64 md:h-80 w-full overflow-hidden">
-      <Image
-        inferSize
-        src={profile.banner || ""}
-        alt=""
-        class="object-cover w-full h-full bg-center"
-        priority
-        quality="high"
-      />
+      {
+        profile.banner && (
+          <Image
+            height={320}
+            width={3000}
+            src={profile.banner}
+            alt=""
+            class="object-cover w-full h-full bg-center"
+            loading="eager"
+            priority
+          />
+        )
+      }
       <div class="absolute inset-0 bg-black/50"></div>
     </div>
 
@@ -45,13 +50,21 @@ const name = profile.displayName || profile.handle;
         <div
           class="relative h-48 w-48 rounded-full overflow-hidden border-4 border-gray-800 shadow-lg"
         >
-          <Image
-            inferSize
-            src={profile.avatar || ""}
-            alt={`${name}'s profile picture`}
-            class="object-cover"
-            priority
-          />
+          {
+            profile.avatar && (
+              <Image
+                width={192}
+                height={192}
+                src={profile.avatar}
+                alt={`${name}'s profile picture`}
+                class="object-cover"
+                quality="high"
+                loading="eager"
+                decoding="async"
+                priority
+              />
+            )
+          }
         </div>
 
         <div class="mt-6 text-center max-w-2xl">
