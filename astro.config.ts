@@ -10,9 +10,7 @@ export default defineConfig({
     platformProxy: {
       enabled: true,
       configPath: 'wrangler.jsonc',
-      persist: {
-        path: './.cache/wrangler/v3',
-      },
+      persist: true,
     },
   }),
   prefetch: {
