@@ -28,20 +28,22 @@ export class AtProtoAccount {
     this.cache = config.cache;
   }
 
-  async logout() {
+  async logout(): Promise<boolean> {
     try {
       console.info('Logging out account');
       await this.agent.logout();
       console.info('Successfully logged out');
+      return true;
     } catch (error) {
       console.error(error, 'Failed to logout account');
+      return false;
     }
   }
 
   private async persistSession(_evt: AtpSessionEvent, sess?: AtpSessionData) {
     try {
       if (sess) {
-        this.cache.put(this.config.serviceAccount, JSON.stringify(sess));
+        await this.cache.put(this.config.serviceAccount, JSON.stringify(sess));
 
         console.debug('Persisted session data');
       } else {
