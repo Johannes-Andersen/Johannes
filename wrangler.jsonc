@@ -3,7 +3,10 @@
   "name": "johannes",
   "main": "./dist/_worker.js/index.js",
   "compatibility_date": "2025-04-17",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat",
+    "no_request_cf_overrides_cache_rules"
+  ],
   "send_metrics": false, // Disable wrangler usage analytics
   "upload_source_maps": true,
   "workers_dev": false, // Disable default workers.dev domain
