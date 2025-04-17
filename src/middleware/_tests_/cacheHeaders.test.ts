@@ -13,10 +13,11 @@ describe('cacheHeaders middleware', () => {
       throw new Error('Response is undefined');
     }
 
-    const cacheControl =
-      'public, max-age=300, s-maxage=86400, stale-while-revalidate=86400, stale-if-error=259200, must-revalidate';
-
-    expect(response.headers.get('Cache-Control')).toBe(cacheControl);
-    expect(response.headers.get('CDN-Cache-Control')).toBe(cacheControl);
+    expect(response.headers.get('Cache-Control')).toBe(
+      'public, max-age=300, s-maxage=86400, stale-while-revalidate=86400, stale-if-error=259200, must-revalidate',
+    );
+    expect(response.headers.get('Cloudflare-CDN-Cache-Control')).toBe(
+      'max-age=86400, stale-while-revalidate=86400, stale-if-error=259200',
+    );
   });
 });
