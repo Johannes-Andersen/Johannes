@@ -82,17 +82,6 @@ const securityHeaders = defineMiddleware(async (_, next) => {
   setDefault(headers, 'cross-origin-resource-policy', 'same-origin');
   setDefault(headers, 'cross-origin-embedder-policy', 'require-corp');
 
-  setDefault(
-    headers,
-    'report-to',
-    '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://johand.report-uri.com/a/d/g"}],"include_subdomains":true}',
-  );
-  setDefault(
-    headers,
-    'NEL',
-    '{"report_to":"default","max_age":31536000,"include_subdomains":true}',
-  );
-
   // Content Security Policy
   setDefault(headers, 'content-security-policy', cspDirectives);
 
