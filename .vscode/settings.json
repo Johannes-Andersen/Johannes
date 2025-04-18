@@ -3,8 +3,11 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.codeActionsOnSave": {
     "source.organizeImports.biome": "explicit",
+    "source.action.useSortedKeys.biome": "explicit",
+    "source.fixAll.biome": "explicit",
     "quickfix.biome": "explicit"
   },
+  "biome.enabled": true,
   "editor.defaultFormatter": "biomejs.biome",
   "css.validate": false,
   "less.validate": false,

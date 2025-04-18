@@ -1,12 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
 import Bluesky from '../components/icons/Bluesky.svg';
 import Github from '../components/icons/Github.svg';
+import Layout from '../layouts/Layout.astro';
 
 import '../styles/global.css';
-import { Image } from 'astro:assets';
-import { AtProtoAccount } from '../utils/AtProtoAccount';
+
+import { AtProtoAccount } from '../utils/AtProtoAccount.ts';
 
 const { env } = Astro.locals.runtime;
 

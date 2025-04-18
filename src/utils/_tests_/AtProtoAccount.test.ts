@@ -1,13 +1,14 @@
 import {
-  type Mock,
   afterAll,
   beforeEach,
   describe,
   expect,
   it,
+  type Mock,
   vi,
 } from 'vitest';
-import { AtProtoAccount } from '../AtProtoAccount';
+
+import { AtProtoAccount } from '../AtProtoAccount.ts';
 
 interface Cache {
   get(key: string): Promise<string | null>;
@@ -24,6 +25,7 @@ const mockLogout = vi.fn().mockResolvedValue({ success: true });
 const mockResumeSession = vi.fn().mockResolvedValue({ success: true });
 
 vi.mock('@atproto/api', () => ({
+  // biome-ignore lint/style/useNamingConvention: External library
   AtpAgent: vi.fn().mockImplementation(({ persistSession }) => {
     capturedPersistSessionCallback = persistSession;
     return {

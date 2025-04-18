@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
-import securityHeaders from '../securityHeaders';
+
+import { securityHeaders } from '../securityHeaders.ts';
 
 describe('securityHeaders middleware', () => {
   it('should set security headers for HTML documents', async () => {

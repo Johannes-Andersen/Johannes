@@ -1,6 +1,6 @@
 import { defineMiddleware } from 'astro:middleware';
 
-const cacheHeaders = defineMiddleware(async ({ request }, next) => {
+export const cacheHeaders = defineMiddleware(async ({ request }, next) => {
   const response = await next();
 
   // Only apply cache headers to GET requests
@@ -21,5 +21,3 @@ const cacheHeaders = defineMiddleware(async ({ request }, next) => {
 
   return response;
 });
-
-export default cacheHeaders;

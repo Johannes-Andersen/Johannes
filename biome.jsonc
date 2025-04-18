@@ -1,0 +1,312 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.0.0-beta.1/schema.json",
+  "files": {
+    "includes": [
+      "**",
+      "!**/worker-configuration.d.ts",
+      "!.astro",
+      "!.wrangler",
+      "!coverage",
+      "!dist",
+      "!node_modules"
+    ]
+  },
+  "css": {
+    "assist": {
+      "enabled": true
+    },
+    "parser": {
+      "cssModules": true
+    },
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space"
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+  "html": {
+    "formatter": {
+      "enabled": true
+    }
+  },
+  "json": {
+    "assist": {
+      "enabled": true
+    },
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space"
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+  "javascript": {
+    "assist": {
+      "enabled": true
+    },
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "single"
+    },
+    "linter": {
+      "enabled": true
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "recommended": true,
+      "source": {
+        "recommended": true,
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              ":NODE:",
+              ":BUN:",
+              ":BLANK_LINE:",
+              ":URL:",
+              ":BLANK_LINE:",
+              ":PACKAGE:",
+              ":PACKAGE_WITH_PROTOCOL:",
+              ":BLANK_LINE:",
+              ":ALIAS:",
+              ":PATH:"
+            ]
+          }
+        },
+        "useSortedAttributes": "on",
+        "useSortedProperties": "on",
+        "useSortedKeys": "off" // Rule causes more mess than it solves
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
+  },
+  "linter": {
+    "enabled": true,
+    "domains": {
+      "test": "all"
+    },
+    "rules": {
+      "recommended": true,
+      "style": {
+        "recommended": true,
+        "noArguments": "on",
+        "noCommaOperator": "on",
+        "noDefaultExport": "on",
+        "noDoneCallback": "on",
+        "noImplicitBoolean": "on",
+        "noInferrableTypes": "on",
+        "noNamespaceImport": "on",
+        "noNegationElse": "on",
+        "noNonNullAssertion": "on",
+        "noParameterAssign": "on",
+        "noParameterProperties": "on",
+        "noRestrictedGlobals": "on",
+        "noShoutyConstants": "on",
+        "noUnusedTemplateLiteral": "on",
+        "noUselessElse": "on",
+        "noYodaExpression": "on",
+        "useAsConstAssertion": "on",
+        "useCollapsedElseIf": "on",
+        "useConsistentArrayType": {
+          "level": "on",
+          "options": {
+            "syntax": "generic"
+          }
+        },
+        "useConsistentBuiltinInstantiation": "on",
+        "useConst": "on",
+        "useDefaultParameterLast": "on",
+        "useDefaultSwitchClause": "on",
+        "useEnumInitializers": "on",
+        "useExponentiationOperator": "on",
+        "useExportType": "on",
+        "useForOf": "on",
+        "useFragmentSyntax": "on",
+        "useImportType": "on",
+        "useLiteralEnumMembers": "on",
+        "useNamingConvention": "on",
+        "useNodeAssertStrict": "on",
+        "useNodejsImportProtocol": "on",
+        "useNumberNamespace": "on",
+        "useNumericLiterals": "on",
+        "useSelfClosingElements": "on",
+        "useShorthandAssign": "on",
+        "useShorthandFunctionType": "on",
+        "useSingleVarDeclarator": "on",
+        "useTemplate": "on",
+        "useThrowNewError": "on",
+        "useThrowOnlyError": "on"
+      },
+      "correctness": {
+        "recommended": true,
+        "noConstantMathMinMaxClamp": "on",
+        "noNewSymbol": "on",
+        "noRenderReturnValue": "on",
+        "noUndeclaredDependencies": "on",
+        "noUndeclaredVariables": "on",
+        "noUnusedFunctionParameters": "on",
+        "noUnusedImports": "off", // Breaks in astro (enable once biome supports astro)
+        "noUnusedPrivateClassMembers": "on",
+        "noUnusedVariables": "off", // Breaks in astro (enable once biome supports astro)
+        "useArrayLiterals": "on",
+        "useExhaustiveDependencies": "on",
+        "useHookAtTopLevel": "on",
+        "useImportExtensions": "on",
+        "useJsxKeyInIterable": "on"
+      },
+      "complexity": {
+        "recommended": true,
+        "noExcessiveNestedTestSuites": "on",
+        "noForEach": "on",
+        "noUselessStringConcat": "on",
+        "noUselessUndefinedInitialization": "on",
+        "noVoid": "on",
+        "useDateNow": "on",
+        "useSimplifiedLogicExpression": "on",
+        "useWhile": "on"
+      },
+      "nursery": {
+        "recommended": true,
+        "noAwaitInLoop": "on",
+        "noBitwiseOperators": "warn",
+        "noCommonJs": "on",
+        "noConstantBinaryExpression": "on",
+        "noDescendingSpecificity": "on",
+        "noDocumentCookie": "on",
+        "noDuplicateCustomProperties": "on",
+        "noDuplicateElseIf": "on",
+        "noDuplicateFields": "on",
+        "noDuplicateProperties": "on",
+        "noDynamicNamespaceImportAccess": "on",
+        "noExportedImports": "on",
+        "noFloatingPromises": "on",
+        "noGlobalDirnameFilename": "on",
+        "noImgElement": "on",
+        "noImportCycles": "on",
+        "noIrregularWhitespace": "on",
+        "noMissingVarFunction": "on",
+        "noNestedTernary": "on",
+        "noNoninteractiveElementInteractions": "on",
+        "noOctalEscape": "on",
+        "noProcessEnv": "on",
+        "noProcessGlobal": "on",
+        "noSecrets": "on",
+        "noStaticElementInteractions": "on",
+        "noSubstr": "on",
+        "noTemplateCurlyInString": "warn",
+        "noTsIgnore": "on",
+        "noUnknownAtRule": "on",
+        "noUnknownPseudoClass": "on",
+        "noUnknownPseudoElement": "on",
+        "noUnknownTypeSelector": "on",
+        "noUnwantedPolyfillio": "on",
+        "noUselessEscapeInRegex": "on",
+        "noUselessEscapeInString": "on",
+        "noUselessStringRaw": "on",
+        "noUselessUndefined": "on",
+        "noValueAtRule": "on",
+        "useAriaPropsSupportedByRole": "on",
+        "useAtIndex": "on",
+        "useCollapsedIf": "on",
+        "useComponentExportOnlyModules": "on",
+        "useConsistentCurlyBraces": "on",
+        "useConsistentMemberAccessibility": "on",
+        "useConsistentObjectDefinition": {
+          "level": "on",
+          "options": {
+            "syntax": "shorthand"
+          }
+        },
+        "useDeprecatedReason": "on",
+        "useExportsLast": "on",
+        "useGoogleFontDisplay": "on",
+        "useGoogleFontPreconnect": "on",
+        "useParseIntRadix": "on",
+        "useSortedClasses": "on",
+        "useSymbolDescription": "on",
+        "useTrimStartEnd": "on",
+        "useValidAutocomplete": "on"
+      },
+      "performance": {
+        "recommended": true,
+        "noBarrelFile": "error",
+        "noReExportAll": "error",
+        "useTopLevelRegex": "error",
+        "noDelete": "error"
+      },
+      "suspicious": {
+        "recommended": true,
+        "noConsole": {
+          "level": "error",
+          "options": {
+            "allow": ["warn", "error", "debug", "info"]
+          }
+        },
+        "noDuplicateTestHooks": "on",
+        "noEmptyBlockStatements": "on",
+        "noEvolvingTypes": "on",
+        "noExportsInTest": "on",
+        "noFocusedTests": "on",
+        "noMisplacedAssertion": "on",
+        "noReactSpecificProps": "on",
+        "noSkippedTests": "on",
+        "noVar": "on",
+        "useAwait": "on",
+        "useErrorMessage": "on",
+        "useNumberToFixedDigitsArgument": "on"
+      },
+      "a11y": {
+        "recommended": true
+      },
+      "security": {
+        "recommended": true
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.test.ts", "**/*.test.tsx"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noExplicitAny": "off" // Tests, so any is fine here
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/*.astro"],
+      "assist": {
+        "actions": {
+          "source": {
+            "organizeImports": "off" // When saving it infinitely adds new lines to the file
+          }
+        }
+      }
+    },
+    {
+      "includes": ["vitest.config.ts", "astro.config.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off" // These external files need to be default exports
+          }
+        }
+      }
+    }
+  ],
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "defaultBranch": "main",
+    "useIgnoreFile": true
+  }
+}

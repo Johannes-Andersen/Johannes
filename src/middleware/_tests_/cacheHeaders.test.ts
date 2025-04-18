@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
-import cacheHeaders from '../cacheHeaders';
+
+import { cacheHeaders } from '../cacheHeaders.ts';
 
 describe('cacheHeaders middleware', () => {
   it('should set Cache-Control header for 2xx responses with GET method', async () => {

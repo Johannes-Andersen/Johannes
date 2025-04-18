@@ -23,7 +23,7 @@ const cspDirectives = [
   .filter(Boolean)
   .join(' ');
 
-const securityHeaders = defineMiddleware(async (_, next) => {
+export const securityHeaders = defineMiddleware(async (_, next) => {
   const response = await next();
   const { headers } = response;
 
@@ -86,5 +86,3 @@ const securityHeaders = defineMiddleware(async (_, next) => {
 
   return response;
 });
-
-export default securityHeaders;

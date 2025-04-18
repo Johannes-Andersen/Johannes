@@ -1,6 +1,6 @@
 import { defineMiddleware } from 'astro:middleware';
 
-const cloudflareCache = defineMiddleware(async (ctx, next) => {
+export const cloudflareCache = defineMiddleware(async (ctx, next) => {
   const request = ctx.request;
   const cache = ctx.locals.runtime.caches.default;
   const requestUrl = new URL(request.url);
@@ -18,5 +18,3 @@ const cloudflareCache = defineMiddleware(async (ctx, next) => {
 
   return response;
 });
-
-export default cloudflareCache;

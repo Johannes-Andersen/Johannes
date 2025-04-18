@@ -1,5 +1,5 @@
-import { AtpAgent } from '@atproto/api';
 import type { AtpSessionData, AtpSessionEvent } from '@atproto/api';
+import { AtpAgent } from '@atproto/api';
 
 interface Cache {
   get(key: string): Promise<string | null>;
