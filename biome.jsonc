@@ -152,6 +152,11 @@
         "useCollapsedIf": "on",
         "useAtIndex": "on",
         "noDescendingSpecificity": "on",
+        "noSubstr": "on",
+        "noProcessEnv": "on",
+        "noCommonJs": "on",
+        "noNestedTernary": "on",
+        "noExportedImports": "on",
         "noValueAtRule": "on"
       },
       "correctness": {
@@ -192,29 +197,13 @@
         "recommended": true,
         "noAwaitInLoop": "on",
         "noBitwiseOperators": "warn",
-        "noCommonJs": "on",
         "noConstantBinaryExpression": "on",
-        "noDocumentCookie": "on",
-        "noDuplicateCustomProperties": "on",
-        "noDuplicateElseIf": "on",
-        "noDuplicateFields": "on",
-        "noDuplicateProperties": "on",
-        "noDynamicNamespaceImportAccess": "on",
-        "noExportedImports": "on",
         "noFloatingPromises": "on",
         "noGlobalDirnameFilename": "on",
-        "noImgElement": "on",
         "noImportCycles": "on",
-        "noIrregularWhitespace": "on",
-        "noNestedTernary": "on",
         "noNoninteractiveElementInteractions": "on",
-        "noOctalEscape": "on",
-        "noProcessEnv": "on",
         "noProcessGlobal": "on",
         "noSecrets": "on",
-        "noStaticElementInteractions": "on",
-        "noSubstr": "on",
-        "noTemplateCurlyInString": "warn",
         "noTsIgnore": "on",
         "noUnknownAtRule": "on",
         "noUnwantedPolyfillio": "on",
@@ -237,6 +226,8 @@
         "noBarrelFile": "error",
         "noReExportAll": "error",
         "useTopLevelRegex": "error",
+        "noImgElement": "on",
+        "noDynamicNamespaceImportAccess": "on",
         "noDelete": "error"
       },
       "suspicious": {
@@ -259,12 +250,21 @@
         "useAwait": "on",
         "useErrorMessage": "on",
         "useNumberToFixedDigitsArgument": "on",
+        "noTemplateCurlyInString": "warn",
+        "noOctalEscape": "on",
+        "noDuplicateProperties": "on",
+        "noIrregularWhitespace": "on",
+        "noDuplicateFields": "on",
+        "noDuplicateElseIf": "on",
+        "noDuplicateCustomProperties": "on",
+        "noDocumentCookie": "on",
         "useGoogleFontDisplay": "on"
       },
       "a11y": {
         "recommended": true,
         "useValidAutocomplete": "on",
-        "useAriaPropsSupportedByRole": "on"
+        "useAriaPropsSupportedByRole": "on",
+        "noStaticElementInteractions": "on"
       },
       "security": {
         "recommended": true
