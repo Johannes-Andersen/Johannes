@@ -162,7 +162,6 @@
       "correctness": {
         "recommended": true,
         "noConstantMathMinMaxClamp": "on",
-        "noNewSymbol": "on",
         "noRenderReturnValue": "on",
         "noUndeclaredDependencies": "on",
         "noUndeclaredVariables": "on",
