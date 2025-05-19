@@ -103,7 +103,6 @@
         "noDoneCallback": "on",
         "noImplicitBoolean": "on",
         "noInferrableTypes": "on",
-        "noNamespaceImport": "on",
         "noNegationElse": "on",
         "noNonNullAssertion": "on",
         "noParameterAssign": "on",
@@ -136,7 +135,6 @@
         "useNodeAssertStrict": "on",
         "useNodejsImportProtocol": "on",
         "useNumberNamespace": "on",
-        "useNumericLiterals": "on",
         "useSelfClosingElements": "on",
         "useShorthandAssign": "on",
         "useShorthandFunctionType": "on",
@@ -190,6 +188,7 @@
         "useSimplifiedLogicExpression": "on",
         "noUselessStringRaw": "on",
         "noUselessEscapeInRegex": "on",
+        "useNumericLiterals": "on",
         "useWhile": "on"
       },
       "nursery": {
@@ -227,6 +226,7 @@
         "useTopLevelRegex": "error",
         "noImgElement": "on",
         "noDynamicNamespaceImportAccess": "on",
+        "noNamespaceImport": "on",
         "noDelete": "error"
       },
       "suspicious": {
