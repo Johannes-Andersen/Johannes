@@ -157,7 +157,8 @@
         "noCommonJs": "on",
         "noNestedTernary": "on",
         "noExportedImports": "on",
-        "noValueAtRule": "on"
+        "noValueAtRule": "on",
+        "useArrayLiterals": "on"
       },
       "correctness": {
         "recommended": true,
@@ -169,7 +170,6 @@
         "noUnusedImports": "off", // Breaks in astro (enable once biome supports astro)
         "noUnusedPrivateClassMembers": "on",
         "noUnusedVariables": "off", // Breaks in astro (enable once biome supports astro)
-        "useArrayLiterals": "on",
         "useExhaustiveDependencies": "on",
         "useHookAtTopLevel": "on",
         "useImportExtensions": "on",
