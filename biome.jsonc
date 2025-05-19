@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.0-beta.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.0.0-beta.5/schema.json",
   "files": {
     "includes": [
       "**",
@@ -103,7 +103,6 @@
         "noDoneCallback": "on",
         "noImplicitBoolean": "on",
         "noInferrableTypes": "on",
-        "noNamespaceImport": "on",
         "noNegationElse": "on",
         "noNonNullAssertion": "on",
         "noParameterAssign": "on",
@@ -136,7 +135,6 @@
         "useNodeAssertStrict": "on",
         "useNodejsImportProtocol": "on",
         "useNumberNamespace": "on",
-        "useNumericLiterals": "on",
         "useSelfClosingElements": "on",
         "useShorthandAssign": "on",
         "useShorthandFunctionType": "on",
@@ -157,7 +155,8 @@
         "noCommonJs": "on",
         "noNestedTernary": "on",
         "noExportedImports": "on",
-        "noValueAtRule": "on"
+        "noValueAtRule": "on",
+        "useArrayLiterals": "on"
       },
       "correctness": {
         "recommended": true,
@@ -169,7 +168,6 @@
         "noUnusedImports": "off", // Breaks in astro (enable once biome supports astro)
         "noUnusedPrivateClassMembers": "on",
         "noUnusedVariables": "off", // Breaks in astro (enable once biome supports astro)
-        "useArrayLiterals": "on",
         "useExhaustiveDependencies": "on",
         "useHookAtTopLevel": "on",
         "useImportExtensions": "on",
@@ -190,6 +188,7 @@
         "useSimplifiedLogicExpression": "on",
         "noUselessStringRaw": "on",
         "noUselessEscapeInRegex": "on",
+        "useNumericLiterals": "on",
         "useWhile": "on"
       },
       "nursery": {
@@ -227,6 +226,7 @@
         "useTopLevelRegex": "error",
         "noImgElement": "on",
         "noDynamicNamespaceImportAccess": "on",
+        "noNamespaceImport": "on",
         "noDelete": "error"
       },
       "suspicious": {
