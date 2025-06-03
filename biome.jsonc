@@ -97,8 +97,6 @@
       "recommended": true,
       "style": {
         "recommended": true,
-        "noArguments": "on",
-        "noCommaOperator": "on",
         "noDefaultExport": "on",
         "noDoneCallback": "on",
         "noImplicitBoolean": "on",
@@ -178,6 +176,8 @@
         "useJsxKeyInIterable": "on"
       },
       "complexity": {
+        "noArguments": "on",
+        "noCommaOperator": "on",
         "recommended": true,
         "noExcessiveNestedTestSuites": "on",
         "noForEach": "on",
