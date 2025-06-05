@@ -55,8 +55,6 @@ describe('securityHeaders middleware', () => {
     expect(headers.get('cross-origin-opener-policy')).toBe('same-origin');
     expect(headers.get('cross-origin-resource-policy')).toBe('same-origin');
     expect(headers.get('cross-origin-embedder-policy')).toBe('require-corp');
-
-    expect(headers.get('content-security-policy')).toBeDefined();
   });
 
   it('should not set security headers for non-HTML documents', async () => {

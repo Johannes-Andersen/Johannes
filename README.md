@@ -38,7 +38,7 @@ This project uses [pnpm](https://pnpm.io/) as the package manager. Make sure you
 
 3. Create a `dev.vars` file in the root directory and add your environment variables. You can use `dev.vars.example` as a reference.
     ```bash
-    cp dev.vars.example dev.vars
+    cp .dev.vars.example .dev.vars
     ```
 
 4. Start the development server

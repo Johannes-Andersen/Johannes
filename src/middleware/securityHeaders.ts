@@ -6,23 +6,6 @@ function setDefault(headers: Headers, key: string, value: string) {
   }
 }
 
-// Lax CSP for now, the unsafe-inline should really be removed. (Pending astro proposal https://github.com/withastro/roadmap/issues/1149)
-const cspDirectives = [
-  "default-src 'self';",
-  "img-src 'self' blob: data:;",
-  "script-src 'self' 'unsafe-inline' challenges.cloudflare.com ajax.cloudflare.com static.cloudflareinsights.com;",
-  "style-src 'self' 'unsafe-inline';",
-  "font-src 'self' data:;",
-  "object-src 'none';",
-  "connect-src 'self' cloudflareinsights.com;",
-  "frame-ancestors 'none';",
-  'block-all-mixed-content;',
-  'frame-src https://challenges.cloudflare.com;',
-  'sandbox allow-forms allow-same-origin allow-scripts allow-top-navigation allow-popups;',
-]
-  .filter(Boolean)
-  .join(' ');
-
 export const securityHeaders = defineMiddleware(async (_, next) => {
   const response = await next();
   const { headers } = response;
@@ -80,9 +63,6 @@ export const securityHeaders = defineMiddleware(async (_, next) => {
   setDefault(headers, 'cross-origin-opener-policy', 'same-origin');
   setDefault(headers, 'cross-origin-resource-policy', 'same-origin');
   setDefault(headers, 'cross-origin-embedder-policy', 'require-corp');
-
-  // Content Security Policy
-  setDefault(headers, 'content-security-policy', cspDirectives);
 
   return response;
 });
