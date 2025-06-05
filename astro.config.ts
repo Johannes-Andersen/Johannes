@@ -44,9 +44,9 @@ export default defineConfig({
         resources: [
           'self',
           ...(isDev ? ['unsafe-inline'] : []),
-          'https://challenges.cloudflare.com',
-          'https://ajax.cloudflare.com',
-          'https://static.cloudflareinsights.com',
+          "self' https://challenges.cloudflare.com 'self", // TODO: Remove 'self' bypass
+          "self' https://ajax.cloudflare.com 'self", // TODO: Remove 'self' bypass
+          "self' https://static.cloudflareinsights.com 'self", // TODO: Remove 'self' bypass
         ],
         strictDynamic: false,
       },
