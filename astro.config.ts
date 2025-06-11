@@ -38,15 +38,15 @@ export default defineConfig({
         // 'sandbox allow-forms allow-same-origin allow-scripts allow-top-navigation allow-popups', // The Content Security Policy directive 'sandbox' is ignored when delivered via a <meta> element.
       ],
       styleDirective: {
-        resources: ['self', ...(isDev ? ['unsafe-inline'] : [])],
+        resources: ["'self'", ...(isDev ? ["'unsafe-inline'"] : [])],
       },
       scriptDirective: {
         resources: [
           'self',
           ...(isDev ? ['unsafe-inline'] : []),
-          "self' https://challenges.cloudflare.com 'self", // TODO: Remove 'self' bypass
-          "self' https://ajax.cloudflare.com 'self", // TODO: Remove 'self' bypass
-          "self' https://static.cloudflareinsights.com 'self", // TODO: Remove 'self' bypass
+          "'self' https://challenges.cloudflare.com",
+          "'self' https://ajax.cloudflare.com",
+          "'self' https://static.cloudflareinsights.com",
         ],
         strictDynamic: false,
       },
