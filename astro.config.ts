@@ -42,11 +42,11 @@ export default defineConfig({
       },
       scriptDirective: {
         resources: [
-          'self',
-          ...(isDev ? ['unsafe-inline'] : []),
-          "'self' https://challenges.cloudflare.com",
-          "'self' https://ajax.cloudflare.com",
-          "'self' https://static.cloudflareinsights.com",
+          "'self'",
+          ...(isDev ? ["'unsafe-inline'"] : []),
+          'https://challenges.cloudflare.com',
+          'https://ajax.cloudflare.com',
+          'https://static.cloudflareinsights.com',
         ],
         strictDynamic: false,
       },
