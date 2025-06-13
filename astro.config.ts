@@ -32,10 +32,10 @@ export default defineConfig({
         "font-src 'self' data:",
         "object-src 'none'",
         "connect-src 'self' cloudflareinsights.com",
-        // "frame-ancestors 'none'", // The Content Security Policy directive 'frame-ancestors' is ignored when delivered via a <meta> element.
+        "frame-ancestors 'none'",
         // 'upgrade-insecure-requests 1', // The Content Security Policy directive 'upgrade-insecure-requests' should be empty, but was delivered with a value of '1'. The directive has been applied, and the value ignored.
         "frame-src 'self' https://challenges.cloudflare.com",
-        // 'sandbox allow-forms allow-same-origin allow-scripts allow-top-navigation allow-popups', // The Content Security Policy directive 'sandbox' is ignored when delivered via a <meta> element.
+        'sandbox allow-forms allow-same-origin allow-scripts allow-top-navigation allow-popups',
       ],
       styleDirective: {
         resources: ["'self'", ...(isDev ? ["'unsafe-inline'"] : [])],
