@@ -28,7 +28,7 @@
     "@astrojs/check": "0.9.4",
     "@astrojs/cloudflare": "12.6.0",
     "@astrojs/sitemap": "3.4.1",
-    "@atproto/api": "0.15.19",
+    "@atproto/api": "0.15.20",
     "@tailwindcss/vite": "4.1.11",
     "astro": "5.10.1",
     "tailwindcss": "4.1.11"
