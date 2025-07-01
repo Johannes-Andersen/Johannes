@@ -30,7 +30,7 @@
     "@astrojs/sitemap": "3.4.1",
     "@atproto/api": "0.15.20",
     "@tailwindcss/vite": "4.1.11",
-    "astro": "5.10.1",
+    "astro": "5.10.2",
     "tailwindcss": "4.1.11"
   },
   "devDependencies": {
