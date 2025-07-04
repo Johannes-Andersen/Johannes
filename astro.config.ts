@@ -1,9 +1,8 @@
+import db from '@astrojs/db';
 import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, envField } from 'astro/config';
-
-import db from '@astrojs/db';
 
 const isDev = import.meta.env.DEV;
 
@@ -56,22 +55,17 @@ export default defineConfig({
         context: 'server',
         access: 'public',
         startsWith: 'did:',
-        default: 'did:plc:euvjn7oyu4srnlql4efh6zar',
-        optional: true,
       }),
       ATPROTO_SERVICE_URL: envField.string({
         context: 'server',
         access: 'public',
         url: true,
         default: 'https://partall.no',
-        optional: true,
       }),
       ATPROTO_ACCOUNT_DID: envField.string({
         context: 'server',
         access: 'public',
         startsWith: 'did:',
-        default: 'did:plc:euvjn7oyu4srnlql4efh6zar',
-        optional: true,
       }),
       ATPROTO_SERVICE_PASSWORD: envField.string({
         context: 'server',

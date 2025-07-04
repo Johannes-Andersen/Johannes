@@ -5,7 +5,7 @@ describe('Home Page', () => {
 
   it('should display my name and profile ID', () => {
     cy.get('h1').should('contain', 'Johannes');
-    cy.get('h2').should('contain', 'did:plc:euvjn7oyu4srnlql4efh6zar');
+    cy.get('h2').should('contain', Cypress.env('ATPROTO_ACCOUNT_DID'));
   });
 
   it('should link to Github and BlueSky profiles', () => {

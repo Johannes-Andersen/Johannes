@@ -295,7 +295,8 @@
       "linter": {
         "rules": {
           "style": {
-            "noDefaultExport": "off" // These external files need to be default exports
+            "noDefaultExport": "off", // These external files need to be default exports
+            "useNamingConvention": "off"
           }
         }
       }

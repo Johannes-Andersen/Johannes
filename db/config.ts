@@ -1,6 +1,6 @@
 import { column, defineDb, defineTable } from 'astro:db';
 
-const Session = defineTable({
+const sessionTable = defineTable({
   indexes: [{ on: ['did'], unique: true }],
   columns: {
     id: column.number({ primaryKey: true, unique: true }),
@@ -17,5 +17,5 @@ const Session = defineTable({
 });
 
 export default defineDb({
-  tables: { Session },
+  tables: { sessionTable },
 });

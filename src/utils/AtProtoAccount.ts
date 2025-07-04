@@ -1,6 +1,6 @@
 import type { AtpSessionData, AtpSessionEvent } from '@atproto/api';
 import { AtpAgent } from '@atproto/api';
-import { db, eq, Session } from 'astro:db';
+import { db, eq, sessionTable } from 'astro:db';
 
 interface AccountConfig {
   serviceAccount: string;
@@ -36,13 +36,13 @@ export class AtProtoAccount {
     try {
       if (sess) {
         await db
-          .insert(Session)
+          .insert(sessionTable)
           .values({
             ...sess,
             did: this.config.serviceAccount,
           })
           .onConflictDoUpdate({
-            target: Session.did,
+            target: sessionTable.did,
             set: sess,
           });
 
@@ -50,8 +50,8 @@ export class AtProtoAccount {
       } else {
         // Session was deleted, delete session
         await db
-          .delete(Session)
-          .where(eq(Session.did, this.config.serviceAccount));
+          .delete(sessionTable)
+          .where(eq(sessionTable.did, this.config.serviceAccount));
 
         console.debug(`[${evt}] Removed session data`);
       }
@@ -64,8 +64,8 @@ export class AtProtoAccount {
     try {
       const sessionData = await db
         .select()
-        .from(Session)
-        .where(eq(Session.did, this.config.serviceAccount));
+        .from(sessionTable)
+        .where(eq(sessionTable.did, this.config.serviceAccount));
 
       if (!sessionData?.length) return null;
       const session = sessionData[0];
