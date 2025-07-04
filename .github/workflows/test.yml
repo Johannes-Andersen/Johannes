@@ -33,7 +33,16 @@ jobs:
         with:
           build: pnpm build
           start: pnpm run dev
-          wait-on: 'http://localhost:4321'
           install-command: pnpm install --prefer-offline
-          wait-on-timeout: 60
           browser: ${{ matrix.browser }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos
+          if-no-files-found: ignore
