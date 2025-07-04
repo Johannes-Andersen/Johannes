@@ -1,19 +1,16 @@
-import cloudflare from '@astrojs/cloudflare';
+import db from '@astrojs/db';
+import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 
 const isDev = import.meta.env.DEV;
 
 export default defineConfig({
   output: 'server',
-  adapter: cloudflare({
-    imageService: 'cloudflare',
-    platformProxy: {
-      enabled: true,
-      configPath: 'wrangler.jsonc',
-      persist: true,
-    },
+  adapter: node({
+    mode: 'standalone',
+    experimentalStaticHeaders: true,
   }),
   // TODO: Investigate "require-trusted-types-for" and "trusted-types",
   experimental: {
@@ -52,6 +49,33 @@ export default defineConfig({
       },
     },
   },
+  env: {
+    schema: {
+      ATPROTO_SERVICE_DID: envField.string({
+        context: 'server',
+        access: 'public',
+        startsWith: 'did:',
+      }),
+      ATPROTO_SERVICE_URL: envField.string({
+        context: 'server',
+        access: 'public',
+        url: true,
+        default: 'https://partall.no',
+      }),
+      ATPROTO_ACCOUNT_DID: envField.string({
+        context: 'server',
+        access: 'public',
+        startsWith: 'did:',
+      }),
+      ATPROTO_SERVICE_PASSWORD: envField.string({
+        context: 'server',
+        access: 'secret',
+        optional: false,
+        min: 8,
+      }),
+    },
+    validateSecrets: true,
+  },
   prefetch: {
     prefetchAll: true,
   },
@@ -64,6 +88,6 @@ export default defineConfig({
       sourcemap: true,
     },
   },
-  integrations: [sitemap()],
+  integrations: [sitemap(), db()],
   site: 'https://johand.dev',
 });

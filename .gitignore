@@ -7,6 +7,8 @@
 
 # testing
 /coverage
+cypress/videos
+cypress/screenshots
 
 # generated types
 .astro/
@@ -33,7 +35,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# Wrangler cache
-.cache
-.wrangler
-.dev.vars
+# Local database
+db/astro.db

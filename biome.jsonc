@@ -5,7 +5,6 @@
       "**",
       "!**/worker-configuration.d.ts",
       "!.astro",
-      "!.wrangler",
       "!coverage",
       "!dist",
       "!node_modules"
@@ -272,16 +271,6 @@
   },
   "overrides": [
     {
-      "includes": ["**/*.test.ts", "**/*.test.tsx"],
-      "linter": {
-        "rules": {
-          "suspicious": {
-            "noExplicitAny": "off" // Tests, so any is fine here
-          }
-        }
-      }
-    },
-    {
       "includes": ["**/*.astro"],
       "assist": {
         "actions": {
@@ -292,11 +281,22 @@
       }
     },
     {
-      "includes": ["vitest.config.ts", "astro.config.ts"],
+      "includes": ["**/cypress/**/*.cy.ts"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUndeclaredVariables": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["astro.config.ts", "cypress.config.ts", "db/config.ts"],
       "linter": {
         "rules": {
           "style": {
-            "noDefaultExport": "off" // These external files need to be default exports
+            "noDefaultExport": "off", // These external files need to be default exports
+            "useNamingConvention": "off"
           }
         }
       }
