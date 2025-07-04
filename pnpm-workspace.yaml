@@ -5,4 +5,3 @@ onlyBuiltDependencies:
   - esbuild
   - playwright-webkit
   - sharp
-  - workerd
