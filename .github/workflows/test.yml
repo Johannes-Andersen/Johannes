@@ -40,6 +40,7 @@ jobs:
           ATPROTO_SERVICE_URL: ${{ secrets.ATPROTO_SERVICE_URL}}
           ATPROTO_ACCOUNT_DID: ${{ secrets.ATPROTO_ACCOUNT_DID}}
           ATPROTO_SERVICE_PASSWORD: ${{ secrets.ATPROTO_SERVICE_PASSWORD}}
+          ASTRO_DB_REMOTE_URL: ${{ secrets.ASTRO_DB_REMOTE_URL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
