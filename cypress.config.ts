@@ -2,6 +2,7 @@ import { defineConfig } from 'cypress';
 
 export default defineConfig({
   redirectionLimit: 5,
+  experimentalWebKitSupport: true,
   retries: {
     openMode: 0,
     runMode: 1,

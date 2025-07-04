@@ -39,6 +39,9 @@ importers:
       cypress:
         specifier: 14.5.1
         version: 14.5.1
+      playwright-webkit:
+        specifier: 1.53.2
+        version: 1.53.2
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -2237,6 +2240,16 @@ packages:
   pify@2.3.0:
     resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
     engines: {node: '>=0.10.0'}
+
+  playwright-core@1.53.2:
+    resolution: {integrity: sha512-ox/OytMy+2w1jcYEYlOo1Hhp8hZkLCximMTUTMBXjGUA1KoFfiSZ+DU+3a739jsPY0yoKH2TFy9S2fsJas8yAw==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  playwright-webkit@1.53.2:
+    resolution: {integrity: sha512-Qdf9tO2HlNCmWBTzzOVdiHai8ABZwdO7r3gkYLQREG3cXYFJnLURH1BsBVuTMoncuXwDa9J/00KphTI6ZSSiog==}
+    engines: {node: '>=18'}
+    hasBin: true
 
   postcss@8.5.6:
     resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
@@ -5413,6 +5426,12 @@ snapshots:
   picomatch@4.0.2: {}
 
   pify@2.3.0: {}
+
+  playwright-core@1.53.2: {}
+
+  playwright-webkit@1.53.2:
+    dependencies:
+      playwright-core: 1.53.2
 
   postcss@8.5.6:
     dependencies:

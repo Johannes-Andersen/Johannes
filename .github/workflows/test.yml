@@ -29,16 +29,11 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "pnpm"
 
-      - name: Install dependencies
-        run: pnpm install --prefer-offline
-      
-      - name: Run build
-        run: pnpm build
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+      - uses: cypress-io/github-action@v6.10.1
         with:
+          build: pnpm build
           start: pnpm run dev
-          wait-on: 'http://localhost:4321/api/health'
+          wait-on: 'http://localhost:4321'
+          install-command: pnpm install --prefer-offline
           wait-on-timeout: 60
           browser: ${{ matrix.browser }}
