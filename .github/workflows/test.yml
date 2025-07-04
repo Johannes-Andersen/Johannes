@@ -23,22 +23,23 @@ jobs:
       options: --user 1001
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version-file: ".nvmrc"
           cache: "pnpm"
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
-        with:
-          run_install: true
+
+      - name: Install dependencies
+        run: pnpm install --prefer-offline
 
       - name: Install webkit dependencies
         if: matrix.browser == 'webkit'
         run: pnpm exec playwright install-deps webkit
         
-      - uses: cypress-io/github-action@v6.10.1
+      - uses: cypress-io/github-action@6c143abc292aa835d827652c2ea025d098311070 # v6.10.1
         with:
           build: pnpm build
-          start: pnpm run start
+          install-command: 
           browser: ${{ matrix.browser }}
         env:
           ATPROTO_SERVICE_DID: ${{ secrets.ATPROTO_SERVICE_DID}}
@@ -47,12 +48,12 @@ jobs:
           ATPROTO_SERVICE_PASSWORD: ${{ secrets.ATPROTO_SERVICE_PASSWORD}}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: cypress-screenshots
           path: cypress/screenshots
           if-no-files-found: ignore
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: cypress-videos
           path: cypress/videos
