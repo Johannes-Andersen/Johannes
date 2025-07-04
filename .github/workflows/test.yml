@@ -32,14 +32,15 @@ jobs:
       - uses: cypress-io/github-action@v6.10.1
         with:
           build: pnpm build
-          start: pnpm run dev
+          start: pnpm run start
           install-command: pnpm install --prefer-offline
           browser: ${{ matrix.browser }}
         env:
-          CYPRESS_ATPROTO_SERVICE_DID: ${{ secrets.ATPROTO_SERVICE_DID}}
-          CYPRESS_ATPROTO_SERVICE_URL: ${{ secrets.ATPROTO_SERVICE_URL}}
-          CYPRESS_ATPROTO_ACCOUNT_DID: ${{ secrets.ATPROTO_ACCOUNT_DID}}
-          CYPRESS_ATPROTO_SERVICE_PASSWORD: ${{ secrets.ATPROTO_SERVICE_PASSWORD}}
+          ATPROTO_SERVICE_DID: ${{ secrets.ATPROTO_SERVICE_DID}}
+          ATPROTO_SERVICE_URL: ${{ secrets.ATPROTO_SERVICE_URL}}
+          ATPROTO_ACCOUNT_DID: ${{ secrets.ATPROTO_ACCOUNT_DID}}
+          ATPROTO_SERVICE_PASSWORD: ${{ secrets.ATPROTO_SERVICE_PASSWORD}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: actions/upload-artifact@v4
         with:

@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "deploy": "wrangler deploy",
-    "preview": "wrangler dev",
-    "types": "wrangler types",
+    "start": "node ./dist/server/entry.mjs",
     "type-check": "astro check && tsc",
     "lint": "biome lint .",
     "lint:fix": "biome lint --write .",
@@ -25,11 +23,12 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
-    "@astrojs/cloudflare": "12.6.0",
+    "@astrojs/node": "9.3.0",
     "@astrojs/sitemap": "3.4.1",
     "@atproto/api": "0.15.23",
     "@tailwindcss/vite": "4.1.11",
     "astro": "5.11.0",
+    "sharp": "0.34.2",
     "tailwindcss": "4.1.11"
   },
   "devDependencies": {
@@ -37,7 +36,6 @@
     "@types/node": "24.0.10",
     "cypress": "14.5.1",
     "playwright-webkit": "1.53.2",
-    "typescript": "5.8.3",
-    "wrangler": "4.23.0"
+    "typescript": "5.8.3"
   }
 }

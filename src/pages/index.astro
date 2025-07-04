@@ -1,5 +1,11 @@
 ---
 import { Image } from 'astro:assets';
+import {
+  ATPROTO_SERVICE_URL,
+  ATPROTO_SERVICE_DID,
+  ATPROTO_SERVICE_PASSWORD,
+  ATPROTO_ACCOUNT_DID,
+} from 'astro:env/server';
 
 import Bluesky from '../components/icons/Bluesky.svg';
 import Github from '../components/icons/Github.svg';
@@ -9,19 +15,31 @@ import '../styles/global.css';
 
 import { AtProtoAccount } from '../utils/AtProtoAccount.ts';
 
-const { env } = Astro.locals.runtime;
+// TODO: Implement cache
+const cache = {
+  get: async (key: string): Promise<string | null> => {
+    const value = await localStorage.getItem(key);
+    return value ? JSON.parse(value) : null;
+  },
+  put: async (key: string, value: string): Promise<void> => {
+    await localStorage.setItem(key, JSON.stringify(value));
+  },
+  delete: async (key: string): Promise<void> => {
+    await localStorage.removeItem(key);
+  },
+};
 
 const account = new AtProtoAccount({
-  service: env.ATPROTO_SERVICE_URL,
-  serviceAccount: env.ATPROTO_SERVICE_DID,
-  password: env.ATPROTO_SERVICE_PASSWORD,
-  cache: env.ATPRTO_CACHE,
+  service: ATPROTO_SERVICE_URL,
+  serviceAccount: ATPROTO_SERVICE_DID,
+  password: ATPROTO_SERVICE_PASSWORD,
+  cache,
 });
 
 const agent = await account.getAgent();
 
 const { data: profile } = await agent.getProfile({
-  actor: env.ATPROTO_ACCOUNT_DID,
+  actor: ATPROTO_ACCOUNT_DID,
 });
 
 const name = profile.displayName || profile.handle;

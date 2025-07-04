@@ -1,19 +1,15 @@
-import cloudflare from '@astrojs/cloudflare';
+import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 
 const isDev = import.meta.env.DEV;
 
 export default defineConfig({
   output: 'server',
-  adapter: cloudflare({
-    imageService: 'cloudflare',
-    platformProxy: {
-      enabled: true,
-      configPath: 'wrangler.jsonc',
-      persist: true,
-    },
+  adapter: node({
+    mode: 'standalone',
+    experimentalStaticHeaders: true,
   }),
   // TODO: Investigate "require-trusted-types-for" and "trusted-types",
   experimental: {
@@ -51,6 +47,38 @@ export default defineConfig({
         strictDynamic: false,
       },
     },
+  },
+  env: {
+    schema: {
+      ATPROTO_SERVICE_DID: envField.string({
+        context: 'server',
+        access: 'public',
+        startsWith: 'did:',
+        default: 'did:plc:euvjn7oyu4srnlql4efh6zar',
+        optional: true,
+      }),
+      ATPROTO_SERVICE_URL: envField.string({
+        context: 'server',
+        access: 'public',
+        url: true,
+        default: 'https://partall.no',
+        optional: true,
+      }),
+      ATPROTO_ACCOUNT_DID: envField.string({
+        context: 'server',
+        access: 'public',
+        startsWith: 'did:',
+        default: 'did:plc:euvjn7oyu4srnlql4efh6zar',
+        optional: true,
+      }),
+      ATPROTO_SERVICE_PASSWORD: envField.string({
+        context: 'server',
+        access: 'secret',
+        optional: false,
+        min: 8,
+      }),
+    },
+    validateSecrets: true,
   },
   prefetch: {
     prefetchAll: true,

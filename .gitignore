@@ -34,8 +34,3 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-
-# Wrangler cache
-.cache
-.wrangler
-.dev.vars

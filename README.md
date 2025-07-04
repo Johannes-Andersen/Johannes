@@ -1,13 +1,13 @@
 # Johannes
 
-My personal website built with [Astro](https://astro.build/) and deployed on [Cloudflare](https://www.cloudflare.com/) pages.
+My personal website built with [Astro](https://astro.build/) and deployed on own infrastructure.
 
 ## Tech Stack
 
 - [Astro](https://astro.build/) - Web framework
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
 - [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [Cloudflare](https://www.cloudflare.com/) - Hosting
+- [Cloudflare](https://www.cloudflare.com/) - CDN
 - [Cypress](https://www.cypress.io/) - End-to-end testing
 - [Biome](https://biomejs.dev/) - Linting and formatting
 - [AT Protocol API](https://atproto.com/) - Bluesky integration
@@ -50,8 +50,6 @@ This project uses [pnpm](https://pnpm.io/) as the package manager. Make sure you
 
 - `pnpm dev` - Start development server
 - `pnpm build` - Build for production
-- `pnpm deploy` - Build and deploy to Cloudflare
-- `pnpm preview` - Build and preview locally with Wrangler
 - `pnpm cy:open` - Open Cypress in interactive mode
 - `pnpm type-check` - Check TypeScript types
 - `pnpm lint` - Lint code
