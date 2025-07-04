@@ -29,6 +29,10 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "pnpm"
 
+      - name: Install webkit dependencies
+        if: matrix.browser == 'webkit'
+        run: pnpm exec playwright install-deps webkit
+        
       - uses: cypress-io/github-action@v6.10.1
         with:
           build: pnpm build
