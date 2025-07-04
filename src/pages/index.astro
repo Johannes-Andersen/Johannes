@@ -81,6 +81,7 @@ const name = profile.displayName || profile.handle;
         <div class="mt-10 flex items-center justify-center space-x-8">
           <a
             href="https://github.com/Johannes-Andersen"
+            data-test="github-link"
             target="_blank"
             rel="noopener noreferrer"
             class="text-slate-300 hover:text-slate-50 transition-colors"
@@ -90,6 +91,7 @@ const name = profile.displayName || profile.handle;
           </a>
           <a
             href={`https://bsky.app/profile/${profile.handle}`}
+            data-test="bluesky-link"
             target="_blank"
             rel="noopener noreferrer"
             class="text-slate-300 hover:text-slate-50 transition-colors"

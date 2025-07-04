@@ -9,15 +9,14 @@
     "deploy": "wrangler deploy",
     "preview": "wrangler dev",
     "types": "wrangler types",
-    "test": "vitest",
     "type-check": "astro check && tsc",
-    "coverage": "vitest run --coverage",
     "lint": "biome lint .",
     "lint:fix": "biome lint --write .",
     "format": "biome format .",
     "format:fix": "biome format --write .",
     "check": "biome check .",
-    "check:fix": "biome check --write ."
+    "check:fix": "biome check --write .",
+    "cy:open": "cypress open"
   },
   "packageManager": "pnpm@10.12.4",
   "engines": {
@@ -36,9 +35,8 @@
   "devDependencies": {
     "@biomejs/biome": "2.0.6",
     "@types/node": "24.0.10",
-    "@vitest/coverage-v8": "3.2.4",
+    "cypress": "14.5.1",
     "typescript": "5.8.3",
-    "vitest": "3.2.4",
     "wrangler": "4.23.0"
   }
 }

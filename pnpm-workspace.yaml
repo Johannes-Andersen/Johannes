@@ -1,6 +1,7 @@
 onlyBuiltDependencies:
   - '@biomejs/biome'
   - '@tailwindcss/oxide'
+  - cypress
   - esbuild
   - sharp
   - workerd
