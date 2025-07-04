@@ -6,9 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "ASTRO_DATABASE_FILE=./db/astro.db astro build",
-    "start": "ASTRO_DATABASE_FILE=./db/astro.db node ./dist/server/entry.mjs",
     "build:production": "astro build --remote",
-    "start:production": "node ./dist/server/entry.mjs",
+    "start": "node ./dist/server/entry.mjs",
     "type-check": "astro check && tsc",
     "lint": "biome lint .",
     "lint:fix": "biome lint --write .",
