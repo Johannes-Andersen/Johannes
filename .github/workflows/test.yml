@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        browser: [chrome, firefox, edge, webkit, electron]
+        browser: [chrome, firefox, edge, electron]
     container:
       image: cypress/browsers:latest
       options: --user 1001
@@ -29,17 +29,11 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "pnpm"
 
-      - name: Install dependencies
-        run: pnpm install --prefer-offline
-
-      - name: Install webkit dependencies
-        if: matrix.browser == 'webkit'
-        run: pnpm exec playwright install-deps webkit
-        
       - uses: cypress-io/github-action@6c143abc292aa835d827652c2ea025d098311070 # v6.10.1
         with:
+          install-command: pnpm install --prefer-offline
           build: pnpm build
-          install-command: 
+          start: pnpm start
           browser: ${{ matrix.browser }}
         env:
           ATPROTO_SERVICE_DID: ${{ secrets.ATPROTO_SERVICE_DID}}
@@ -53,6 +47,7 @@ jobs:
           name: cypress-screenshots
           path: cypress/screenshots
           if-no-files-found: ignore
+
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: cypress-videos

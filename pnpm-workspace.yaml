@@ -3,5 +3,4 @@ onlyBuiltDependencies:
   - '@tailwindcss/oxide'
   - cypress
   - esbuild
-  - playwright-webkit
   - sharp
