@@ -1,23 +1,16 @@
 import type { AtpSessionData, AtpSessionEvent } from '@atproto/api';
 import { AtpAgent } from '@atproto/api';
-
-interface Cache {
-  get(key: string): Promise<string | null>;
-  put(key: string, value: string): Promise<void>;
-  delete(key: string): Promise<void>;
-}
+import { db, eq, Session } from 'astro:db';
 
 interface AccountConfig {
   serviceAccount: string;
   password: string;
   service: string;
-  cache: Cache;
 }
 
 export class AtProtoAccount {
   private agent: AtpAgent;
   private config: AccountConfig;
-  private cache: Cache;
 
   constructor(config: AccountConfig) {
     this.config = config;
@@ -25,7 +18,6 @@ export class AtProtoAccount {
       service: this.config.service,
       persistSession: this.persistSession.bind(this),
     });
-    this.cache = config.cache;
   }
 
   async logout(): Promise<boolean> {
@@ -40,28 +32,46 @@ export class AtProtoAccount {
     }
   }
 
-  private async persistSession(_evt: AtpSessionEvent, sess?: AtpSessionData) {
+  private async persistSession(evt: AtpSessionEvent, sess?: AtpSessionData) {
     try {
       if (sess) {
-        await this.cache.put(this.config.serviceAccount, JSON.stringify(sess));
+        await db
+          .insert(Session)
+          .values({
+            ...sess,
+            did: this.config.serviceAccount,
+          })
+          .onConflictDoUpdate({
+            target: Session.did,
+            set: sess,
+          });
 
-        console.debug('Persisted session data');
+        console.debug(`[${evt}] Persisted session data`);
       } else {
         // Session was deleted, delete session
-        await this.cache.delete(this.config.serviceAccount);
-        console.debug('Removed session data');
+        await db
+          .delete(Session)
+          .where(eq(Session.did, this.config.serviceAccount));
+
+        console.debug(`[${evt}] Removed session data`);
       }
     } catch (error) {
-      console.error(error, 'Failed to persist session');
+      console.error(error, `[${evt}] Failed to persist session`);
     }
   }
 
   private async loadSession(): Promise<AtpSessionData | null> {
     try {
-      const sessionData = await this.cache.get(this.config.serviceAccount);
-      if (!sessionData) return null;
+      const sessionData = await db
+        .select()
+        .from(Session)
+        .where(eq(Session.did, this.config.serviceAccount));
 
-      return JSON.parse(sessionData);
+      if (!sessionData?.length) return null;
+      const session = sessionData[0];
+      if (!session) return null;
+
+      return session as AtpSessionData;
     } catch (error) {
       console.debug('Error while trying to load session', error);
       return null;

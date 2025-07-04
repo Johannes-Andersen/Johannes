@@ -15,25 +15,10 @@ import '../styles/global.css';
 
 import { AtProtoAccount } from '../utils/AtProtoAccount.ts';
 
-// TODO: Implement cache
-const cache = {
-  get: async (key: string): Promise<string | null> => {
-    const value = await localStorage.getItem(key);
-    return value ? JSON.parse(value) : null;
-  },
-  put: async (key: string, value: string): Promise<void> => {
-    await localStorage.setItem(key, JSON.stringify(value));
-  },
-  delete: async (key: string): Promise<void> => {
-    await localStorage.removeItem(key);
-  },
-};
-
 const account = new AtProtoAccount({
   service: ATPROTO_SERVICE_URL,
   serviceAccount: ATPROTO_SERVICE_DID,
   password: ATPROTO_SERVICE_PASSWORD,
-  cache,
 });
 
 const agent = await account.getAgent();

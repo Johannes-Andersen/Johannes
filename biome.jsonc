@@ -291,7 +291,7 @@
       }
     },
     {
-      "includes": ["astro.config.ts", "cypress.config.ts"],
+      "includes": ["astro.config.ts", "cypress.config.ts", "db/config.ts"],
       "linter": {
         "rules": {
           "style": {

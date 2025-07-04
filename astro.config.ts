@@ -3,6 +3,8 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig, envField } from 'astro/config';
 
+import db from '@astrojs/db';
+
 const isDev = import.meta.env.DEV;
 
 export default defineConfig({
@@ -92,6 +94,6 @@ export default defineConfig({
       sourcemap: true,
     },
   },
-  integrations: [sitemap()],
+  integrations: [sitemap(), db()],
   site: 'https://johand.dev',
 });
