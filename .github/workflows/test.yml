@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        browser: [chromium, firefox, webkit]
+        browser: [chrome, firefox, edge, webkit, electron]
     container:
       image: cypress/browsers:latest
       options: --user 1001
@@ -35,6 +35,11 @@ jobs:
           start: pnpm run dev
           install-command: pnpm install --prefer-offline
           browser: ${{ matrix.browser }}
+        env:
+          ATPROTO_SERVICE_DID: ${{ secrets.ATPROTO_SERVICE_DID}}
+          ATPROTO_SERVICE_URL: ${{ secrets.ATPROTO_SERVICE_URL}}
+          ATPROTO_ACCOUNT_DID: ${{ secrets.ATPROTO_ACCOUNT_DID}}
+          ATPROTO_SERVICE_PASSWORD: ${{ secrets.ATPROTO_SERVICE_PASSWORD}}
 
       - uses: actions/upload-artifact@v4
         with:
