@@ -27,10 +27,10 @@
   "dependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/cloudflare": "12.6.0",
-    "@astrojs/sitemap": "3.4.1",
+    "@astrojs/sitemap": "3.4.2",
     "@atproto/api": "0.15.27",
     "@tailwindcss/vite": "4.1.11",
-    "astro": "5.12.3",
+    "astro": "5.12.4",
     "tailwindcss": "4.1.11"
   },
   "devDependencies": {
