@@ -54,7 +54,6 @@ This project uses [pnpm](https://pnpm.io/) as the package manager. Make sure you
 - `pnpm preview` - Build and preview locally with Wrangler
 - `pnpm test` - Run tests
 - `pnpm type-check` - Check TypeScript types
-- `pnpm coverage` - Run test coverage report
 - `pnpm lint` - Lint code
 - `pnpm lint:fix` - Lint and fix code
 - `pnpm format` - Check formatting

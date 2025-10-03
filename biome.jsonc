@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
   "files": {
     "includes": [
       "**",
@@ -154,7 +154,15 @@
         "noNestedTernary": "on",
         "noExportedImports": "on",
         "noValueAtRule": "on",
-        "useArrayLiterals": "on"
+        "useArrayLiterals": "on",
+        "useConsistentObjectDefinitions": {
+          "level": "on",
+          "options": {
+            "syntax": "shorthand"
+          }
+        },
+        "useExportsLast": "on",
+        "useSymbolDescription": "on"
       },
       "correctness": {
         "recommended": true,
@@ -173,7 +181,10 @@
         "noUnknownPseudoElement": "on",
         "noUnknownPseudoClass": "on",
         "noMissingVarFunction": "on",
-        "useJsxKeyInIterable": "on"
+        "useJsxKeyInIterable": "on",
+        "noGlobalDirnameFilename": "on",
+        "noProcessGlobal": "on",
+        "useParseIntRadix": "on"
       },
       "complexity": {
         "noArguments": "on",
@@ -193,31 +204,10 @@
       },
       "nursery": {
         "recommended": true,
-        "noAwaitInLoop": "on",
-        "noBitwiseOperators": "warn",
-        "noConstantBinaryExpression": "on",
         "noFloatingPromises": "on",
-        "noGlobalDirnameFilename": "on",
         "noImportCycles": "on",
-        "noNoninteractiveElementInteractions": "on",
-        "noProcessGlobal": "on",
-        "noSecrets": "on",
-        "noTsIgnore": "on",
-        "noUnknownAtRule": "on",
-        "noUnwantedPolyfillio": "on",
-        "noUselessEscapeInString": "on",
         "noUselessUndefined": "on",
-        "useConsistentObjectDefinition": {
-          "level": "on",
-          "options": {
-            "syntax": "shorthand"
-          }
-        },
-        "useExportsLast": "on",
-        "useGoogleFontPreconnect": "on",
-        "useParseIntRadix": "on",
-        "useSortedClasses": "on",
-        "useSymbolDescription": "on"
+        "useSortedClasses": "on"
       },
       "performance": {
         "recommended": true,
@@ -227,7 +217,9 @@
         "noImgElement": "on",
         "noDynamicNamespaceImportAccess": "on",
         "noNamespaceImport": "on",
-        "noDelete": "error"
+        "noDelete": "error",
+        "noUnwantedPolyfillio": "on",
+        "useGoogleFontPreconnect": "on"
       },
       "suspicious": {
         "recommended": true,
@@ -257,13 +249,19 @@
         "noDuplicateElseIf": "on",
         "noDuplicateCustomProperties": "on",
         "noDocumentCookie": "on",
-        "useGoogleFontDisplay": "on"
+        "useGoogleFontDisplay": "on",
+        "noBitwiseOperators": "warn",
+        "noConstantBinaryExpressions": "on",
+        "noTsIgnore": "on",
+        "noUnknownAtRules": "on",
+        "noUselessEscapeInString": "on"
       },
       "a11y": {
         "recommended": true,
         "useValidAutocomplete": "on",
         "useAriaPropsSupportedByRole": "on",
-        "noStaticElementInteractions": "on"
+        "noStaticElementInteractions": "on",
+        "noNoninteractiveElementInteractions": "on"
       },
       "security": {
         "recommended": true

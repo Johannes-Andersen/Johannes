@@ -4,8 +4,7 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports.biome": "explicit",
     "source.action.useSortedKeys.biome": "explicit",
-    "source.fixAll.biome": "explicit",
-    "quickfix.biome": "explicit"
+    "source.fixAll.biome": "explicit"
   },
   "biome.enabled": true,
   "editor.defaultFormatter": "biomejs.biome",
