@@ -24,17 +24,21 @@ const mockLogin = vi.fn().mockResolvedValue({ success: true });
 const mockLogout = vi.fn().mockResolvedValue({ success: true });
 const mockResumeSession = vi.fn().mockResolvedValue({ success: true });
 
-vi.mock('@atproto/api', () => ({
-  // biome-ignore lint/style/useNamingConvention: External library
-  AtpAgent: vi.fn().mockImplementation(({ persistSession }) => {
-    capturedPersistSessionCallback = persistSession;
-    return {
-      login: mockLogin,
-      logout: mockLogout,
-      resumeSession: mockResumeSession,
-    };
-  }),
-}));
+vi.mock('@atproto/api', () => {
+  class MockAtpAgent {
+    login = mockLogin;
+    logout = mockLogout;
+    resumeSession = mockResumeSession;
+
+    constructor(opts: { persistSession?: any }) {
+      capturedPersistSessionCallback = opts?.persistSession;
+    }
+  }
+
+  return {
+    AtpAgent: MockAtpAgent,
+  };
+});
 
 describe('AtProtoAccount', () => {
   let mockCache: Cache;
