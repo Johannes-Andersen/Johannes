@@ -36,7 +36,7 @@
     "@biomejs/biome": "2.2.7",
     "@types/node": "24.9.1",
     "typescript": "5.9.3",
-    "vitest": "3.2.4",
+    "vitest": "4.0.2",
     "wrangler": "4.44.0"
   }
 }
