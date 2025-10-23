@@ -28,9 +28,9 @@
     "@astrojs/cloudflare": "12.6.10",
     "@astrojs/sitemap": "3.6.0",
     "@atproto/api": "0.17.3",
-    "@tailwindcss/vite": "4.1.15",
+    "@tailwindcss/vite": "4.1.16",
     "astro": "5.14.8",
-    "tailwindcss": "4.1.15"
+    "tailwindcss": "4.1.16"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.7",
