@@ -18,8 +18,8 @@ importers:
         specifier: 3.6.0
         version: 3.6.0
       '@atproto/api':
-        specifier: 0.18.7
-        version: 0.18.7
+        specifier: 0.18.8
+        version: 0.18.8
       '@tailwindcss/vite':
         specifier: 4.1.18
         version: 4.1.18(vite@7.1.12(@types/node@24.10.3)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
@@ -97,8 +97,8 @@ packages:
   '@astrojs/yaml2ts@0.2.2':
     resolution: {integrity: sha512-GOfvSr5Nqy2z5XiwqTouBBpy5FyI6DEe+/g/Mk5am9SjILN1S5fOEvYK0GuWHg98yS/dobP4m8qyqw/URW35fQ==}
 
-  '@atproto/api@0.18.7':
-    resolution: {integrity: sha512-vUluqN1XU5AX5tgfSJjjjUzALCMq8DjdI0jlIhRYyn2Chb0ZOCU8k0ZTpUAcuDFE2FoxxW4S3kvtlHwLMtN5dQ==}
+  '@atproto/api@0.18.8':
+    resolution: {integrity: sha512-Qo3sGd1N5hdHTaEWUBgptvPkULt2SXnMcWRhveSyctSd/IQwTMyaIH6E62A1SU+8xBSN5QLpoUJNE7iSrYM2Zg==}
 
   '@atproto/common-web@0.4.7':
     resolution: {integrity: sha512-vjw2+81KPo2/SAbbARGn64Ln+6JTI0FTI4xk8if0ebBfDxFRmHb2oSN1y77hzNq/ybGHqA2mecfhS03pxC5+lg==}
@@ -3132,7 +3132,7 @@ snapshots:
     dependencies:
       yaml: 2.8.1
 
-  '@atproto/api@0.18.7':
+  '@atproto/api@0.18.8':
     dependencies:
       '@atproto/common-web': 0.4.7
       '@atproto/lexicon': 0.6.0
