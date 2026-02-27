@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.3.15/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.4.4/schema.json",
   "files": {
     "includes": [
       "**",
@@ -200,13 +200,12 @@
         "noUselessStringRaw": "on",
         "noUselessEscapeInRegex": "on",
         "useNumericLiterals": "on",
-        "useWhile": "on"
+        "useWhile": "on",
+        "noUselessUndefined": "on"
       },
       "nursery": {
         "recommended": true,
         "noFloatingPromises": "on",
-        "noImportCycles": "on",
-        "noUselessUndefined": "on",
         "useSortedClasses": "on"
       },
       "performance": {
@@ -254,7 +253,8 @@
         "noConstantBinaryExpressions": "on",
         "noTsIgnore": "on",
         "noUnknownAtRules": "on",
-        "noUselessEscapeInString": "on"
+        "noUselessEscapeInString": "on",
+        "noImportCycles": "on"
       },
       "a11y": {
         "recommended": true,
