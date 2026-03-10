@@ -7,16 +7,16 @@ const isDev = import.meta.env.DEV;
 
 export default defineConfig({
   output: 'server',
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: 'cloudflare',
+    platformProxy: {
+      enabled: true,
+      configPath: 'wrangler.jsonc',
+      persist: true,
+    },
+  }),
   // TODO: Investigate "require-trusted-types-for" and "trusted-types",
-  security: {
-    checkOrigin: true,
-    allowedDomains: [
-      {
-        hostname: 'johand.dev',
-        protocol: 'https:',
-      },
-    ],
+  experimental: {
     csp: {
       algorithm: 'SHA-512',
       directives: [
@@ -59,6 +59,7 @@ export default defineConfig({
     domains: ['johand.dev', 'cdn.bsky.app'],
   },
   vite: {
+    // @ts-expect-error
     plugins: [tailwindcss()],
     build: {
       sourcemap: true,
