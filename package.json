@@ -24,9 +24,9 @@
     "pnpm": "10"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.6",
+    "@astrojs/check": "0.9.7",
     "@astrojs/cloudflare": "12.6.12",
-    "@astrojs/sitemap": "3.7.0",
+    "@astrojs/sitemap": "3.7.1",
     "@atproto/api": "0.19.3",
     "@tailwindcss/vite": "4.2.1",
     "astro": "5.18.0",
