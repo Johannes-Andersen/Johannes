@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { env } from 'cloudflare:workers';
 
 import Bluesky from '../components/icons/Bluesky.svg';
 import Github from '../components/icons/Github.svg';
@@ -8,8 +9,6 @@ import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
 
 import { AtProtoAccount } from '../utils/AtProtoAccount.ts';
-
-const { env } = Astro.locals.runtime;
 
 const account = new AtProtoAccount({
   service: env.ATPROTO_SERVICE_URL,

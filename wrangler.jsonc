@@ -1,17 +1,12 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "johannes",
-  "main": "./dist/_worker.js/index.js",
+  "main": "@astrojs/cloudflare/entrypoints/server",
   "compatibility_date": "2025-10-23",
   "compatibility_flags": ["nodejs_compat"],
   "send_metrics": false, // Disable wrangler usage analytics
   "upload_source_maps": true,
   "workers_dev": false, // Disable default workers.dev domain
-  "tsconfig": "./tsconfig.json",
-  "build": {
-    "command": "pnpm run build",
-    "watch_dir": ["src", "public"]
-  },
   "assets": {
     "binding": "ASSETS",
     "directory": "./dist"
@@ -29,6 +24,9 @@
     "ATPROTO_SERVICE_DID": "did:plc:euvjn7oyu4srnlql4efh6zar",
     "ATPROTO_SERVICE_URL": "https://partall.no",
     "ATPROTO_ACCOUNT_DID": "did:plc:euvjn7oyu4srnlql4efh6zar"
+  },
+  "images": {
+    "binding": "IMAGES"
   },
   "kv_namespaces": [
     {
