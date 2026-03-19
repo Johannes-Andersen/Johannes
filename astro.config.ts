@@ -4,7 +4,7 @@ import cloudflare from '@astrojs/cloudflare';
 import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'astro/config';
+import { defineConfig, memoryCache } from 'astro/config';
 
 const isDev = import.meta.env.DEV;
 
@@ -25,6 +25,13 @@ export default defineConfig({
       enabled: true,
     },
     svgo: true,
+    cache: {
+      provider: memoryCache({
+        query: {
+          sort: true,
+        },
+      }),
+    },
   },
   security: {
     checkOrigin: true,
