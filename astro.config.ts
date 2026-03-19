@@ -4,7 +4,7 @@ import cloudflare from '@astrojs/cloudflare';
 import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig, memoryCache } from 'astro/config';
+import { defineConfig } from 'astro/config';
 
 const isDev = import.meta.env.DEV;
 
@@ -14,7 +14,7 @@ export default defineConfig({
   adapter: process.env.VITEST
     ? node({ mode: 'standalone' })
     : cloudflare({
-        imageService: 'cloudflare',
+        imageService: isDev ? 'passthrough' : 'cloudflare-binding',
         configPath: 'wrangler.jsonc',
         persistState: true,
       }),
@@ -25,13 +25,13 @@ export default defineConfig({
       enabled: true,
     },
     svgo: true,
-    cache: {
-      provider: memoryCache({
-        query: {
-          sort: true,
-        },
-      }),
-    },
+    // cache: {
+    //   provider: memoryCache({
+    //     query: {
+    //       sort: true,
+    //     },
+    //   }),
+    // },
   },
   security: {
     checkOrigin: true,
