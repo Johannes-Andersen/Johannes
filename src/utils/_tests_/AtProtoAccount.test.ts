@@ -36,6 +36,7 @@ vi.mock('@atproto/api', () => {
   }
 
   return {
+    // biome-ignore lint/style/useNamingConvention: mock, need to match actual class name
     AtpAgent: MockAtpAgent,
   };
 });

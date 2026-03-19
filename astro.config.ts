@@ -59,7 +59,6 @@ export default defineConfig({
     domains: ['johand.dev', 'cdn.bsky.app'],
   },
   vite: {
-    // @ts-expect-error
     plugins: [tailwindcss()],
     build: {
       sourcemap: true,
