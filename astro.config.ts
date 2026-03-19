@@ -18,6 +18,14 @@ export default defineConfig({
         configPath: 'wrangler.jsonc',
         persistState: true,
       }),
+  experimental: {
+    chromeDevtoolsWorkspace: true,
+    queuedRendering: {
+      contentCache: true,
+      enabled: true,
+    },
+    svgo: true,
+  },
   security: {
     checkOrigin: true,
     allowedDomains: [
