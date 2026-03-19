@@ -2,7 +2,7 @@ import { defineMiddleware } from 'astro:middleware';
 
 export const cloudflareCache = defineMiddleware(async (ctx, next) => {
   const request = ctx.request;
-  const cache = ctx.locals.runtime.caches.default;
+  const cache = (caches as unknown as { default: Cache }).default;
   const requestUrl = new URL(request.url);
   // biome-ignore lint/suspicious/noExplicitAny: Astro and Cloudflare types are not compatible
   const cacheKey = new Request(requestUrl.toString(), request as any) as any;

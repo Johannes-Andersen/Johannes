@@ -1,4 +1,7 @@
+import process from 'node:process';
+
 import cloudflare from '@astrojs/cloudflare';
+import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
@@ -7,16 +10,23 @@ const isDev = import.meta.env.DEV;
 
 export default defineConfig({
   output: 'server',
-  adapter: cloudflare({
-    imageService: 'cloudflare',
-    platformProxy: {
-      enabled: true,
-      configPath: 'wrangler.jsonc',
-      persist: true,
-    },
-  }),
-  // TODO: Investigate "require-trusted-types-for" and "trusted-types",
-  experimental: {
+  // TODO: Remove the temp hack once Astro supports vitest out of the box in CF environment
+  adapter: process.env.VITEST
+    ? node({ mode: 'standalone' })
+    : cloudflare({
+        imageService: 'cloudflare',
+        configPath: 'wrangler.jsonc',
+        persistState: true,
+      }),
+  security: {
+    checkOrigin: true,
+    allowedDomains: [
+      {
+        hostname: 'johand.dev',
+        protocol: 'https',
+      },
+    ],
+    // TODO: Investigate "require-trusted-types-for" and "trusted-types",
     csp: {
       algorithm: 'SHA-512',
       directives: [
