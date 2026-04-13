@@ -38,6 +38,6 @@
     "@types/node": "24.12.2",
     "typescript": "6.0.2",
     "vitest": "4.1.4",
-    "wrangler": "4.81.1"
+    "wrangler": "4.82.1"
   }
 }
