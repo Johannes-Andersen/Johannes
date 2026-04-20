@@ -29,9 +29,9 @@
     "@astrojs/node": "10.0.5",
     "@astrojs/sitemap": "3.7.2",
     "@atproto/api": "0.19.9",
-    "@tailwindcss/vite": "4.2.2",
+    "@tailwindcss/vite": "4.2.3",
     "astro": "6.1.8",
-    "tailwindcss": "4.2.2"
+    "tailwindcss": "4.2.3"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.12",
