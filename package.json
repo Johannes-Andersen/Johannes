@@ -24,13 +24,13 @@
     "pnpm": "10"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.8",
-    "@astrojs/cloudflare": "13.2.1",
+    "@astrojs/check": "0.9.9",
+    "@astrojs/cloudflare": "13.2.2",
     "@astrojs/node": "10.0.6",
     "@astrojs/sitemap": "3.7.2",
     "@atproto/api": "0.19.11",
     "@tailwindcss/vite": "4.2.4",
-    "astro": "6.1.9",
+    "astro": "6.1.10",
     "tailwindcss": "4.2.4"
   },
   "devDependencies": {
