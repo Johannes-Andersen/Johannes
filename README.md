@@ -19,7 +19,7 @@ This project uses [pnpm](https://pnpm.io/) as the package manager. Make sure you
 ### Prerequisites
 
 - Node.js 24
-- pnpm 10
+- pnpm 11
 
 ### Getting Started
 
