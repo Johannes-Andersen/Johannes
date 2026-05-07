@@ -18,19 +18,19 @@
     "check": "biome check .",
     "check:fix": "biome check --write ."
   },
-  "packageManager": "pnpm@10.33.3",
+  "packageManager": "pnpm@11.0.8",
   "engines": {
     "node": "24.15.0",
-    "pnpm": "10"
+    "pnpm": "11"
   },
   "dependencies": {
     "@astrojs/check": "0.9.9",
-    "@astrojs/cloudflare": "13.2.2",
-    "@astrojs/node": "10.0.6",
+    "@astrojs/cloudflare": "13.5.0",
+    "@astrojs/node": "10.1.0",
     "@astrojs/sitemap": "3.7.2",
-    "@atproto/api": "0.19.12",
+    "@atproto/api": "0.19.14",
     "@tailwindcss/vite": "4.2.4",
-    "astro": "6.1.10",
+    "astro": "6.3.0",
     "tailwindcss": "4.2.4"
   },
   "devDependencies": {
@@ -38,6 +38,6 @@
     "@types/node": "24.12.2",
     "typescript": "6.0.3",
     "vitest": "4.1.5",
-    "wrangler": "4.87.0"
+    "wrangler": "4.89.0"
   }
 }

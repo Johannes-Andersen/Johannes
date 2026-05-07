@@ -24,7 +24,6 @@ export default defineConfig({
       contentCache: true,
       enabled: true,
     },
-    svgo: true,
     // cache: {
     //   provider: memoryCache({
     //     query: {
