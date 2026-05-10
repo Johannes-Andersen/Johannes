@@ -25,7 +25,7 @@ const { data: profile } = await agent.getProfile({
 
 const name = profile.displayName || profile.handle;
 
-if (Astro.cache.enabled) {
+if (Astro.cache?.enabled) {
   Astro.cache.set({
     maxAge: 3600,
     swr: 3600,
