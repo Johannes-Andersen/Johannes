@@ -21,6 +21,12 @@
   "timezone": "Europe/Oslo",
   "packageRules": [
     {
+      "matchDatasources": ["npm"],
+      "minimumReleaseAge": "24 hours",
+      "prCreation": "not-pending",
+      "internalChecksFilter": "strict"
+    },
+    {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
       "platformAutomerge": true
