@@ -1,22 +1,25 @@
 import process from 'node:process';
 
 import cloudflare from '@astrojs/cloudflare';
-import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 
 const isDev = import.meta.env.DEV;
+// biome-ignore lint/style/noProcessEnv: VITEST is only available via process.env when Astro config is loaded by Vitest.
+const isTest = !!process.env.VITEST;
 
 export default defineConfig({
   output: 'server',
   // TODO: Remove the temp hack once Astro supports vitest out of the box in CF environment
-  adapter: process.env.VITEST
-    ? node({ mode: 'standalone' })
-    : cloudflare({
-        imageService: isDev ? 'passthrough' : 'cloudflare-binding',
-        configPath: 'wrangler.jsonc',
-        persistState: true,
+  ...(isTest
+    ? {}
+    : {
+        adapter: cloudflare({
+          imageService: isDev ? 'passthrough' : 'cloudflare-binding',
+          configPath: 'wrangler.jsonc',
+          persistState: true,
+        }),
       }),
   experimental: {
     chromeDevtoolsWorkspace: true,
