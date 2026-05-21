@@ -25,12 +25,12 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.9",
-    "@astrojs/cloudflare": "13.5.1",
+    "@astrojs/cloudflare": "13.5.2",
     "@astrojs/node": "10.1.1",
     "@astrojs/sitemap": "3.7.2",
     "@atproto/api": "0.19.18",
     "@tailwindcss/vite": "4.3.0",
-    "astro": "6.3.3",
+    "astro": "6.3.4",
     "tailwindcss": "4.3.0"
   },
   "devDependencies": {
