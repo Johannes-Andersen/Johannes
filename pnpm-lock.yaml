@@ -12,11 +12,11 @@ importers:
         specifier: 0.9.9
         version: 0.9.9(prettier@3.8.3)(typescript@6.0.3)
       '@astrojs/cloudflare':
-        specifier: 13.5.1
-        version: 13.5.1(@types/node@24.12.4)(astro@6.3.3(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0))(jiti@2.7.0)(lightningcss@1.32.0)(workerd@1.20260515.1)(wrangler@4.92.0)(yaml@2.9.0)
+        specifier: 13.5.2
+        version: 13.5.2(@types/node@24.12.4)(astro@6.3.4(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0))(jiti@2.7.0)(lightningcss@1.32.0)(workerd@1.20260515.1)(wrangler@4.92.0)(yaml@2.9.0)
       '@astrojs/node':
         specifier: 10.1.1
-        version: 10.1.1(astro@6.3.3(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0))
+        version: 10.1.1(astro@6.3.4(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0))
       '@astrojs/sitemap':
         specifier: 3.7.2
         version: 3.7.2
@@ -27,8 +27,8 @@ importers:
         specifier: 4.3.0
         version: 4.3.0(vite@7.3.3(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(yaml@2.9.0))
       astro:
-        specifier: 6.3.3
-        version: 6.3.3(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0)
+        specifier: 6.3.4
+        version: 6.3.4(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0)
       tailwindcss:
         specifier: 4.3.0
         version: 4.3.0
@@ -57,8 +57,8 @@ packages:
     peerDependencies:
       typescript: ^5.0.0 || ^6.0.0
 
-  '@astrojs/cloudflare@13.5.1':
-    resolution: {integrity: sha512-5RjVHu+MFSA7qyEpjA5C6iRS0YURDUcDak1YcMeKao9oBZhIGEky5Zqkq+jcuoqiSjbvcvcM57Xfj06tFeo/QQ==}
+  '@astrojs/cloudflare@13.5.2':
+    resolution: {integrity: sha512-crtYJtsQCE5LvGRCEiuWK3w64h4Er+Yw5XW8mVEFtgbzAGuLs7a38SjJniZTP9gw2awaJ1rRQOjceJU8jcR6hQ==}
     peerDependencies:
       astro: ^6.3.0
       wrangler: ^4.83.0
@@ -1205,8 +1205,8 @@ packages:
     resolution: {integrity: sha512-Izi8RQcffqCeNVgFigKli1ssklIbpHnCYc6AknXGYoB6grJqyeby7jv12JUQgmTAnIDnbck1uxksT4dzN3PWBA==}
     engines: {node: '>=12'}
 
-  astro@6.3.3:
-    resolution: {integrity: sha512-wvLIZQYbBZt6U8gyflBW4SLBypaqdwLZUH93rT3oT53cmQ0bTGubvMAGjqBRoheOYzYcTJZtW6czztzbu4kQ5g==}
+  astro@6.3.4:
+    resolution: {integrity: sha512-TXUu9Z6HE/M9MkUEbwIQBnBY2jhcuCalz0ACDb+dUeV27iXf3/aZ3uYjLXgn92W/JxImPA1oG+nZx+N9o0+B+Q==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2594,12 +2594,12 @@ snapshots:
       - prettier
       - prettier-plugin-astro
 
-  '@astrojs/cloudflare@13.5.1(@types/node@24.12.4)(astro@6.3.3(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0))(jiti@2.7.0)(lightningcss@1.32.0)(workerd@1.20260515.1)(wrangler@4.92.0)(yaml@2.9.0)':
+  '@astrojs/cloudflare@13.5.2(@types/node@24.12.4)(astro@6.3.4(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0))(jiti@2.7.0)(lightningcss@1.32.0)(workerd@1.20260515.1)(wrangler@4.92.0)(yaml@2.9.0)':
     dependencies:
       '@astrojs/internal-helpers': 0.9.1
       '@astrojs/underscore-redirects': 1.0.3
       '@cloudflare/vite-plugin': 1.37.1(vite@7.3.3(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(yaml@2.9.0))(workerd@1.20260515.1)(wrangler@4.92.0)
-      astro: 6.3.3(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0)
+      astro: 6.3.4(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0)
       piccolore: 0.1.3
       tinyglobby: 0.2.16
       vite: 7.3.3(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(yaml@2.9.0)
@@ -2679,10 +2679,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/node@10.1.1(astro@6.3.3(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0))':
+  '@astrojs/node@10.1.1(astro@6.3.4(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0))':
     dependencies:
       '@astrojs/internal-helpers': 0.9.1
-      astro: 6.3.3(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0)
+      astro: 6.3.4(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0)
       send: 1.2.1
       server-destroy: 1.0.1
     transitivePeerDependencies:
@@ -3542,7 +3542,7 @@ snapshots:
 
   assertion-error@2.0.1: {}
 
-  astro@6.3.3(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0):
+  astro@6.3.4(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.60.4)(yaml@2.9.0):
     dependencies:
       '@astrojs/compiler': 4.0.0
       '@astrojs/internal-helpers': 0.9.1
