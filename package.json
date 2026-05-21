@@ -4,6 +4,13 @@
   "license": "GPL-3.0",
   "type": "module",
   "scripts": {
+    "postinstall": "lex install --ci",
+    "lex:update": "lex install --update --save",
+    "lex:build": "lex build --clear --lexicons ./lexicons --out ./src/lexicons",
+    "predev": "pnpm run lex:build",
+    "prebuild": "pnpm run lex:build",
+    "pretest": "pnpm run lex:build",
+    "pretype-check": "pnpm run lex:build",
     "dev": "astro dev",
     "build": "astro build",
     "deploy": "wrangler deploy",
@@ -27,7 +34,8 @@
     "@astrojs/check": "0.9.9",
     "@astrojs/cloudflare": "13.5.2",
     "@astrojs/sitemap": "3.7.2",
-    "@atproto/api": "0.19.19",
+    "@atproto/lex": "0.1.0",
+    "@atproto/lex-password-session": "0.1.0",
     "@tailwindcss/vite": "4.3.0",
     "astro": "6.3.4",
     "tailwindcss": "4.3.0"

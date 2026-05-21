@@ -8,7 +8,10 @@
       "!.wrangler",
       "!coverage",
       "!dist",
-      "!node_modules"
+      "!node_modules",
+      "!lexicons",
+      "!lexicons.json",
+      "!src/lexicons"
     ]
   },
   "css": {
@@ -129,7 +132,6 @@
         "useFragmentSyntax": "on",
         "useImportType": "on",
         "useLiteralEnumMembers": "on",
-        "useNamingConvention": "on",
         "useNodeAssertStrict": "on",
         "useNodejsImportProtocol": "on",
         "useNumberNamespace": "on",

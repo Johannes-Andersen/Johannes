@@ -3,7 +3,7 @@ import process from 'node:process';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 
 const isDev = import.meta.env.DEV;
 // biome-ignore lint/style/noProcessEnv: VITEST is only available via process.env when Astro config is loaded by Vitest.
@@ -21,6 +21,26 @@ export default defineConfig({
           persistState: true,
         }),
       }),
+  env: {
+    schema: {
+      ATPROTO_SERVICE_URL: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+      ATPROTO_SERVICE_DID: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+      ATPROTO_SERVICE_PASSWORD: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+      ATPROTO_ACCOUNT_DID: envField.string({
+        context: 'server',
+        access: 'secret',
+      }),
+    },
+  },
   experimental: {
     chromeDevtoolsWorkspace: true,
     queuedRendering: {

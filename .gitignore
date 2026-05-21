@@ -37,3 +37,6 @@ yarn-error.log*
 .cache
 .wrangler
 .dev.vars
+
+# Generated lex schemas (lexicons.json + lexicons/ are committed)
+/src/lexicons

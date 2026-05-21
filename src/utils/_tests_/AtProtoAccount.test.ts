@@ -16,28 +16,29 @@ interface Cache {
   delete(key: string): Promise<void>;
 }
 
-let capturedPersistSessionCallback:
-  | ((evt: any, sess?: any) => Promise<undefined>)
-  | undefined;
+const mockLogin = vi.hoisted(() => vi.fn());
+const mockResume = vi.hoisted(() => vi.fn());
+const mockLogout = vi.hoisted(() => vi.fn());
 
-const mockLogin = vi.fn().mockResolvedValue({ success: true });
-const mockLogout = vi.fn().mockResolvedValue({ success: true });
-const mockResumeSession = vi.fn().mockResolvedValue({ success: true });
+let capturedLoginOptions: any;
 
-vi.mock('@atproto/api', () => {
-  class MockAtpAgent {
-    login = mockLogin;
-    logout = mockLogout;
-    resumeSession = mockResumeSession;
-
-    constructor(opts: { persistSession?: any }) {
-      capturedPersistSessionCallback = opts?.persistSession;
-    }
-  }
-
+vi.mock('@atproto/lex-password-session', () => {
   return {
-    // biome-ignore lint/style/useNamingConvention: mock, need to match actual class name
-    AtpAgent: MockAtpAgent,
+    PasswordSession: {
+      login: mockLogin,
+      resume: mockResume,
+    },
+  };
+});
+
+vi.mock('@atproto/lex', () => {
+  return {
+    Client: class MockClient {
+      session: unknown;
+      constructor(session: unknown) {
+        this.session = session;
+      }
+    },
   };
 });
 
@@ -52,7 +53,14 @@ describe('AtProtoAccount', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
-    capturedPersistSessionCallback = undefined;
+    capturedLoginOptions = undefined;
+    mockLogin.mockImplementation((opts: any) => {
+      capturedLoginOptions = opts;
+      return Promise.resolve({ logout: mockLogout });
+    });
+    mockResume.mockImplementation((_data: any, _opts: any) => {
+      return Promise.resolve({ logout: mockLogout });
+    });
     mockCache = {
       get: vi.fn(),
       put: vi.fn().mockResolvedValue(undefined),
@@ -65,19 +73,14 @@ describe('AtProtoAccount', () => {
     vi.restoreAllMocks();
   });
 
-  describe('persistSession callback', () => {
-    let cb: NonNullable<typeof capturedPersistSessionCallback> | undefined;
-
-    beforeEach(() => {
-      cb = capturedPersistSessionCallback;
-    });
-
-    it('should store session data when session is provided', async () => {
+  describe('session hooks', () => {
+    it('should store session data via onUpdated hook', async () => {
       const debugSpy = vi.spyOn(console, 'debug');
-      const sess = { accessJwt: 'abc', refreshJwt: 'def' };
+      (mockCache.get as Mock).mockResolvedValue(null);
+      await account.getClient();
 
-      expect(cb).toBeDefined();
-      await cb?.({}, sess);
+      const sess = { accessJwt: 'abc', refreshJwt: 'def' } as any;
+      await capturedLoginOptions.onUpdated(sess);
 
       expect(mockCache.put).toHaveBeenCalledWith(
         'test@example.com',
@@ -86,11 +89,12 @@ describe('AtProtoAccount', () => {
       expect(debugSpy).toHaveBeenCalledWith('Persisted session data');
     });
 
-    it('should delete session data when no session is provided', async () => {
+    it('should delete session data via onDeleted hook', async () => {
       const debugSpy = vi.spyOn(console, 'debug');
+      (mockCache.get as Mock).mockResolvedValue(null);
+      await account.getClient();
 
-      expect(cb).toBeDefined();
-      await cb?.({});
+      await capturedLoginOptions.onDeleted();
 
       expect(mockCache.delete).toHaveBeenCalledWith('test@example.com');
       expect(debugSpy).toHaveBeenCalledWith('Removed session data');
@@ -99,10 +103,14 @@ describe('AtProtoAccount', () => {
     it('should handle errors when storing session data', async () => {
       const err = new Error('fail');
       const errorSpy = vi.spyOn(console, 'error');
+      (mockCache.get as Mock).mockResolvedValue(null);
       (mockCache.put as Mock).mockRejectedValueOnce(err);
+      await account.getClient();
 
-      expect(cb).toBeDefined();
-      await cb?.({}, { accessJwt: 'x', refreshJwt: 'y' });
+      await capturedLoginOptions.onUpdated({
+        accessJwt: 'x',
+        refreshJwt: 'y',
+      });
 
       expect(mockCache.put).toHaveBeenCalledWith(
         'test@example.com',
@@ -114,36 +122,39 @@ describe('AtProtoAccount', () => {
     it('should handle errors when deleting session data', async () => {
       const err = new Error('fail delete');
       const errorSpy = vi.spyOn(console, 'error');
+      (mockCache.get as Mock).mockResolvedValue(null);
       (mockCache.delete as Mock).mockRejectedValueOnce(err);
+      await account.getClient();
 
-      expect(cb).toBeDefined();
-      await cb?.({});
+      await capturedLoginOptions.onDeleted();
 
       expect(mockCache.delete).toHaveBeenCalledWith('test@example.com');
       expect(errorSpy).toHaveBeenCalledWith(err, 'Failed to persist session');
     });
   });
 
-  describe('getAgent', () => {
+  describe('getClient', () => {
     it('should resume session if valid session exists in cache', async () => {
       const data = JSON.stringify({ accessJwt: 'a', refreshJwt: 'b' });
 
       (mockCache.get as Mock).mockResolvedValue(data);
-      await account.getAgent();
+      await account.getClient();
 
       expect(mockCache.get).toHaveBeenCalledWith('test@example.com');
-      expect(mockResumeSession).toHaveBeenCalled();
+      expect(mockResume).toHaveBeenCalled();
       expect(mockLogin).not.toHaveBeenCalled();
     });
 
     it('should perform fresh login if no session exists in cache', async () => {
       (mockCache.get as Mock).mockResolvedValue(null);
 
-      await account.getAgent();
+      await account.getClient();
 
       expect(mockCache.get).toHaveBeenCalledWith('test@example.com');
-      expect(mockResumeSession).not.toHaveBeenCalled();
-      expect(mockLogin).toHaveBeenCalledWith({
+      expect(mockResume).not.toHaveBeenCalled();
+      expect(mockLogin).toHaveBeenCalled();
+      expect(capturedLoginOptions).toMatchObject({
+        service: 'https://example.com',
         identifier: 'test@example.com',
         password: 'testpassword',
       });
@@ -155,16 +166,17 @@ describe('AtProtoAccount', () => {
       const data = JSON.stringify({ accessJwt: 'a', refreshJwt: 'b' });
 
       (mockCache.get as Mock).mockResolvedValue(data);
-      mockResumeSession.mockRejectedValueOnce(error);
+      mockResume.mockRejectedValueOnce(error);
 
-      await account.getAgent();
+      await account.getClient();
 
       expect(mockCache.get).toHaveBeenCalledWith('test@example.com');
-      expect(mockLogin).toHaveBeenCalledWith({
+      expect(mockResume).toHaveBeenCalled();
+      expect(mockLogin).toHaveBeenCalled();
+      expect(capturedLoginOptions).toMatchObject({
         identifier: 'test@example.com',
         password: 'testpassword',
       });
-      expect(mockResumeSession).toHaveBeenCalled();
       expect(errorSpy).toHaveBeenCalledWith(
         'Failed to resume session, will try fresh login',
         error,
@@ -175,7 +187,7 @@ describe('AtProtoAccount', () => {
       (mockCache.get as Mock).mockResolvedValue('not-json');
       const debugSpy = vi.spyOn(console, 'debug');
 
-      await account.getAgent();
+      await account.getClient();
 
       expect(mockCache.get).toHaveBeenCalledWith('test@example.com');
       expect(debugSpy).toHaveBeenCalledWith(
@@ -187,16 +199,28 @@ describe('AtProtoAccount', () => {
   });
 
   describe('logout', () => {
-    it('should call agent logout method', async () => {
+    it('should call session logout method', async () => {
+      (mockCache.get as Mock).mockResolvedValue(null);
+      await account.getClient();
+
       const ok = await account.logout();
 
       expect(ok).toBe(true);
       expect(mockLogout).toHaveBeenCalled();
     });
 
+    it('should be a no-op when no session has been created', async () => {
+      const ok = await account.logout();
+
+      expect(ok).toBe(true);
+      expect(mockLogout).not.toHaveBeenCalled();
+    });
+
     it('should handle errors during logout', async () => {
       const err = new Error('logout fail');
       const errorSpy = vi.spyOn(console, 'error');
+      (mockCache.get as Mock).mockResolvedValue(null);
+      await account.getClient();
       mockLogout.mockRejectedValueOnce(err);
 
       const ok = await account.logout();

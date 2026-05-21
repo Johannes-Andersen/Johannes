@@ -1,5 +1,8 @@
-import type { AtpSessionData, AtpSessionEvent } from '@atproto/api';
-import { AtpAgent } from '@atproto/api';
+import { Client } from '@atproto/lex';
+import {
+  PasswordSession,
+  type SessionData,
+} from '@atproto/lex-password-session';
 
 interface Cache {
   get(key: string): Promise<string | null>;
@@ -15,23 +18,19 @@ interface AccountConfig {
 }
 
 export class AtProtoAccount {
-  private agent: AtpAgent;
   private config: AccountConfig;
   private cache: Cache;
+  private session?: PasswordSession;
 
   constructor(config: AccountConfig) {
     this.config = config;
-    this.agent = new AtpAgent({
-      service: this.config.service,
-      persistSession: this.persistSession.bind(this),
-    });
     this.cache = config.cache;
   }
 
   async logout(): Promise<boolean> {
     try {
       console.info('Logging out account');
-      await this.agent.logout();
+      await this.session?.logout();
       console.info('Successfully logged out');
       return true;
     } catch (error) {
@@ -40,23 +39,25 @@ export class AtProtoAccount {
     }
   }
 
-  private async persistSession(_evt: AtpSessionEvent, sess?: AtpSessionData) {
+  private async persistSession(data: SessionData) {
     try {
-      if (sess) {
-        await this.cache.put(this.config.serviceAccount, JSON.stringify(sess));
-
-        console.debug('Persisted session data');
-      } else {
-        // Session was deleted, delete session
-        await this.cache.delete(this.config.serviceAccount);
-        console.debug('Removed session data');
-      }
+      await this.cache.put(this.config.serviceAccount, JSON.stringify(data));
+      console.debug('Persisted session data');
     } catch (error) {
       console.error(error, 'Failed to persist session');
     }
   }
 
-  private async loadSession(): Promise<AtpSessionData | null> {
+  private async removeSession() {
+    try {
+      await this.cache.delete(this.config.serviceAccount);
+      console.debug('Removed session data');
+    } catch (error) {
+      console.error(error, 'Failed to persist session');
+    }
+  }
+
+  private async loadSession(): Promise<SessionData | null> {
     try {
       const sessionData = await this.cache.get(this.config.serviceAccount);
       if (!sessionData) return null;
@@ -68,17 +69,20 @@ export class AtProtoAccount {
     }
   }
 
-  async getAgent(): Promise<AtpAgent> {
+  async getClient(): Promise<Client> {
+    const hooks = {
+      onUpdated: (data: SessionData) => this.persistSession(data),
+      onDeleted: () => this.removeSession(),
+    };
+
     // Try to resume from saved session first
     const savedSession = await this.loadSession();
     if (savedSession) {
       try {
         console.debug('Attempting to resume session');
-        const session = await this.agent.resumeSession(savedSession);
-        if (!session.success) throw new Error('Failed to resume session');
-
+        this.session = await PasswordSession.resume(savedSession, hooks);
         console.debug('Successfully resumed session');
-        return this.agent;
+        return new Client(this.session);
       } catch (error) {
         console.warn('Failed to resume session, will try fresh login', error);
       }
@@ -86,12 +90,18 @@ export class AtProtoAccount {
 
     // If no session or resume failed, do a fresh login
     console.debug('Performing fresh login');
-    await this.agent.login({
+    this.session = await PasswordSession.login({
+      service: this.config.service,
       identifier: this.config.serviceAccount,
       password: this.config.password,
+      ...hooks,
     });
     console.debug('Successfully logged in');
 
-    return this.agent;
+    return new Client(this.session, {
+      validateRequest: true,
+      validateResponse: true,
+      strictResponseProcessing: true,
+    });
   }
 }

@@ -1,5 +1,11 @@
 ---
 import { Image } from 'astro:assets';
+import {
+  ATPROTO_ACCOUNT_DID,
+  ATPROTO_SERVICE_DID,
+  ATPROTO_SERVICE_PASSWORD,
+  ATPROTO_SERVICE_URL,
+} from 'astro:env/server';
 import { env } from 'cloudflare:workers';
 
 import Bluesky from '../components/icons/Bluesky.svg';
@@ -8,19 +14,20 @@ import Layout from '../layouts/Layout.astro';
 
 import '../styles/global.css';
 
+import { bsky } from '../lexicons/app.ts';
 import { AtProtoAccount } from '../utils/AtProtoAccount.ts';
 
 const account = new AtProtoAccount({
-  service: env.ATPROTO_SERVICE_URL,
-  serviceAccount: env.ATPROTO_SERVICE_DID,
-  password: env.ATPROTO_SERVICE_PASSWORD,
+  service: ATPROTO_SERVICE_URL,
+  serviceAccount: ATPROTO_SERVICE_DID,
+  password: ATPROTO_SERVICE_PASSWORD,
   cache: env.ATPRTO_CACHE,
 });
 
-const agent = await account.getAgent();
+const client = await account.getClient();
 
-const { data: profile } = await agent.getProfile({
-  actor: env.ATPROTO_ACCOUNT_DID,
+const profile = await client.call(bsky.actor.getProfile, {
+  actor: ATPROTO_ACCOUNT_DID as `did:${string}:${string}`,
 });
 
 const name = profile.displayName || profile.handle;
