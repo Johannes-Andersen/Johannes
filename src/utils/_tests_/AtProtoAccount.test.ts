@@ -21,6 +21,8 @@ const mockResume = vi.hoisted(() => vi.fn());
 const mockLogout = vi.hoisted(() => vi.fn());
 
 let capturedLoginOptions: any;
+let capturedResumeData: any;
+let capturedClientOptions: any;
 
 vi.mock('@atproto/lex-password-session', () => {
   return {
@@ -34,9 +36,12 @@ vi.mock('@atproto/lex-password-session', () => {
 vi.mock('@atproto/lex', () => {
   return {
     Client: class MockClient {
+      options: unknown;
       session: unknown;
-      constructor(session: unknown) {
+      constructor(session: unknown, options: unknown) {
         this.session = session;
+        this.options = options;
+        capturedClientOptions = options;
       }
     },
   };
@@ -54,11 +59,14 @@ describe('AtProtoAccount', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     capturedLoginOptions = undefined;
+    capturedResumeData = undefined;
+    capturedClientOptions = undefined;
     mockLogin.mockImplementation((opts: any) => {
       capturedLoginOptions = opts;
       return Promise.resolve({ logout: mockLogout });
     });
-    mockResume.mockImplementation((_data: any, _opts: any) => {
+    mockResume.mockImplementation((data: any, _opts: any) => {
+      capturedResumeData = data;
       return Promise.resolve({ logout: mockLogout });
     });
     mockCache = {
@@ -143,6 +151,28 @@ describe('AtProtoAccount', () => {
       expect(mockCache.get).toHaveBeenCalledWith('test@example.com');
       expect(mockResume).toHaveBeenCalled();
       expect(mockLogin).not.toHaveBeenCalled();
+      expect(capturedClientOptions).toEqual({
+        validateRequest: true,
+        validateResponse: true,
+        strictResponseProcessing: true,
+      });
+    });
+
+    it('should normalize cached session service before resume', async () => {
+      const data = JSON.stringify({
+        accessJwt: 'a',
+        refreshJwt: 'b',
+        service: 'partall.no',
+      });
+
+      (mockCache.get as Mock).mockResolvedValue(data);
+      await account.getClient();
+
+      expect(capturedResumeData).toMatchObject({
+        accessJwt: 'a',
+        refreshJwt: 'b',
+        service: 'https://example.com',
+      });
     });
 
     it('should perform fresh login if no session exists in cache', async () => {
@@ -157,6 +187,11 @@ describe('AtProtoAccount', () => {
         service: 'https://example.com',
         identifier: 'test@example.com',
         password: 'testpassword',
+      });
+      expect(capturedClientOptions).toEqual({
+        validateRequest: true,
+        validateResponse: true,
+        strictResponseProcessing: true,
       });
     });
 
