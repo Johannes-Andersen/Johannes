@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.0/schema.json",
   "files": {
     "includes": [
       "**",
@@ -61,9 +61,9 @@
   "assist": {
     "enabled": true,
     "actions": {
-      "recommended": true,
+      "preset": "recommended",
       "source": {
-        "recommended": true,
+        "preset": "recommended",
         "organizeImports": {
           "level": "on",
           "options": {
@@ -97,9 +97,9 @@
       "test": "all"
     },
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "style": {
-        "recommended": true,
+        "preset": "recommended",
         "noDefaultExport": "on",
         "noDoneCallback": "on",
         "noImplicitBoolean": "on",
@@ -167,7 +167,7 @@
         "useSymbolDescription": "on"
       },
       "correctness": {
-        "recommended": true,
+        "preset": "recommended",
         "noConstantMathMinMaxClamp": "on",
         "noRenderReturnValue": "on",
         "noUndeclaredDependencies": "on",
@@ -191,7 +191,7 @@
       "complexity": {
         "noArguments": "on",
         "noCommaOperator": "on",
-        "recommended": true,
+        "preset": "recommended",
         "noExcessiveNestedTestSuites": "on",
         "noForEach": "on",
         "noUselessStringConcat": "on",
@@ -206,12 +206,12 @@
         "noUselessUndefined": "on"
       },
       "nursery": {
-        "recommended": true,
+        "preset": "recommended",
         "noFloatingPromises": "on",
         "useSortedClasses": "on"
       },
       "performance": {
-        "recommended": true,
+        "preset": "recommended",
         "noBarrelFile": "error",
         "noReExportAll": "error",
         "useTopLevelRegex": "error",
@@ -223,7 +223,7 @@
         "useGoogleFontPreconnect": "on"
       },
       "suspicious": {
-        "recommended": true,
+        "preset": "recommended",
         "noConsole": {
           "level": "error",
           "options": {
@@ -259,14 +259,14 @@
         "noImportCycles": "on"
       },
       "a11y": {
-        "recommended": true,
+        "preset": "recommended",
         "useValidAutocomplete": "on",
         "useAriaPropsSupportedByRole": "on",
         "noStaticElementInteractions": "on",
         "noNoninteractiveElementInteractions": "on"
       },
       "security": {
-        "recommended": true
+        "preset": "recommended"
       }
     }
   },
