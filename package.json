@@ -35,7 +35,7 @@
     "@astrojs/cloudflare": "13.7.0",
     "@astrojs/sitemap": "3.7.3",
     "@atproto/lex": "0.1.4",
-    "@atproto/lex-password-session": "0.1.0",
+    "@atproto/lex-password-session": "0.1.1",
     "@tailwindcss/vite": "4.3.1",
     "astro": "6.4.7",
     "tailwindcss": "4.3.1"
