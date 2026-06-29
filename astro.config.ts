@@ -43,10 +43,6 @@ export default defineConfig({
   },
   experimental: {
     chromeDevtoolsWorkspace: true,
-    queuedRendering: {
-      contentCache: true,
-      enabled: true,
-    },
     // cache: {
     //   provider: memoryCache({
     //     query: {
