@@ -32,12 +32,12 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.10",
-    "@astrojs/cloudflare": "14.1.5",
+    "@astrojs/cloudflare": "14.1.6",
     "@astrojs/sitemap": "3.7.3",
     "@atproto/lex": "0.3.0",
     "@atproto/lex-password-session": "0.1.8",
     "@tailwindcss/vite": "4.3.3",
-    "astro": "7.1.4",
+    "astro": "7.1.5",
     "tailwindcss": "4.3.3"
   },
   "devDependencies": {
