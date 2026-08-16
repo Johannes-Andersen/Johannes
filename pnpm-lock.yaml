@@ -13,7 +13,7 @@ importers:
         version: 0.9.10(prettier@3.9.6)(typescript@6.0.3)
       '@astrojs/cloudflare':
         specifier: 14.2.1
-        version: 14.2.1(@types/node@26.2.0)(astro@7.2.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(wrangler@4.123.0)(yaml@2.9.0)
+        version: 14.2.1(@types/node@26.2.0)(astro@7.2.2(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(wrangler@4.123.0)(yaml@2.9.0)
       '@astrojs/sitemap':
         specifier: 3.7.3
         version: 3.7.3
@@ -27,8 +27,8 @@ importers:
         specifier: 4.3.3
         version: 4.3.3(vite@8.1.5(@types/node@26.2.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.0))
       astro:
-        specifier: 7.2.1
-        version: 7.2.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0)
+        specifier: 7.2.2
+        version: 7.2.2(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0)
       tailwindcss:
         specifier: 4.3.3
         version: 4.3.3
@@ -1553,6 +1553,10 @@ packages:
     resolution: {integrity: sha512-Bq3SmSpyFHaWjPk8If9yc6svM8c56dB5BAtW4Qbw5jHTwwXXcTLoRMkpDJp6VL0XzlWaCHTXrkFURMYmD0sLqg==}
     engines: {node: '>=12'}
 
+  ansi-styles@4.3.0:
+    resolution: {integrity: sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==}
+    engines: {node: '>=8'}
+
   ansi-styles@6.2.3:
     resolution: {integrity: sha512-4Dj6M28JB+oAH8kFkTLUo+a2jwOFkuqb3yucU0CANcRRUbxS0cP0nZYCGjcc3BNXwRIsUVmDGgzawme7zvJHvg==}
     engines: {node: '>=12'}
@@ -1575,8 +1579,8 @@ packages:
     resolution: {integrity: sha512-Izi8RQcffqCeNVgFigKli1ssklIbpHnCYc6AknXGYoB6grJqyeby7jv12JUQgmTAnIDnbck1uxksT4dzN3PWBA==}
     engines: {node: '>=12'}
 
-  astro@7.2.1:
-    resolution: {integrity: sha512-ynyMTiyF//GLcd8+gRNbvcKgS1ht+qTgp/fkkHIpGYNILLseQqQRuPZ9PqXYKfsact4J1emZaXRDpg2bl35Pag==}
+  astro@7.2.2:
+    resolution: {integrity: sha512-OvLWCpXpb43lVYcWzSBJ0sk44qcEYYRZCjadtalLfAwb2RaC3P/zT+blZykBw/o6suw6sQQkn00ugN36akD8Mw==}
     engines: {node: '>=22.12.0', npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
     peerDependencies:
@@ -1621,6 +1625,10 @@ packages:
     resolution: {integrity: sha512-NUPRluOfOiTKBKvWPtSD4PhFvWCqOi0BGStNWs57X9js7XGTprSmFoz5F0tWhR4WPjNeR9jXqdC7/UpSJTnlRg==}
     engines: {node: '>=18'}
 
+  chalk@4.1.2:
+    resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
+    engines: {node: '>=10'}
+
   character-entities-html4@2.1.0:
     resolution: {integrity: sha512-1v7fgQRj6hnSwFpq1Eu0ynr/CDEw0rXo2B61qXrLNdHZmPKgb7fqS1a2JwF0rISo9q77jDI8VMEHoApn8qDoZA==}
 
@@ -1650,12 +1658,23 @@ packages:
   code-block-writer@13.0.3:
     resolution: {integrity: sha512-Oofo0pq3IKnsFtuHqSF7TqBfr71aeyZDVJ0HpmqB7FBM2qEigL0iPONSCZSO9pE9dZTAxANe5XHG9Uy0YMv8cg==}
 
+  color-convert@2.0.1:
+    resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
+    engines: {node: '>=7.0.0'}
+
+  color-name@1.1.4:
+    resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+
   comma-separated-tokens@2.0.3:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
 
   commander@11.1.0:
     resolution: {integrity: sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==}
     engines: {node: '>=16'}
+
+  commander@14.0.3:
+    resolution: {integrity: sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw==}
+    engines: {node: '>=20'}
 
   common-ancestor-path@2.0.0:
     resolution: {integrity: sha512-dnN3ibLeoRf2HNC+OlCiNc5d2zxbLJXOtiZUudNFSXZrNSydxcCsSpRzXwfu7BBWCIfHPw+xTayeBvJCP/D8Ng==}
@@ -1811,6 +1830,10 @@ packages:
       picomatch:
         optional: true
 
+  find-process@2.1.1:
+    resolution: {integrity: sha512-SrQDx3QhlmHM90iqn9rdjCQcw/T+WlpOkHFsjoRgB+zTpDfltNA1VSNYeYELwhUTJy12UFxqjWhmhOrJc+o4sA==}
+    hasBin: true
+
   flattie@1.1.1:
     resolution: {integrity: sha512-9UbaD6XdAL97+k/n+N7JwX46K/M6Zc6KcFYskrYL8wbBV/Uyk0CTAMY0VT+qiK5PM7AIc9aTWYtq65U7T+aCNQ==}
     engines: {node: '>=8'}
@@ -1847,6 +1870,10 @@ packages:
 
   h3@1.15.11:
     resolution: {integrity: sha512-L3THSe2MPeBwgIZVSH5zLdBBU90TOxarvhK9d04IDY2AmVS8j2Jz2LIWtwsGOU3lu2I5jCN7FNvVfY2+XyF+mg==}
+
+  has-flag@4.0.0:
+    resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
+    engines: {node: '>=8'}
 
   hast-util-from-html@2.0.3:
     resolution: {integrity: sha512-CUSRHXyKjzHov8yKsQjGOElXy/3EKpyX56ELnkHH34vDVw1N1XSQ1ZcAvTyAPtGqLTuKP/uxM+aLkSPqF/EtMw==}
@@ -2058,6 +2085,10 @@ packages:
   lightningcss@1.33.0:
     resolution: {integrity: sha512-WkUDrojuJs0xkgGf2udWxa3yGBRxPtxUkB79i6aCZLRgc7PM8fZe9TosfPDcvEpQZbuFASnHYmRLBLUbmLOIIA==}
     engines: {node: '>= 12.0.0'}
+
+  loglevel@1.9.2:
+    resolution: {integrity: sha512-HgMmCqIJSAKqo68l0rS2AanEWfkxaZ5wNiEFb5ggm08lDs9Xl2KxBlX3PTcaD2chBM1gXAYf491/M2Rv8Jwayg==}
+    engines: {node: '>= 0.6.0'}
 
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
@@ -2381,6 +2412,10 @@ packages:
   supports-color@10.2.2:
     resolution: {integrity: sha512-SS+jx45GF1QjgEXQx4NJZV9ImqmO2NPz5FNsIHrsDjh2YsHnawpan7SNQ1o8NuhrbHZy9AZhIoCUiCeaW/C80g==}
     engines: {node: '>=18'}
+
+  supports-color@7.2.0:
+    resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
+    engines: {node: '>=8'}
 
   svgo@4.0.2:
     resolution: {integrity: sha512-ekx94z1rRc5LDi6oSUaeRnYhd0UOJxdtQCL2rF8xpWxD3TPAsISWOrxezqGovqS38GRZOdpDfvQe3ts6F7nsng==}
@@ -2875,12 +2910,12 @@ snapshots:
       - prettier
       - prettier-plugin-astro
 
-  '@astrojs/cloudflare@14.2.1(@types/node@26.2.0)(astro@7.2.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(wrangler@4.123.0)(yaml@2.9.0)':
+  '@astrojs/cloudflare@14.2.1(@types/node@26.2.0)(astro@7.2.2(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0))(esbuild@0.28.1)(jiti@2.7.0)(wrangler@4.123.0)(yaml@2.9.0)':
     dependencies:
       '@astrojs/internal-helpers': 0.10.2
       '@astrojs/underscore-redirects': 1.0.4
       '@cloudflare/vite-plugin': 1.46.0(vite@8.1.5(@types/node@26.2.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.0))(wrangler@4.123.0)
-      astro: 7.2.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0)
+      astro: 7.2.2(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0)
       piccolore: 0.1.3
       vite: 8.1.5(@types/node@26.2.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.0)
       wrangler: 4.123.0
@@ -4150,6 +4185,10 @@ snapshots:
 
   ansi-regex@6.2.2: {}
 
+  ansi-styles@4.3.0:
+    dependencies:
+      color-convert: 2.0.1
+
   ansi-styles@6.2.3: {}
 
   anymatch@3.1.3:
@@ -4165,7 +4204,7 @@ snapshots:
 
   assertion-error@2.0.1: {}
 
-  astro@7.2.1(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0):
+  astro@7.2.2(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)(@types/node@26.2.0)(jiti@2.7.0)(yaml@2.9.0):
     dependencies:
       '@astrojs/compiler-rs': 0.3.2(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.2)
       '@astrojs/internal-helpers': 0.10.2
@@ -4186,6 +4225,7 @@ snapshots:
       dset: 3.1.4
       es-module-lexer: 2.3.1
       esbuild: 0.28.1
+      find-process: 2.1.1
       flattie: 1.1.1
       fontace: 0.4.1
       get-tsconfig: 5.0.0-beta.4
@@ -4277,6 +4317,11 @@ snapshots:
 
   chai@6.2.2: {}
 
+  chalk@4.1.2:
+    dependencies:
+      ansi-styles: 4.3.0
+      supports-color: 7.2.0
+
   character-entities-html4@2.1.0: {}
 
   character-entities-legacy@3.0.0: {}
@@ -4301,9 +4346,17 @@ snapshots:
 
   code-block-writer@13.0.3: {}
 
+  color-convert@2.0.1:
+    dependencies:
+      color-name: 1.1.4
+
+  color-name@1.1.4: {}
+
   comma-separated-tokens@2.0.3: {}
 
   commander@11.1.0: {}
+
+  commander@14.0.3: {}
 
   common-ancestor-path@2.0.0: {}
 
@@ -4460,6 +4513,12 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.5
 
+  find-process@2.1.1:
+    dependencies:
+      chalk: 4.1.2
+      commander: 14.0.3
+      loglevel: 1.9.2
+
   flattie@1.1.1: {}
 
   fontace@0.4.1:
@@ -4496,6 +4555,8 @@ snapshots:
       radix3: 1.1.2
       ufo: 1.6.4
       uncrypto: 0.1.3
+
+  has-flag@4.0.0: {}
 
   hast-util-from-html@2.0.3:
     dependencies:
@@ -4672,6 +4733,8 @@ snapshots:
       lightningcss-linux-x64-musl: 1.33.0
       lightningcss-win32-arm64-msvc: 1.33.0
       lightningcss-win32-x64-msvc: 1.33.0
+
+  loglevel@1.9.2: {}
 
   lru-cache@10.4.3: {}
 
@@ -5096,6 +5159,10 @@ snapshots:
       ansi-regex: 6.2.2
 
   supports-color@10.2.2: {}
+
+  supports-color@7.2.0:
+    dependencies:
+      has-flag: 4.0.0
 
   svgo@4.0.2:
     dependencies:
