@@ -18,8 +18,8 @@ importers:
         specifier: 3.7.3
         version: 3.7.3
       '@atproto/lex':
-        specifier: 0.3.7
-        version: 0.3.7
+        specifier: 0.3.8
+        version: 0.3.8
       '@atproto/lex-password-session':
         specifier: 0.2.1
         version: 0.2.1
@@ -242,8 +242,8 @@ packages:
     resolution: {integrity: sha512-8fe/gmhjMImBsy073jMANkbHHQLe/w4s9XLATpAz+Qd6WrR9RYTqc2DU8uZDL13F5bfdGTj8KECt/Xs4CoPXdQ==}
     engines: {node: '>=22'}
 
-  '@atproto/lex@0.3.7':
-    resolution: {integrity: sha512-k/+snIDoefYbjRdv+hDioo9wPVLzbS5bwhSU80qY2rgsyuN74tNwHGQslnQekCCKv85QHm9O/sD7qJDnhllySQ==}
+  '@atproto/lex@0.3.8':
+    resolution: {integrity: sha512-8X7f6wxVDm4IVNR80Yg3BV3IXb89sKo/KIZeYb4or/EHP7ljazVU4qU+RPXmlELnWiIcw+PiJE+hPSkGLnMPOA==}
     engines: {node: '>=22'}
     hasBin: true
 
@@ -3157,7 +3157,7 @@ snapshots:
       '@standard-schema/spec': 1.1.0
       tslib: 2.8.1
 
-  '@atproto/lex@0.3.7':
+  '@atproto/lex@0.3.8':
     dependencies:
       '@atproto/lex-builder': 0.1.13
       '@atproto/lex-client': 0.3.5
