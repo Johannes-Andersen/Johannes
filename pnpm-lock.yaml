@@ -21,8 +21,8 @@ importers:
         specifier: 0.3.8
         version: 0.3.8
       '@atproto/lex-password-session':
-        specifier: 0.2.1
-        version: 0.2.1
+        specifier: 0.2.2
+        version: 0.2.2
       '@tailwindcss/vite':
         specifier: 4.3.3
         version: 4.3.3(vite@8.1.5(@types/node@26.3.0)(esbuild@0.28.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -230,8 +230,8 @@ packages:
     resolution: {integrity: sha512-mvrAd0lbyuecIHjyld8QN6MN6CBf4j0GCxLzegsvLh0SvDf+GbYWklkcQqmITL44yFQOwmA/QNIQj0Uvh7+R/g==}
     engines: {node: '>=22'}
 
-  '@atproto/lex-password-session@0.2.1':
-    resolution: {integrity: sha512-6f2+y5D+Vmw+bfjWip8QhallBqdP6ZKpdM6B2txqFbgOcwr2eaxK5sO+wLiyw4wlltudwOTaOvVoiMIeIRF1Cg==}
+  '@atproto/lex-password-session@0.2.2':
+    resolution: {integrity: sha512-lifxp9sMdOGP1AfPhjNUMson6yzqEbS0PS8Q7UCVQucXbBlM89r5ff9DMBJF2sTiH5Qt8yXXsthI543OT9FXgg==}
     engines: {node: '>=22'}
 
   '@atproto/lex-resolver@0.2.10':
@@ -3132,7 +3132,7 @@ snapshots:
       '@atproto/lex-data': 0.1.7
       tslib: 2.8.1
 
-  '@atproto/lex-password-session@0.2.1':
+  '@atproto/lex-password-session@0.2.2':
     dependencies:
       '@atproto/lex-client': 0.3.5
       '@atproto/lex-schema': 0.2.6
