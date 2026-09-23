@@ -25,7 +25,7 @@
     "check": "biome check .",
     "check:fix": "biome check --write ."
   },
-  "packageManager": "pnpm@12.4.2",
+  "packageManager": "pnpm@12.5.1",
   "engines": {
     "node": "26.10.0",
     "pnpm": "12"
