@@ -37,7 +37,7 @@
     "@atproto/lex": "0.3.11",
     "@atproto/lex-password-session": "0.2.3",
     "@tailwindcss/vite": "4.3.3",
-    "astro": "7.3.4",
+    "astro": "7.3.5",
     "tailwindcss": "4.3.3"
   },
   "devDependencies": {
