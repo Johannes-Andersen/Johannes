@@ -31,13 +31,13 @@
     "pnpm": "12"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.10",
-    "@astrojs/cloudflare": "14.4.0",
+    "@astrojs/check": "0.9.11",
+    "@astrojs/cloudflare": "14.4.1",
     "@astrojs/sitemap": "3.7.4",
     "@atproto/lex": "0.3.14",
     "@atproto/lex-password-session": "0.3.0",
     "@tailwindcss/vite": "4.3.3",
-    "astro": "7.4.0",
+    "astro": "7.4.1",
     "tailwindcss": "4.3.3"
   },
   "devDependencies": {
