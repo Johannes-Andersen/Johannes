@@ -36,9 +36,9 @@
     "@astrojs/sitemap": "3.7.4",
     "@atproto/lex": "0.3.14",
     "@atproto/lex-password-session": "0.3.2",
-    "@tailwindcss/vite": "4.3.4",
+    "@tailwindcss/vite": "4.3.5",
     "astro": "7.4.7",
-    "tailwindcss": "4.3.4"
+    "tailwindcss": "4.3.5"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.15",
