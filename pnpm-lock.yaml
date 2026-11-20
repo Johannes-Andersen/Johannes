@@ -188,8 +188,8 @@ importers:
         specifier: 0.3.14
         version: 0.3.14
       '@atproto/lex-password-session':
-        specifier: 0.3.2
-        version: 0.3.2
+        specifier: 0.3.3
+        version: 0.3.3
       '@tailwindcss/vite':
         specifier: 4.3.5
         version: 4.3.5(vite@8.3.5(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))
@@ -412,16 +412,16 @@ packages:
     resolution: {integrity: sha512-9geZuufwIVPSj9fniG7Ua3ZRq1DEpHCB9TGaHPHLpa0WKjjLvY2UMxvERpN97JIimusOWtPGOnzKtwQHMC371w==}
     engines: {node: '>=22'}
 
-  '@atproto/lex-password-session@0.3.2':
-    resolution: {integrity: sha512-t1GazxtWH85pgSYfjMC40WLFKuH9udJwlCWNle5erjo82mSj7BM8kHCyTdk7zUyJTgNjavPiZQLxki+fxbLH2g==}
+  '@atproto/lex-password-session@0.3.3':
+    resolution: {integrity: sha512-H9Zs7wEU0dPDaqXwHt/tzxAa4usc78ZBluy7XGskVT/4AwRFUBXpYoU+HQsXuYx9cM6Jbg1mmOVpaGNsT9d4Gg==}
     engines: {node: '>=22'}
 
   '@atproto/lex-resolver@0.3.2':
     resolution: {integrity: sha512-aUF/jV4vl1G3fmwOxSWocToYpAgOfJUnpZ/RZvDBV+wuST28evYIy7wWF8B7KCCq7Dy2o7a97E9ICkqr4hWQ4g==}
     engines: {node: '>=22'}
 
-  '@atproto/lex-rpc@0.0.3':
-    resolution: {integrity: sha512-bR4Q4al9yrfFpZTr4+ta5/NnM6hTTQ6s7EZJDbFJXbmE3nmIr/0qxhYdUHhNEAT4W5Eck8D7klfDoDvRpgQExw==}
+  '@atproto/lex-rpc@0.1.0':
+    resolution: {integrity: sha512-KZ5q9vykW1oSCZUwx3pokOhkiPP1ARraCGj7qQ+EjqhPYIuBgPgLobujqL46WXhUB96lIcrL5tnKn8YUYOjDog==}
     engines: {node: '>=22'}
 
   '@atproto/lex-schema@0.2.11':
@@ -2928,9 +2928,9 @@ snapshots:
       '@atproto/lex-data': 0.1.10
       tslib: 2.8.1
 
-  '@atproto/lex-password-session@0.3.2':
+  '@atproto/lex-password-session@0.3.3':
     dependencies:
-      '@atproto/lex-rpc': 0.0.3
+      '@atproto/lex-rpc': 0.1.0
       '@atproto/lex-schema': 0.2.11
       tslib: 2.8.1
 
@@ -2946,7 +2946,7 @@ snapshots:
       '@atproto/syntax': 0.7.6
       tslib: 2.8.1
 
-  '@atproto/lex-rpc@0.0.3':
+  '@atproto/lex-rpc@0.1.0':
     dependencies:
       '@atproto/lex-data': 0.1.10
       '@atproto/lex-json': 0.1.9
