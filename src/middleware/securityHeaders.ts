@@ -16,8 +16,8 @@ export const securityHeaders = defineMiddleware(async (_, next) => {
     return response;
   }
 
-  // Enable browsers built-in XSS protection.
-  setDefault(headers, 'x-xss-protection', '1; mode=block');
+  // Disable legacy browser XSS filters. The site enforces a Content Security Policy.
+  setDefault(headers, 'x-xss-protection', '0');
   // Prevent browsers from sniffing MIME types. This is to prevent MIME Confusion Attack.
   setDefault(headers, 'x-content-type-options', 'nosniff');
   // The browser will only set the referrer header on requests to the same origin.

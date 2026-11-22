@@ -1,45 +1,43 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended",
-    "group:monorepos",
-    "group:recommended",
-    "replacements:all",
-    "workarounds:all",
-    "helpers:pinGitHubActionDigests",
-    "customManagers:biomeVersions",
-    "security:minimumReleaseAgeNpm"
-  ],
-  "labels": ["type/dependencies"],
-  "vulnerabilityAlerts": {
-    "labels": ["type/dependencies", "area/security", "priority/critical"],
-    "automerge": true
-  },
-  "rollbackPrs": true,
-  "reviewersFromCodeOwners": true,
-  "prHourlyLimit": 10,
-  "configMigration": true,
+  "extends": ["config:best-practices", ":pinAllExceptPeerDependencies"],
   "timezone": "Europe/Oslo",
+  "schedule": ["* * * * 1"],
+  "labels": ["type/dependencies"],
+  "prConcurrentLimit": 4,
+  "automerge": false,
+  "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "labels": ["type/dependencies", "area/security", "priority/critical"]
+  },
+  "reviewersFromCodeOwners": true,
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true,
-      "platformAutomerge": true
+      "description": "Astro check requires the TypeScript 5 or 6 compiler API.",
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "6.x"
     },
     {
-      "matchManagers": ["nvm"],
+      "matchPackageNames": ["node", "@types/node"],
+      "groupName": "Node.js runtime",
+      "separateMajorMinor": false
+    },
+    {
+      "matchManagers": ["npm", "nvm"],
+      "matchPackageNames": ["node"],
       "rangeStrategy": "pin"
     },
     {
-      "matchPackageNames": ["node"],
       "matchManagers": ["npm"],
-      "rangeStrategy": "pin"
+      "matchPackageNames": ["pnpm"],
+      "groupName": "pnpm",
+      "rangeStrategy": "bump"
     },
     {
-      "matchManagers": ["dockerfile"],
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["node"],
-      "rangeStrategy": "pin"
+      "matchManagers": ["github-actions"],
+      "matchDepTypes": ["action", "workflow"],
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "groupName": "GitHub Actions"
     }
   ]
 }

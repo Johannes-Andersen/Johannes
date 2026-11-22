@@ -1,4 +1,6 @@
 minimumReleaseAge: 1440
+engineStrict: true
+saveExact: true
 allowBuilds:
   core-js: true
   esbuild: true

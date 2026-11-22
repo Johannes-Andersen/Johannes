@@ -98,6 +98,9 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
+  markdown: {
+    syntaxHighlight: false,
+  },
   image: {
     domains: ['johand.dev', 'cdn.bsky.app'],
   },

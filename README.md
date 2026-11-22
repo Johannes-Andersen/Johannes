@@ -1,6 +1,6 @@
 # Johannes
 
-My personal website built with [Astro](https://astro.build/) and deployed on [Cloudflare](https://www.cloudflare.com/) pages.
+My personal website built with [Astro](https://astro.build/) and deployed on [Cloudflare Workers](https://workers.cloudflare.com/).
 
 ## Tech Stack
 
@@ -18,12 +18,13 @@ This project uses [pnpm](https://pnpm.io/) as the package manager. Make sure you
 
 ### Prerequisites
 
-- Node.js 24
-- pnpm 11
+- Use the Node.js version in `.nvmrc` (`nvm install`).
+- Use the pnpm version pinned in the `packageManager` field of `package.json`.
 
 ### Getting Started
 
 1. Clone the repository
+
    ```bash
    git clone git@github.com:Johannes-Andersen/Johannes.git # Using SSH
    git clone https://github.com/Johannes-Andersen/Johannes.git # Using HTTPS
@@ -31,17 +32,20 @@ This project uses [pnpm](https://pnpm.io/) as the package manager. Make sure you
    ```
 
 2. Cd into the repo and install dependencies
+
    ```bash
    cd Johannes
    pnpm install
    ```
 
-3. Create a `dev.vars` file in the root directory and add your environment variables. You can use `dev.vars.example` as a reference.
-    ```bash
-    cp .dev.vars.example .dev.vars
-    ```
+3. Copy `.dev.vars.example` to `.dev.vars` and set your AT Protocol service password.
+
+   ```bash
+   cp .dev.vars.example .dev.vars
+   ```
 
 4. Start the development server
+
    ```bash
    pnpm dev
    ```

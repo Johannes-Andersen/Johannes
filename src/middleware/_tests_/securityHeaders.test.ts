@@ -16,7 +16,7 @@ describe('securityHeaders middleware', () => {
 
     const headers = response.headers;
 
-    expect(headers.get('x-xss-protection')).toBe('1; mode=block');
+    expect(headers.get('x-xss-protection')).toBe('0');
     expect(headers.get('x-content-type-options')).toBe('nosniff');
     expect(headers.get('referrer-policy')).toBe('same-origin');
     expect(headers.get('x-frame-options')).toBe('DENY');
